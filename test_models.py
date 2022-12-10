@@ -9,7 +9,9 @@ from models.user import User
 base = BaseModel()
 print(base)
 
-user = User(first_name='Jeff',
+user = User(
+            username='JBez',
+            first_name='Jeff',
             last_name='Bezos',
             email='hello@gmail.com',
             password='pwd'
