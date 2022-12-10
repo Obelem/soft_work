@@ -8,8 +8,6 @@ from models.base_model import Base
 from models.user import User
 from models.assessments import Assessment
 from models.question_bank import QuestionBank
-# from models.user_assessment import UserAssessment
-
 
 classes = [User, Assessment, QuestionBank]
 
@@ -20,7 +18,6 @@ class DBStorage:
     def __init__(self):
         S_USER, S_PWD = environ['S_USER'], environ['S_PWD']
         S_HOST, S_DB = environ['S_HOST'], environ['S_DB']
-        ENV = environ["ENV"]
 
         url = f'mysql+mysqldb://{S_USER}:{S_PWD}@{S_HOST}/{S_DB}'
 
@@ -56,6 +53,6 @@ class DBStorage:
         returns User object if exists else None
         """
         existing_user = self.__session.query(User).filter_by(username=username).first()
-        if existing_user is not None:
+        if existing_user:
             return existing_user
         return None

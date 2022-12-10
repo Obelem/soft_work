@@ -57,6 +57,7 @@ def signup():
     data["password"] = generate_password_hash(data["password"])
 
     existing_user = storage.check_user(data['username'])
+    
     if existing_user:
         return jsonify("Username is not available")
 
