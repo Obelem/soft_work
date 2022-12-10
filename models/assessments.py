@@ -25,8 +25,3 @@ class Assessment(BaseModel, Base):
     options = Column(Text, nullable=False)
     answer = Column(Text, nullable=False)
     image_url = Column(Text)
-
-
-    def __init__(self, *args, **kwargs):
-        '''initialize Assessment Object'''
-        super().__init__(*args, **kwargs)

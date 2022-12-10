@@ -5,6 +5,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.scoping import scoped_session
 from models.base_model import Base
+from models.user import User
+from models.assessments import Assessment
 
 
 class DBStorage:
@@ -12,17 +14,14 @@ class DBStorage:
     __session = None
 
     def __init__(self):
-        USER = getenv("USER")
-        PWD = getenv("PWD")
-        HOST = getenv("HOST")
-        DB = getenv("DB")
+        USER, PWD = getenv('USER'), getenv('PWD')
+        HOST, DB = getenv('HOST'), getenv('DB')
         ENV = getenv("ENV")
 
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                      format(USER,
-                                             PWD,
-                                             HOST,
-                                             DB))
+        url = f'mysql+mysqldb://{USER}:{PWD}@{HOST}/{DB}'
+
+        self.__engine = create_engine(url, pool_pre_ping=True)
+
         if ENV == "test":
             Base.metadata.drop_all(self.__engine)
 

@@ -1,10 +1,6 @@
 #!/usr/bin/python3
-'''
-user.py
-'''
-
+'''user.py'''
 from .base_model import BaseModel, Base
-
 from sqlalchemy import Column, Integer, String
 
 
