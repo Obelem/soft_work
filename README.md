@@ -32,7 +32,8 @@ This product has a wide range of target users ranging from students, job seekers
 
 
 **Franklin Obasi**    
-[Github](https://github.com/franklinobasy)   [LinkedIn](https://www.linkedin.com/in/franklinobasy/)     
+[Github](https://github.com/franklinobasy)   
+[LinkedIn](https://www.linkedin.com/in/franklinobasy/)     
     
 
 **Amara Onwunzo**   
