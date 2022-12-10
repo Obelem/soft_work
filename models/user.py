@@ -2,7 +2,7 @@
 '''user.py'''
 from .base_model import BaseModel, Base
 from flask_login import UserMixin
-from sqlalchemy import Column, Integer, String, ForeignKey, Table
+from sqlalchemy import Column, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
 
 metadata = Base.metadata
