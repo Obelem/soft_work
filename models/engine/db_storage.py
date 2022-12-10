@@ -7,6 +7,7 @@ from sqlalchemy.orm.scoping import scoped_session
 from models.base_model import Base
 from models.user import User
 from models.assessments import Assessment
+from models.marking_scheme import MarkingScheme
 
 
 class DBStorage:
@@ -41,7 +42,7 @@ class DBStorage:
     def reload(self):
         """reloads data from the database"""
         Base.metadata.create_all(self.__engine)
-        sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        sess_factory = sessionmaker(bind=self.__engine)
         Session = scoped_session(sess_factory)
         self.__session = Session
 
