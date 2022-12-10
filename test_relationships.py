@@ -85,4 +85,7 @@ user1.assessments.append(assess2)
 user1.save()
 
 for assessment in user1.assessments:
-    print(assessment)
+    for question in assessment.questions:
+        print(f'asssessment: {question.assessment_name}')
+        print(f'\tQuestion: {question.question}')
+        print(f'\tAnswer: {question.answer}')
