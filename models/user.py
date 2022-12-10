@@ -2,15 +2,16 @@
 '''user.py'''
 from .base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
+from flask_login import UserMixin
 
 
-class User(BaseModel, Base):
+class User(UserMixin, BaseModel, Base):
     '''defines user class'''
     __tablename__ = 'users'
 
     username = Column(String(60), nullable=False, unique=True)
     first_name = Column(String(60), nullable=False)
-    middle_name = Column(String(60), nullable=True)
+    middle_name = Column(String(60))
     last_name = Column(String(60), nullable=False)
     email = Column(String(128), nullable=False, unique=True)
-    password = Column(String(60), nullable=False)
+    password = Column(String(128), nullable=False)

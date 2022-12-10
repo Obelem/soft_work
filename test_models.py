@@ -46,4 +46,3 @@ marking_scheme.options[0] = 'Australia'
 marking_scheme.save()
 
 print(marking_scheme.options[0])
-
