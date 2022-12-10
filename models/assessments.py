@@ -8,23 +8,7 @@ from sqlalchemy.ext.mutable import MutableList
 class Assessment(BaseModel, Base):
     '''
     This class creates an Assesment Object.
-    The Assesment object represents a question.
-    Attributes of this objects are
-        - id: question id
-        - question_text: question texts
-        - options: options separated by ","
-        - answer: correct answer to the question
-        - image_url: images that complements a question [optional]
+    The Assesment object represents an assessment type
     '''
     __tablename__ = "assessments"
-
-    name = Column(String(60), nullable=False)
-    question_test = Column(Text, nullable=False)
-
-    options = Column(
-        MutableList.as_mutable(PickleType),
-        nullable=False, default=[]
-    )
-
-    answer = Column(Text, nullable=False)
-    image_url = Column(Text)
+    name = Column(String(60), nullable=False, unique=True)
