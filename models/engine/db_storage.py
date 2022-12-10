@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.scoping import scoped_session
 from models.base_model import Base
 from models.user import User
+from models.assessments import Assessment
 
 
 class DBStorage:
