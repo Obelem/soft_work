@@ -16,5 +16,5 @@ class User(BaseModel, Base):
     first_name = Column(String(60), nullable=False)
     middle_name = Column(String(60), nullable=True)
     last_name = Column(String(60), nullable=False)
-    email = Column(String(128), nullable=False)
+    email = Column(String(128), nullable=False, unique=True)
     password = Column(String(60), nullable=False)
