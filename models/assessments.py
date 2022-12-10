@@ -1,11 +1,8 @@
 #!/usr/bin/python3
-'''
-assessments.py
-'''
-
+'''assessments.py'''
 from .base_model import BaseModel, Base
-
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String, Text, PickleType
+from sqlalchemy.ext.mutable import MutableList
 
 
 class Assessment(BaseModel, Base):
@@ -22,6 +19,11 @@ class Assessment(BaseModel, Base):
     __tablename__ = "assessments"
 
     question_test = Column(Text, nullable=False)
-    options = Column(Text, nullable=False)
+
+    options = Column(
+        MutableList.as_mutable(PickleType),
+        nullable=False, default=[]
+    )
+
     answer = Column(Text, nullable=False)
     image_url = Column(Text)

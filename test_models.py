@@ -20,11 +20,12 @@ print(base)
 # user.save()
 # print(user)
 
+options = ['Europe', 'Asia', 'Africa']
 assessment = Assessment(
-    question_test='how are you?',
-    options='nice, just there',
-    answer='fine'
+    question_test='What continent is Nigeria in?',
+    options=options,
+    answer='Africa'
 )
 assessment.save()
-print(assessment)
+print(assessment.options)
 
