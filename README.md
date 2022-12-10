@@ -11,7 +11,7 @@ Softwork is a platform where users can test their soft skills. The soft skills a
 
 ***
 ### Collaborators 
-** Jesse Braide [Github](https://github.com/Obelem)  [LinkedIn] (https://www.linkedin.com/in/jesse-braide-4a2235243/)   
+** Jesse Braide [Github](https://github.com/Obelem)  [LinkedIn](https://www.linkedin.com/in/jesse-braide-4a2235243/)   
 
 ** Franklin Obasi [Github](https://github.com/franklinobasy)   [LinkedIn](https://www.linkedin.com/in/franklinobasy/)   
 
