@@ -18,6 +18,7 @@ class Assessment(BaseModel, Base):
     '''
     __tablename__ = "assessments"
 
+    name = Column(String(60), nullable=False)
     question_test = Column(Text, nullable=False)
 
     options = Column(
