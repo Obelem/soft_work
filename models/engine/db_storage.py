@@ -28,19 +28,6 @@ class DBStorage:
 
         self.__engine = create_engine(url, pool_pre_ping=True)
 
-    def all(self, cls):
-        dict_of_objects = {}
-
-        cls = eval(cls) if type(cls) is str else cls
-        if cls not in classes:
-            return None
-
-        obj_list = self.__session.query(cls).all()
-        for obj in obj_list:
-            key = type(obj).__name__ + '.' + obj.id
-            dict_of_objects[key] = obj
-        return dict_of_objects
-
 
     def new(self, obj):
         self.__session.add(obj)
