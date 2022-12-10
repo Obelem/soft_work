@@ -10,8 +10,6 @@ from models.assessments import Assessment
 from models.question_bank import QuestionBank
 # from models.user_assessment import UserAssessment
 
-classes = {'User': User}
-
 
 classes = [User, Assessment, QuestionBank]
 
