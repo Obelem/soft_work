@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+    --headerFontFamily: 'Playfair Display', serif;
+}
+
+.hero {
+    display: grid;
+    justify-items: center;
+    row-gap: 4rem;
+}
+
+.primary-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 3.5rem;
+    width: 100vw;
+}
+
+.hero-text {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 1.5rem;
+    text-transform: capitalize;
+    font-family: var(--headerFontFamily);
+    font-size: 3rem;
+    word-spacing: .5rem;
+    font-weight: 500;
+    width: 50vw;
+    margin: 0 auto;
+    /* border: 1px solid salmon; */
+
+}
+
+.hero-text > span {
+    text-align: center;
+}
+
+.hero .image-gallery > * {
+    width: 10rem;
+}
+
+.hero > .image-gallery {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+
+.hero > .call-to-action {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.hero > .call-to-action > button {
+    background-color: aqua;
+    height: 3rem;
+    border-radius: 5rem;
+    cursor: pointer;
+}
