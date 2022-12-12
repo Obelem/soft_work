@@ -65,19 +65,16 @@
     justify-content: space-around;
     align-items: center;
     width: 100vw;
-    /* background-color: aliceblue; */
     height: 4rem;
-    /* padding: 1rem 0; */
 }
 
-.account-btns {
+.authentication {
     display: flex;
     column-gap: 2rem;
     position: relative;
-    /* background-color: brown; */
 }
 
-.account-btns > * {
+.authentication > * {
     font-family: var(--buttonFontFamily);
     font-weight: var(--weight600);
     font-size: 1rem;
@@ -88,6 +85,7 @@
 
 .forms {
     padding: 0;
+    cursor: default;
 }
 
 .sign-up-btn {
