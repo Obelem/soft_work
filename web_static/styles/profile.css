@@ -1,0 +1,72 @@
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    min-height: 100vh;
+    row-gap: 2rem;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+.container {
+    display: flex;
+}
+
+.side-nav > * {
+    background-color: royalblue;
+}
+
+.main {
+    width: 80%;
+}
+
+.banner {
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 20vh;
+    text-transform: capitalize;
+    background-color: rebeccapurple;
+}
+
+.banner > img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+.main > :not(:first-child) {
+    margin-left: 5%;
+}
+
+.user-data {
+    margin-top: 8rem;
+    display: grid;
+    row-gap: .5rem;
+}
+
+.assessment-container {
+    border-top: 1px solid lightslategray;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 3rem;
+}
+
+.assessment {
+    display: grid;
+    row-gap: .5rem;
+}
+
+.assessment > .info {
+    display: grid;
+    row-gap: .5rem;
+}
+
+.start-test-btn {
+    background-color: aqua;
+}
