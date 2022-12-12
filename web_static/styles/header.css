@@ -1,24 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
 
 :root {
+    /* font familys */
     --headerFontFamily: 'Playfair Display', serif;
+    --buttonFontFamily: 'Baumans', cursive;
+
+    /* font weights */
+    --weight600: 600;
+
+    /* colors */
+    --aquaGreen: aqua;
 }
 
-.hero {
+.container {
+    position: relative;
+    display: grid;
+}
+
+
+/* forms style */
+.forms {
+    position: absolute;
+    top: 100%;
+    display: grid;
+}
+
+.forms > * {
+    justify-items: center;
+    display: grid;
+    align-items: center;
+    height: 50vh;
+    padding: 0 3rem;
+    width: max-content;
+    background-color: whitesmoke;
+    grid-row: 1;
+    grid-column: 1 / 2;
+    z-index: -1;
+}
+
+.form-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-btns > * {
+    border: 1px solid blueviolet;
+    border-radius: 8rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+
+/* header style */
+.header {
     display: grid;
     justify-items: center;
     row-gap: 4rem;
+    background-color: antiquewhite;
 }
 
 .primary-nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 3.5rem;
     width: 100vw;
+    /* background-color: aliceblue; */
+    height: 4rem;
+    /* padding: 1rem 0; */
 }
 
-.hero-text {
+.account-btns {
+    display: flex;
+    column-gap: 2rem;
+    position: relative;
+    /* background-color: brown; */
+}
+
+.account-btns > * {
+    font-family: var(--buttonFontFamily);
+    font-weight: var(--weight600);
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 8rem;
+    cursor: pointer;
+}
+
+.forms {
+    padding: 0;
+}
+
+.sign-up-btn {
+    background-color: var(--aquaGreen);
+}
+
+.sign-up-btn:hover ~ .forms > .sign-up,
+.sign-up:hover {
+    z-index: 1;
+}
+
+.sign-in-btn:hover ~ .forms > .sign-in,
+.sign-in:hover {
+    z-index: 1;
+}
+
+
+.header-text {
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -34,28 +121,30 @@
 
 }
 
-.hero-text > span {
+.header-text > span {
     text-align: center;
 }
 
-.hero .image-gallery > * {
+.header .image-gallery > * {
     width: 10rem;
 }
 
-.hero > .image-gallery {
+.header > .image-gallery {
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
 }
 
-.hero > .call-to-action {
+.header > .call-to-action {
     display: grid;
     row-gap: 1rem;
 }
 
-.hero > .call-to-action > button {
-    background-color: aqua;
+.header > .call-to-action > button {
+    background-color: var(--aquaGreen);
     height: 3rem;
     border-radius: 5rem;
     cursor: pointer;
+    font-family: var(--buttonFontFamily);
+    font-weight: var(--weight600);
 }

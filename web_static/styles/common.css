@@ -9,8 +9,13 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style-type: none;
+    background-color: transparent;
 }
 
 body {
     overflow-x: hidden;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    border: 1px solid black;
 }
