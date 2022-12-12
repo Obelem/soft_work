@@ -13,11 +13,6 @@
     --aquaGreen: aqua;
 }
 
-.container {
-    position: relative;
-    display: grid;
-}
-
 
 /* forms style */
 .forms {
@@ -57,7 +52,7 @@
     display: grid;
     justify-items: center;
     row-gap: 4rem;
-    background-color: antiquewhite;
+    background-color: #faebd7;
 }
 
 .primary-nav {
@@ -89,7 +84,7 @@
 }
 
 .sign-up-btn {
-    background-color: var(--aquaGreen);
+    background-color: rgba(177, 122, 231, 0.904);
 }
 
 .sign-up-btn:hover ~ .forms > .sign-up,
