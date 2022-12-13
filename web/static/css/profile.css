@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+
+
 .side-nav {
     display: flex;
     flex-direction: column;
@@ -6,6 +12,7 @@
     row-gap: 2rem;
     text-align: center;
     background-color: antiquewhite;
+    font-family: 'Shippori Antique B1', sans-serif;
 }
 
 .container {
@@ -13,7 +20,17 @@
 }
 
 .side-nav > * {
-    background-color: royalblue;
+    text-decoration: underline;
+    font-weight: bold;
+    color: rgba(5, 5, 61, 0.699);
+}
+
+.logo {
+    margin-top: 1rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    text-decoration: none;
+    color: rgb(214, 56, 38);
 }
 
 .main {
@@ -26,7 +43,15 @@
     position: relative;
     height: 20vh;
     text-transform: capitalize;
-    background-color: rebeccapurple;
+    background: url('../backgrounds/layered-steps-haikei\ \(2\).svg') no-repeat;
+    background-size: cover;
+}
+
+.banner > h1 {
+    color: blueviolet;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 2.5rem;
 }
 
 .banner > img {
@@ -48,25 +73,45 @@
     row-gap: .5rem;
 }
 
+.user-data :first-child {
+    font-size: 2rem;
+    font-family: 'Corben', cursive;
+}
+
+.user-data :nth-child(2) {
+    font-family: 'Corben', cursive;
+    font-style: italic;
+    color: slategrey;
+}
+
 .assessment-container {
     border-top: 1px solid lightslategray;
     padding-top: 2rem;
     margin-top: 2rem;
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     row-gap: 3rem;
+    column-gap: 2rem;
 }
 
 .assessment {
     display: grid;
-    row-gap: .5rem;
+    row-gap: 2rem;
+    font-family: 'Shippori Antique B1', sans-serif;
+    /* border: 1px solid slateblue; */
 }
 
 .assessment > .info {
     display: grid;
-    row-gap: .5rem;
+    row-gap: 1rem;
+}
+
+.assessment > .info > li {
+    list-style-type: disc;
+    list-style-position: inside;
 }
 
 .start-test-btn {
-    background-color: aqua;
+    border-bottom: 3px double blueviolet;
+    padding-bottom: .1rem;
 }
