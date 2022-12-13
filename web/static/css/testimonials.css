@@ -1,0 +1,10 @@
+.testimonials {
+    background: url('../backgrounds/wave-haikei (7).svg') no-repeat;
+    background-size: cover;
+    height: 80vh;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: 70%;
+    text-align: center;
+}

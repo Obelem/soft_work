@@ -1,0 +1,26 @@
+/* Global Style */
+* {
+    margin: 0;
+    padding: 0;
+    color: var(--globalColor);
+    font-size: var(--globalFontSize);
+    font-family: var(--globalFontFamily);
+    border: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    background-color: transparent;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    display: grid;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    border: 1px solid black;
+}

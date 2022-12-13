@@ -47,12 +47,21 @@ class DBStorage:
         """call remove() method on the private session attribute"""
         self.__session.remove()
 
-    def check_user(self, username):
+    def check_user(self, username=None, id=None):
         """
         checks if a user exists.
         returns User object if exists else None
         """
-        existing_user = self.__session.query(User).filter_by(username=username).first()
-        if existing_user:
-            return existing_user
+        if username:
+            existing_user = self.__session.query(User).filter_by(username=username).first()
+            if existing_user:
+                return existing_user
+            return None
+
+        if id:
+            existing_user = self.__session.query(User).filter_by(username=username).first()
+            if existing_user:
+                return existing_user
+            return None
+
         return None
