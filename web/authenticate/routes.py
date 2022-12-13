@@ -1,74 +1,82 @@
 
-from flask import abort, jsonify, request, render_template
-from web import login_manager, login_required, login_user, storage
+from flask import abort, jsonify, redirect, request, render_template, url_for
+from flask_login import login_required, login_user, logout_user, current_user
+from web import storage, login_manager
 from models.user import User
 
 from web.authenticate import authenticate_views
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-@login_manager.user_loader
-def load_user(user_id=None):
-    if user_id:
-        return storage.check_user(id=user_id)
-
 @authenticate_views.route("/login", methods=["GET", "POST"], strict_slashes=False)
 def login():
-    # data = request.get_json()
+    if request.method == "POST":
+        username = request.form.get("username", None)
+        password = request.form.get("password", None)
 
-    # if "username" not in data:
-    #     return abort(404)
+        if username and password:
+            user = storage.check_user(username)
+            
+            if not user:
+                return render_template("authenticate/login.html")
 
-    # if "password" not in data:
-    #     return abort(404)
+            if check_password_hash(user.password, password):
+                user.authenticated = True
+                user.save()
+                login_user(user)
 
-    # user = storage.check_user(data["username"])
+                next = request.args.get('next')
 
-    # if not user:
-    #     return "Invalid username or password"
-
-    # if check_password_hash(user.password, data["password"]):
-    #     login_user(user)
-    #     return jsonify("Login successful")
-
-    # return jsonify("Invalid password")
-
+                return redirect(next or url_for('profile_views.profile_page'))
+            
     return render_template("authenticate/login.html")
 
 @authenticate_views.route("/signup", methods=["GET", "POST"], strict_slashes=False)
 def signup():
-    # data = request.get_json()
-    # if "first_name" not in data:
-    #     return abort(404)
+    if request.method == "POST":
+        data = {
+            'username': request.form.get("username", None),
+            'first_name': request.form.get("first_name", None),
+            'middle_name': request.form.get("middle_name", None),
+            'last_name': request.form.get("last_name", None),
+            'email': request.form.get("email", None),
+            'password': request.form.get("password", None),
+            're_password': request.form.get("re_password", None),
+        }
+        
+        required_fields = ['username', 'first_name', 'last_name',
+                           'email', 'password', 're_password'
+                        ]
 
-    # if "last_name" not in data:
-    #     return abort(404)
+        for val in required_fields:
+            if not data[val]:
+                render_template("authenticate/signup.html")
 
-    # if "username" not in data:
-    #     return abort(404)
+        
+        if data['password'] != data['re_password']:
+            return render_template("authenticate/signup.html")
 
-    # if "password" not in data:
-    #     return abort(404)
+        data['password'] = generate_password_hash(data['password'])
 
-    # if "email" not in data:
-    #     return abort(404)
+        if storage.check_user(data['username']) and storage.check_email(data['email']):
+            return render_template("authenticate/signup.html")
 
-    # data["password"] = generate_password_hash(data["password"])
+        del data["re_password"]
+        user = User(**data)
+        user.is_authenticated = True
+        user.save()
 
-    # existing_user = storage.check_user(data['username'])
-    
-    # if existing_user:
-    #     return jsonify("Username is not available")
-
-    # user = User(**data)
-    # user.save()
-    # login_user(user)
-
-    # return jsonify("Account created!")
+        return redirect(url_for("authenticate_views.login"))
 
     return render_template("authenticate/signup.html")
 
 
-@authenticate_views.route("/logout", methods=["POST"], strict_slashes=False)
+@authenticate_views.route("/logout", methods=["GET", "POST"], strict_slashes=False)
+@login_required
 def logout():
-    pass
+    user = current_user
+    user.authenticated = False
+    user.save()
+    logout_user()
+    return redirect(url_for("landing_views.landing_page"))
+

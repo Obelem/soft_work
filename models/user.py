@@ -2,7 +2,7 @@
 '''user.py'''
 from .base_model import BaseModel, Base
 from flask_login import UserMixin
-from sqlalchemy import Column, String, ForeignKey, Table
+from sqlalchemy import Boolean, Column, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
 
 metadata = Base.metadata
@@ -15,7 +15,7 @@ userAssessment = Table(
 )
 
 
-class User(UserMixin, BaseModel, Base):
+class User(BaseModel, Base):
     '''defines user class'''
     __tablename__ = 'users'
 
@@ -25,4 +25,21 @@ class User(UserMixin, BaseModel, Base):
     last_name = Column(String(60), nullable=False)
     email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
+    authenticated = Column(Boolean, default=False)
     assessments = relationship('Assessment', secondary='userAssessment', back_populates='users')
+
+    def is_active(self):
+        """True, as all users are active."""
+        return True
+
+    def get_id(self):
+        """Return the email address to satisfy Flask-Login's requirements."""
+        return self.username
+
+    def is_authenticated(self):
+        """Return True if the user is authenticated."""
+        return self.authenticated
+
+    def is_anonymous(self):
+        """False, as anonymous users aren't supported."""
+        return False
