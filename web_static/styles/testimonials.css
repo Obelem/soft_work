@@ -8,3 +8,8 @@
     grid-template-columns: 70%;
     text-align: center;
 }
+.testimonials .clients {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
