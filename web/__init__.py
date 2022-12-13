@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, render_template
 from flask_login import LoginManager, login_user, logout_user
 from models import storage
 
@@ -38,5 +38,5 @@ def not_found(error):
       404:
         description: a resource was not found
     """
-    return make_response(jsonify({'error': "Not found"}), 404)
+    return render_template("404.html")
 
