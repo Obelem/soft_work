@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap');
+
 .side-nav {
     display: flex;
     flex-direction: column;
@@ -26,7 +30,14 @@
     position: relative;
     height: 20vh;
     text-transform: capitalize;
-    background-color: rebeccapurple;
+    background: url('../backgrounds/layered-steps-haikei\ \(2\).svg') no-repeat;
+    background-size: cover;
+}
+
+.banner > h1 {
+    color: rgb(13, 13, 88);
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
 }
 
 .banner > img {
@@ -46,6 +57,16 @@
     margin-top: 8rem;
     display: grid;
     row-gap: .5rem;
+}
+
+.user-data :first-child {
+    font-size: 2rem;
+    font-family: 'Corben', cursive;}
+
+.user-data :nth-child(2) {
+    font-family: 'Corben', cursive;
+    font-style: italic;
+    color: slategrey;
 }
 
 .assessment-container {
