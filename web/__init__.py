@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, make_response
-from flask_login import LoginManager, login_user, login_required
+from flask_login import LoginManager, login_user, logout_user
 from models import storage
 
 app = Flask(__name__)
@@ -8,13 +8,20 @@ app.config['SECRET_KEY'] = 'a random string'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+@login_manager.user_loader
+def load_user(user_id):
+    return storage.check_user(user_id)
+
 from web.authenticate import authenticate_views
 from web.landing import landing_views
 from web.profile import profile_views
 
 app.register_blueprint(authenticate_views)
-app.register_blueprint(landing_views, url_prefix="/landing")
+app.register_blueprint(landing_views)
 app.register_blueprint(profile_views, url_prefix="/profile")
+
+
+login_manager.login_view = "authenticate_views.login"
 
 
 @app.teardown_appcontext
