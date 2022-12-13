@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+
+
+/* hidden elements for responsive design */
+.footer {
+    display: none;
+}
+
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    min-height: 100vh;
+    row-gap: 2rem;
+    text-align: center;
+    background-color: antiquewhite;
+    font-family: 'Shippori Antique B1', sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.side-nav > * {
+    text-decoration: underline;
+    font-weight: bold;
+    color: rgba(5, 5, 61, 0.699);
+}
+
+.logo {
+    margin-top: 1rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    text-decoration: none;
+    color: rgb(214, 56, 38);
+}
+
+.main {
+    width: 80%;
+}
+
+.banner {
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 20vh;
+    text-transform: capitalize;
+    background: url('../backgrounds/layered-steps-haikei\ \(2\).svg') no-repeat;
+    background-size: cover;
+}
+
+.banner > h1 {
+    color: blueviolet;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem);
+}
+
+.banner > img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+.main > :not(:first-child) {
+    margin-left: 5%;
+}
+
+.user-data {
+    margin-top: 8rem;
+    display: grid;
+    row-gap: .5rem;
+}
+
+.user-data :first-child {
+    font-size: clamp(1.4rem, 5vw + .5rem, 2rem);
+    font-family: 'Corben', cursive;
+}
+
+.user-data :nth-child(2) {
+    font-family: 'Corben', cursive;
+    font-style: italic;
+    color: slategrey;
+}
+
+.assessment-container {
+    border-top: 1px solid lightslategray;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    row-gap: 3rem;
+    column-gap: 2rem;
+}
+
+.assessment {
+    display: grid;
+    row-gap: 2rem;
+    font-family: 'Shippori Antique B1', sans-serif;
+    /* border: 1px solid slateblue; */
+}
+
+.assessment > .info {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.assessment > .info > li {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.start-test-btn {
+    border-bottom: 3px double blueviolet;
+    padding-bottom: .1rem;
+}
+
+
+
+/* Responsive Designs */
+@media screen and (max-width: 1056px) {
+    .container {
+        flex-direction: column;
+        row-gap: 4rem;
+        min-height: 100vh;
+    }
+
+    .footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 2rem;
+        height: 3rem;
+        font-family: 'Shippori Antique B1', sans-serif;
+        background-color: rgb(214, 212, 212);
+    }
+    .side-nav {
+        display: none;
+    }
+    .main {
+        width: 100%;
+        background-color: white;
+    }
+}
