@@ -8,3 +8,11 @@
     grid-template-columns: 70%;
     text-align: center;
 }
+.flexteam {
+    display: flex;
+}
+
+.team div img {
+    width: 200px;
+    
+}
