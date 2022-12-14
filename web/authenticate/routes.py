@@ -1,5 +1,5 @@
 
-from flask import abort, jsonify, redirect, request, render_template, url_for
+from flask import abort, jsonify, redirect, request, render_template, url_for, flash
 from flask_login import login_required, login_user, logout_user, current_user
 from web import storage, login_manager
 from models.user import User
@@ -18,7 +18,8 @@ def login():
             user = storage.check_user(username)
             
             if not user:
-                return render_template("authenticate/login.html")
+                flash('Username does not exist.')
+                return redirect(url_for('authenticate_views.login'))
 
             if check_password_hash(user.password, password):
                 user.authenticated = True
@@ -28,6 +29,12 @@ def login():
                 next = request.args.get('next')
 
                 return redirect(next or url_for('profile_views.profile_page'))
+            else:
+                flash("Username/Password incorrect")
+                return redirect(url_for('authenticate_views.login'))
+        else:
+            flash("Username/Password field is empty")
+            return redirect(url_for('authenticate_views.login'))
             
     return render_template("authenticate/login.html")
 
@@ -50,16 +57,23 @@ def signup():
 
         for val in required_fields:
             if not data[val]:
-                render_template("authenticate/signup.html")
+                flash(f"{val} field is empty")
+                redirect(url_for("autenticate_views.signup"))
 
         
         if data['password'] != data['re_password']:
-            return render_template("authenticate/signup.html")
+            flash(f"Passeord mismatch")
+            redirect(url_for("autenticate_views.signup"))
 
         data['password'] = generate_password_hash(data['password'])
 
-        if storage.check_user(data['username']) and storage.check_email(data['email']):
-            return render_template("authenticate/signup.html")
+        if storage.check_user(data['username']):
+            flash(f"Username is already chosen, try another one!")
+            redirect(url_for("autenticate_views.signup"))
+        
+        if storage.check_email(data['email']):
+            flash(f"Email already exists, try another one")
+            redirect(url_for("autenticate_views.signup"))
 
         del data["re_password"]
         user = User(**data)
