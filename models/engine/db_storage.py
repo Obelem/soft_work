@@ -23,6 +23,29 @@ class DBStorage:
 
         self.__engine = create_engine(url, pool_pre_ping=True)
 
+    def all(self, cls=None):
+        dict_of_objects = {}
+
+        if cls is None:
+            for _class in classes:
+                list_of_objs = self.__session.query(_class).all()
+
+                for obj in list_of_objs:
+                    key = obj.__class__.__name__ + '.' + obj.id
+                    dict_of_objects[key] = obj
+
+            return dict_of_objects
+
+        cls = eval(cls) if type(cls) is str else cls
+        if cls not in classes:
+            return None
+
+        obj_list = self.__session.query(cls).all()
+        for obj in obj_list:
+            key = type(obj).__name__ + '.' + obj.id
+            dict_of_objects[key] = obj
+        return dict_of_objects
+
 
     def new(self, obj):
         self.__session.add(obj)
@@ -65,3 +88,11 @@ class DBStorage:
             return None
 
         return None
+
+    def check_email(self, email=None):
+        '''validates email'''
+        existing_user = self.__session.query(User).filter_by(email=email).first()
+        if existing_user:
+            return existing_user
+        return None
+

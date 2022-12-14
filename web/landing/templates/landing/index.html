@@ -20,17 +20,17 @@
         <nav class="primary-nav">
           <div class="logo">BrandLogo</div>
           <a href="#">Blog</a>
-          
+
           <div class="authentication">
             {% if not current_user.is_authenticated %}
             <a href="{{ url_for('authenticate_views.login') }}" class="sign-in-btn">Sign In</a>
-            <a href="{{ url_for('authenticate_views.login') }}" class="sign-up-btn">Sign Up</a>
+            <a href="{{ url_for('authenticate_views.signup') }}" class="sign-up-btn">Sign Up</a>
             {% endif %}
             {% if current_user.is_authenticated %}
             <a href="{{ url_for('authenticate_views.logout') }}" class="sign-up-btn">Log Out</a>
             {% endif %}
           </div>
-          
+
         </nav>
 
             <div class="header-text">

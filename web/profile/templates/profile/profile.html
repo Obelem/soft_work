@@ -18,40 +18,26 @@
 
         <main class="main">
             <header class="banner">
-                <h1>welcome Jeremy !!</h1>
+                <h1>welcome {{ first_name }} !!</h1>
                 <img src="{{ url_for('static', filename='img/IMG-20221212-WA0015.jpg') }}" alt="">
             </header>
 
             <section class="user-data">
-                <div>Jeremy Tamunokuro</div>
-                <div>@Jeremy</div>
+                <div>{{ first_name}} {% if middle_name %} {{ middle_name }} {% endif %} {{ last_name }}</div>
+                <div>@{{ username }}</div>
             </section>
 
             <section class="assessment-container">
+            {%  for assessment in assessments | sort(attribute='name') %}
                 <div class="assessment">
-                    <h2>Critical Thinking</h2>
+                    <h2>{{ assessment.name }}</h2>
                     <ul class="info">
                         <li><a href=""class="start-test-btn">Start Assessment</a></li>
                         <li>Status: completed</li>
                         <li><a href="">View Certificate</a></li>
                     </ul>
                 </div>
-                <div class="assessment">
-                    <h2>Listening Skills</h2>
-                    <ul class="info">
-                        <li><a href=""class="start-test-btn">Start Assessment</a></li>
-                        <li>Status: completed</li>
-                        <li><a href="">View Certificate</a></li>
-                    </ul>
-                </div>
-                <div class="assessment">
-                    <h2>Communication Skills</h2>
-                    <ul class="info">
-                        <li><a href=""class="start-test-btn">Start Assessment</a></li>
-                        <li>Status: completed</li>
-                        <li><a href="">View Certificate</a></li>
-                    </ul>
-                </div>
+            {% endfor %}
             </section>
         </main>
 
