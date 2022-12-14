@@ -16,7 +16,7 @@ def login():
 
         if username and password:
             user = storage.check_user(username)
-            
+
             if not user:
                 flash('Username does not exist.')
                 return redirect(url_for('authenticate_views.login'))
@@ -35,7 +35,7 @@ def login():
         else:
             flash("Username/Password field is empty")
             return redirect(url_for('authenticate_views.login'))
-            
+
     return render_template("authenticate/login.html")
 
 @authenticate_views.route("/signup", methods=["GET", "POST"], strict_slashes=False)
@@ -50,7 +50,7 @@ def signup():
             'password': request.form.get("password", None),
             're_password': request.form.get("re_password", None),
         }
-        
+
         required_fields = ['username', 'first_name', 'last_name',
                            'email', 'password', 're_password'
                         ]
@@ -60,9 +60,9 @@ def signup():
                 flash(f"{val} field is empty")
                 redirect(url_for("autenticate_views.signup"))
 
-        
+
         if data['password'] != data['re_password']:
-            flash(f"Passeord mismatch")
+            flash(f"Password mismatch")
             redirect(url_for("autenticate_views.signup"))
 
         data['password'] = generate_password_hash(data['password'])
@@ -70,7 +70,7 @@ def signup():
         if storage.check_user(data['username']):
             flash(f"Username is already chosen, try another one!")
             redirect(url_for("autenticate_views.signup"))
-        
+
         if storage.check_email(data['email']):
             flash(f"Email already exists, try another one")
             redirect(url_for("autenticate_views.signup"))
