@@ -15,10 +15,12 @@ def load_user(user_id):
 from web.authenticate import authenticate_views
 from web.landing import landing_views
 from web.profile import profile_views
+from web.assessment import assessment_views
 
 app.register_blueprint(authenticate_views)
 app.register_blueprint(landing_views)
 app.register_blueprint(profile_views, url_prefix="/profile")
+app.register_blueprint(assessment_views, url_prefix='/assessment')
 
 
 login_manager.login_view = "authenticate_views.login"
