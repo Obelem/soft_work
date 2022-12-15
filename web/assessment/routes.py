@@ -10,5 +10,5 @@ from models import storage
 @login_required
 def assessment_page():
     return render_template(
-        "assessment/assessment.html",
+        "assessment/assessment.html"
     )
