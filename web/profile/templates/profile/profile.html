@@ -32,7 +32,7 @@
                 <div class="assessment">
                     <h2>{{ assessment.name }}</h2>
                     <ul class="info">
-                        <li><a href="{{ url_for('assessment_views.assessment_page') }}" class="start-test-btn">Start Assessment</a></li>
+                        <li><a href="{{ url_for('assessment_views.assessment_page', assessment_name=assessment.name) }}" class="start-test-btn">Start Assessment</a></li>
                         <li>Status: completed</li>
                         <li><a href="">View Certificate</a></li>
                     </ul>
