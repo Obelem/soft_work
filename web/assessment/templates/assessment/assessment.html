@@ -8,5 +8,21 @@
 </head>
 <body>
     <h1>{{ current_assessment.name }}</h1>
+
+    <form action="" method="post">
+        <ol>
+            {% for question_bank in current_assessment.questions %}
+                <li>{{ question_bank.question }}</li>
+
+                {% for option in question_bank.options %}
+                    <div>
+                        <input type="radio" name="" id="" value="{{ option }}">
+                        <label for="question">{{ option }}</label>
+                    </div>
+                {% endfor %}
+
+            {% endfor %}
+        </ol>
+    </form>
 </body>
 </html>
