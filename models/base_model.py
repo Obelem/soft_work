@@ -47,3 +47,20 @@ class BaseModel:
         self.updated_at = datetime.now()
         models.storage.new(self)
         models.storage.save()
+
+    def to_dict(self):
+        '''
+            creates custom dictionary from __dict__
+            (i.e dictionary of instance attributes)
+        '''
+        my_dict = self.__dict__.copy()
+        my_dict['created_at'] = self.created_at.isoformat()
+        my_dict['updated_at'] = self.updated_at.isoformat()
+        # the __class__ key is needed to recreate the object
+        my_dict['__class__'] = self.__class__.__name__
+        if '_sa_instance_state' in my_dict.keys():
+            del my_dict['_sa_instance_state']
+
+        if 'password' in my_dict.keys():
+            del my_dict['password']
+        return my_dict

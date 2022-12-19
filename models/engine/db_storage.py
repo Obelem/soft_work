@@ -46,6 +46,17 @@ class DBStorage:
             dict_of_objects[key] = obj
         return dict_of_objects
 
+    def get(self, cls, id):
+        '''returns object based on the class and its ID or None if not found'''
+        cls = eval(cls) if type(cls) is str else cls
+        if cls not in classes or cls is None:
+            return None
+        objects = list(self.all(cls).values())
+        for obj in objects:
+            if id == obj.id:
+                return obj
+        return None
+
 
     def new(self, obj):
         self.__session.add(obj)

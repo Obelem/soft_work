@@ -20,6 +20,7 @@
                         <label for="question">{{ option }}</label>
                     </div>
                 {% endfor %}
+                <input type="hidden" name="{{ current_assessment.name }}" value="{{ current_assessment.id }}" id="hidden">
 
             {% endfor %}
             <button type="submit">Submit</button>
