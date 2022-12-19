@@ -6,7 +6,6 @@ from models.question_bank import QuestionBank
 from models.assessments import Assessment
 
 
-
 @app_views.route('/results', methods=['POST'],
                 strict_slashes=False)
 def evaluate_results():
@@ -29,7 +28,8 @@ def evaluate_results():
             continue
         score += 1 if answer == question_bank.answer else 0
 
-    return str(score)
+    score = (score / len(assessment.questions)) * 100
+    return str(round(score, 1)) + '%'
 
 
 
