@@ -9,19 +9,21 @@
 <body>
     <h1>{{ current_assessment.name }}</h1>
 
-    <form action="" method="post">
+    <form action="http://127.0.0.1:5001/api/v1/results" method="post">
         <ol>
             {% for question_bank in current_assessment.questions %}
                 <li>{{ question_bank.question }}</li>
 
                 {% for option in question_bank.options %}
                     <div>
-                        <input type="radio" name="" id="" value="{{ option }}">
+                        <input type="radio" name="{{ question_bank.id }}" id="" value="{{ option }}">
                         <label for="question">{{ option }}</label>
                     </div>
                 {% endfor %}
 
             {% endfor %}
+            <button type="submit">Submit</button>
+            <button type="reset">Refresh</button>
         </ol>
     </form>
 </body>
