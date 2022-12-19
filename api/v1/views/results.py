@@ -24,7 +24,6 @@ def evaluate_results():
     for question_bank in assessment.questions:
         answer = request.form.get(question_bank.id)
         if not answer:
-            score += 0
             continue
         score += 1 if answer == question_bank.answer else 0
 
