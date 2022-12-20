@@ -3,6 +3,7 @@ from flask import abort, jsonify, redirect, request, render_template, url_for, f
 from flask_login import login_required, login_user, logout_user, current_user
 from web import storage, login_manager
 from models.user import User
+from models.status import Status
 
 from web.authenticate import authenticate_views
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -79,6 +80,11 @@ def signup():
         user = User(**data)
         user.is_authenticated = True
         user.save()
+
+        status = Status(user_id=user.id)
+        status.save()
+
+        user.status = status
 
         return redirect(url_for("authenticate_views.login"))
 

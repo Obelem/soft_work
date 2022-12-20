@@ -4,9 +4,9 @@ from models.question_bank import QuestionBank
 from models.user import User
 
 # create assessment objects
-listening_skills = Assessment(name='Listening_Skills')
-communication_skills = Assessment(name='Communication_Skills')
-critical_thinking = Assessment(name='Critical_Thinking')
+listening_skills = Assessment(name='listening_skills')
+communication_skills = Assessment(name='communication_skills')
+critical_thinking = Assessment(name='critical_thinking')
 
 # save assessments
 listening_skills.save()

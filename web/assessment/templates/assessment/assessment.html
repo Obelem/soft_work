@@ -7,7 +7,8 @@
     <title>Assessment</title>
 </head>
 <body>
-    <h1>{{ current_assessment.name }}</h1>
+    {% set assessment_name = current_assessment.name %}
+    <h1>{{ assessment_name | replace('_', ' ') | upper }}</h1>
 
     <form action="http://127.0.0.1:5001/api/v1/results" method="post">
         <ol>

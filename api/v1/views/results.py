@@ -11,7 +11,7 @@ from flask_login import login_required, current_user
                 strict_slashes=False)
 @login_required
 def evaluate_results():
-    assessments = ['Communication Skills', 'Listening Skills', 'Critical Thinking']
+    assessments = ['communication_skills', 'listening_skills', 'critical_thinking']
     score = 0
 
     for assessment in assessments:
@@ -30,6 +30,9 @@ def evaluate_results():
         score += 1 if answer == question_bank.answer else 0
 
     score = (score / len(assessment.questions)) * 100
+
+    setattr(current_user.status, assessment.name, 'done')
+    storage.save()
     return str(round(score, 1)) + '%'
 
 

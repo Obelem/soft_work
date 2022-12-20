@@ -14,10 +14,6 @@ def assessment_page(assessment_name):
             current_assessment = assessment
             break
 
-    name = current_assessment.name
-    name = name.replace('_', ' ')
-    current_assessment.name = name
-
     return render_template(
         "assessment/assessment.html",
         current_assessment = current_assessment
