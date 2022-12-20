@@ -15,5 +15,6 @@ def profile_page():
         last_name=current_user.last_name,
         middle_name=current_user.middle_name,
         username = current_user.username,
+        status = current_user.status,
         assessments = storage.all('Assessment').values()
     )

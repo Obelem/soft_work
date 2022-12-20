@@ -8,8 +8,9 @@ from models.base_model import Base
 from models.user import User
 from models.assessments import Assessment
 from models.question_bank import QuestionBank
+from models.status import Status
 
-classes = [User, Assessment, QuestionBank]
+classes = [User, Assessment, QuestionBank, Status]
 
 class DBStorage:
     __engine = None

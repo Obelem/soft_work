@@ -28,6 +28,8 @@ class User(BaseModel, Base):
     authenticated = Column(Boolean, default=False)
     assessments = relationship('Assessment', secondary='userAssessment', back_populates='users')
 
+    status = relationship('Status', uselist=False, back_populates='user')
+
     def is_active(self):
         """True, as all users are active."""
         return True

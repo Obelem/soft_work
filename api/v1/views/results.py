@@ -4,10 +4,12 @@ from flask import jsonify, abort, request
 from models import storage
 from models.question_bank import QuestionBank
 from models.assessments import Assessment
+from flask_login import login_required, current_user
 
 
 @app_views.route('/results', methods=['POST'],
                 strict_slashes=False)
+@login_required
 def evaluate_results():
     assessments = ['Communication Skills', 'Listening Skills', 'Critical Thinking']
     score = 0

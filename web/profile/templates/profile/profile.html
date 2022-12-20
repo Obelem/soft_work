@@ -33,7 +33,31 @@
                     <h2>{{ assessment.name }}</h2>
                     <ul class="info">
                         <li><a href="{{ url_for('assessment_views.assessment_page', assessment_name=assessment.name) }}" class="start-test-btn">Start Assessment</a></li>
-                        <li>Status: completed</li>
+                        <li>Status:
+                            {% if assessment.name == 'Listening_Skills' %}
+                                {% if status.listening_skills %}
+                                    completed
+                                {% else %}
+                                    incomplete
+                                {% endif %}
+                            {% endif %}
+
+                            {% if assessment.name == 'Communication_Skills' %}
+                                {% if status.communication_skills %}
+                                    completed
+                                {% else %}
+                                    incomplete
+                                {% endif %}
+                            {% endif %}
+
+                            {% if assessment.name == 'Critical_Thinking' %}
+                                {% if status.critical_thinking %}
+                                    completed
+                                {% else %}
+                                    incomplete
+                                {% endif %}
+                            {% endif %}
+                        </li>
                         <li><a href="">View Certificate</a></li>
                     </ul>
                 </div>
