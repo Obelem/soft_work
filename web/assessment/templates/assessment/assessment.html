@@ -10,7 +10,7 @@
     {% set assessment_name = current_assessment.name %}
     <h1>{{ assessment_name | replace('_', ' ') | upper }}</h1>
 
-    <form action="http://127.0.0.1:5001/api/v1/results" method="post">
+    <form action="http://127.0.0.1:5000/results" method="post">
         <ol>
             {% for question_bank in current_assessment.questions %}
                 <li>{{ question_bank.question }}</li>

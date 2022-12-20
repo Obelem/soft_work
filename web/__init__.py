@@ -16,18 +16,15 @@ from web.authenticate import authenticate_views
 from web.landing import landing_views
 from web.profile import profile_views
 from web.assessment import assessment_views
-
-# for api
-from api.v1.views import app_views
+from web.result import result_views
 
 
 app.register_blueprint(authenticate_views)
 app.register_blueprint(landing_views)
 app.register_blueprint(profile_views, url_prefix="/profile")
 app.register_blueprint(assessment_views, url_prefix='/assessment')
+app.register_blueprint(result_views)
 
-# for api
-app.register_blueprint(app_views)
 
 login_manager.login_view = "authenticate_views.login"
 
@@ -47,4 +44,3 @@ def not_found(error):
         description: a resource was not found
     """
     return render_template("404.html")
-

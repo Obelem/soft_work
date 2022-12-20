@@ -4,6 +4,7 @@ from flask_login import login_required, login_user, logout_user, current_user
 from web import storage, login_manager
 from models.user import User
 from models.status import Status
+from models.score import Score
 
 from web.authenticate import authenticate_views
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -83,8 +84,13 @@ def signup():
 
         status = Status(user_id=user.id)
         status.save()
-
         user.status = status
+
+        score = Score(user_id=user.id)
+        score.save()
+        user.score = score
+
+        storage.save()
 
         return redirect(url_for("authenticate_views.login"))
 
