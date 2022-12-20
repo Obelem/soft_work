@@ -29,8 +29,8 @@ def evaluate_results():
             continue
         score += 1 if answer == question_bank.answer else 0
 
-    percent_score = round((score / len(assessment.questions)) * 100, 2)
     total = len(assessment.questions)
+    percent_score = round((score / total) * 100, 2)
 
     setattr(current_user.status, assessment.name, 'done')
 
