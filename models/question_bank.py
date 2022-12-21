@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+''' stores questions for corresponding assessments '''
 from .base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String, Text, ForeignKey, Integer
 from sqlalchemy.types import JSON

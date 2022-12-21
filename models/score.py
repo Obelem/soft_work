@@ -1,4 +1,5 @@
-'''user.py'''
+#!/usr/bin/python3
+'''stores scores of users'''
 from .base_model import BaseModel, Base
 from sqlalchemy import Boolean, Column, String, ForeignKey, Table, Float
 from sqlalchemy.orm import relationship

@@ -1,4 +1,5 @@
-'''user.py'''
+#!/usr/bin/python3
+'''stores completion status of user assessments'''
 from .base_model import BaseModel, Base
 from sqlalchemy import Boolean, Column, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
