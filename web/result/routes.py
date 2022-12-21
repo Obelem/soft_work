@@ -21,7 +21,7 @@ def evaluate_results():
             break
 
     if not assessment:
-        return 'No question'
+        abort(404)
 
     for question_bank in assessment.questions:
         answer = request.form.get(question_bank.id)
