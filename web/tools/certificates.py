@@ -5,6 +5,7 @@ from datetime import datetime
 from typing import Any
 import requests
 import urllib
+import os
 
 template = "n1MJGd520gN9b7LaPV"
 
@@ -117,14 +118,18 @@ def save_image(res, filename="test") -> bool:
     save image from url to uploads folder
     '''
 
-    filename = f"./uploads/certs_img/{filename}.png"
+    filepath = os.getcwd() + "/uploads/certs_img"
+    if not os.path.isdir(filepath):
+        os.makedirs(filepath)
+
+    filename = f"{filepath}/{filename}.png"
     if res.get("status") == "completed":
         image_url = res.get("image_url_png")
         opener=urllib.request.build_opener()
         opener.addheaders=[('User-Agent','SoftWork')]
         urllib.request.install_opener(opener)
         urllib.request.urlretrieve(image_url, filename)
-        print('Image sucessfully Downloaded: ',filename)
+        # print('Image sucessfully Downloaded: ',filename)
         return True
     else:
         print('Image Couldn\'t be retrieved')

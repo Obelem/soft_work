@@ -41,7 +41,7 @@
                                 incomplete
                             {% endif %}
                         </li>
-                        <li><a href="">View Certificate</a></li>
+                        <li><a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}">View Certificate</a></li>
                     </ul>
                 </div>
             {% endfor %}

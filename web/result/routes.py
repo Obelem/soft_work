@@ -35,6 +35,7 @@ def evaluate_results():
     setattr(current_user.status, assessment.name, 'done')
 
     setattr(current_user.score, assessment.name, percent_score)
+    
     storage.save()
 
     return render_template('result/result.html',

@@ -1,3 +1,4 @@
+import os
 from dotenv import load_dotenv
 import dropbox
 from dropbox import Dropbox
@@ -5,7 +6,8 @@ from os import environ
 from typing import List
 
 load_dotenv("./.env")
-access_token = environ["DROPBOX_ACCESS_TKN"]
+# access_token = environ["DROPBOX_ACCESS_TKN"]
+access_token = "sl.BVfStVU65Xp926Qt42uQnD8GhGx7u1ZYeFx0wE9lYptM3OiR2vTOn61ob4TznzyAQoYQNQ98CDp4i_Byr3VqsJJlx1SAykZ0cz-cstn8FeHPD80A_aG2FRqP7CVcVCd1EEAAlN_Fqx3R"
 
 def connect_to_dropbox(access_token: str) -> Dropbox:
     try:
@@ -27,7 +29,6 @@ def upload_file(dbx: Dropbox, path: str, filename: str) -> bool:
     try:
         with open(path, "rb") as f:
             meta = dbx.files_upload(f.read(), f"/{filename}.jpg", mode=dropbox.files.WriteMode("overwrite"))
-        return meta
     except FileNotFoundError as e:
         return {'Error', 'Unable to find file'}
     except Exception as e:
@@ -52,5 +53,6 @@ def get_file_link(dropbox_filepath: str) -> str:
 if __name__ == "__main__":
     username = "user001"
     dbx = connect_to_dropbox(access_token)
-    print(upload_file(dbx, f"./uploads/certs_img/{username}.png", username) )
+    filepath = os.getcwd() + "/uploads/certs_img"
+    print(upload_file(dbx, f"{filepath}/{username}.png", username) )
     print(f"\n{get_file_link(f'/{username}.jpg')}")
