@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
     <title>My Profile</title>
 </head>
 <body>
@@ -33,15 +35,26 @@
                     {% set assessment_name = assessment.name %}
                     <h2>{{ assessment_name |  replace('_', ' ') | upper }}</h2>
                     <ul class="info">
-                        <li><a href="{{ url_for('assessment_views.assessment_page', assessment_name=assessment.name) }}" class="start-test-btn">Start Assessment</a></li>
-                        <li>Status:
+                        <li>
+                            <a href="{{ url_for('assessment_views.assessment_page', assessment_name=assessment.name) }}" class="start-test-btn">
+                                Start Assessment
+                            </a>
+                        </li>
+                        <li class="status">Status:
                             {% if status | attr(assessment.name) %}
-                                completed
+                                Completed
                             {% else %}
-                                incomplete
+                                Incomplete
                             {% endif %}
                         </li>
                         <li><a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}">View Certificate</a></li>
+                        <li>Score:
+                            {% if score | attr(assessment.name) %}
+                                {{ score | attr(assessment.name) }}
+                            {% else %}
+                                Unavailable
+                            {% endif %}
+                        </li>
                     </ul>
                 </div>
             {% endfor %}
