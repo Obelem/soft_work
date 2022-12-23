@@ -1,3 +1,1 @@
-$document.ready(() => {
-    document.querySelector('.logo').style.color = 'red'
-})
+document.querySelector('.logo').style.color = 'blue'
