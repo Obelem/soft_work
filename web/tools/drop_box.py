@@ -7,7 +7,7 @@ from typing import List
 
 load_dotenv("./.env")
 # access_token = environ["DROPBOX_ACCESS_TKN"]
-access_token = "sl.BVfStVU65Xp926Qt42uQnD8GhGx7u1ZYeFx0wE9lYptM3OiR2vTOn61ob4TznzyAQoYQNQ98CDp4i_Byr3VqsJJlx1SAykZ0cz-cstn8FeHPD80A_aG2FRqP7CVcVCd1EEAAlN_Fqx3R"
+access_token = "sl.BVhXlEMnN5ZxpWBuohw_cGmoJmFdd8L-CojVitRKEJg3AQE4Sbkt1Nbbk1FPJTHInXKooSo-t3dXocpZoz61OYAgF9khj7wdVAKnRvIOUcdCKh5vov_ptaSlxdD-TPskx_vvMPefOAxT"
 
 def connect_to_dropbox(access_token: str) -> Dropbox:
     try:
