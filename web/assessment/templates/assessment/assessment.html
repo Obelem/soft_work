@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/assessment.js') }}" defer></script>
     <title>Assessment</title>
 </head>
 <body>
@@ -24,9 +26,10 @@
                 <input type="hidden" name="{{ current_assessment.name }}" value="{{ current_assessment.id }}" id="hidden">
 
             {% endfor %}
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit">Submit</button>
             <button type="reset">Refresh</button>
         </ol>
     </form>
+    <a href="http://127.0.0.1:5000/profile"><button>back to profile</button></a>
 </body>
 </html>

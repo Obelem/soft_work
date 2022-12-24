@@ -34,7 +34,7 @@
                     <h2>{{ assessment_name |  replace('_', ' ') | upper }}</h2>
                     <ul class="info">
                         <li>
-                            <a href="{{ url_for('assessment_views.assessment_page', assessment_name=assessment.name) }}" class="start-test-btn">
+                            <a href="{{ url_for('assessment_views.assessment_page', assessment_name=assessment.name) }}" class="start-test-btn" target="_blank">
                                 Start Assessment
                             </a>
                         </li>
@@ -48,7 +48,7 @@
                         <li><a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}">View Certificate</a></li>
                         <li>Score:
                             {% if score | attr(assessment.name) %}
-                                {{ score | attr(assessment.name) }}
+                                {{ score | attr(assessment.name) }}%
                             {% else %}
                                 Unavailable
                             {% endif %}

@@ -17,7 +17,7 @@ $('.start-test-btn').click(function(event){
 
     makeRequest(endpoint).then(data => {
         if (!data[currentAssessment]) {
-            window.location.replace(assessmentUrl)
+            window.open(assessmentUrl)
             return
         }
         if (!confirm('Starting a new test would clear previous records. Do you want to continue?'))
@@ -33,7 +33,7 @@ $('.start-test-btn').click(function(event){
             })
         });
         refreshPromise.then( newData => {
-            window.location.replace(assessmentUrl)
+            window.open(assessmentUrl)
         })
     })
 })
