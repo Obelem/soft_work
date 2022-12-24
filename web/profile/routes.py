@@ -17,5 +17,6 @@ def profile_page():
         username = current_user.username,
         status = current_user.status,
         assessments = storage.all('Assessment').values(),
-        score = current_user.score
+        score = current_user.score,
+        user_id = current_user.id
     )
