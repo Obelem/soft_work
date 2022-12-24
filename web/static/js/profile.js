@@ -34,7 +34,6 @@ $('.start-test-btn').click(function(event){
         });
         refreshPromise.then( newData => {
             window.location.replace(assessmentUrl)
-        }
-        )
+        })
     })
 })
