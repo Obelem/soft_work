@@ -1,5 +1,5 @@
 let user_id = $('#user_id').val()
-let endpoint = 'http://127.0.0.1:5001/api/v1/status/' + user_id
+let endpoint = 'http://127.0.0.1:5000/api/v1/status/' + user_id
 
 function makeRequest(endpoint) {
     return new Promise((resolve, reject) => {
@@ -26,7 +26,7 @@ $('.start-test-btn').click(function(event){
         let refreshScoresPromise = new Promise((resolve, reject) => {
             $.ajax({
                 type: 'PUT',
-                url: 'http://127.0.0.1:5001/api/v1/refresh_user',
+                url: 'http://127.0.0.1:5000/api/v1/refresh_user',
                 contentType: 'application/json',
                 data: `{"user_id": "${user_id}", "assessment_name": "${currentAssessment}"}`,
                 success: newData => resolve (newData)
