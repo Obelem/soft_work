@@ -28,8 +28,9 @@ class User(BaseModel, Base):
     authenticated = Column(Boolean, default=False)
     assessments = relationship('Assessment', secondary='userAssessment', back_populates='users')
 
-    status = relationship('Status', uselist=False, back_populates='user')
-    score = relationship('Score', uselist=False, back_populates='user')
+    status = relationship('Status', uselist=False, back_populates='user', cascade='all, delete, delete-orphan')
+    score = relationship('Score', uselist=False, back_populates='user', cascade='all, delete, delete-orphan')
+    certificate = relationship('Certificate', uselist=False, back_populates='user', cascade='all, delete, delete-orphan')
 
     def is_active(self):
         """True, as all users are active."""

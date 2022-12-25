@@ -5,6 +5,7 @@ from web import storage, login_manager
 from models.user import User
 from models.status import Status
 from models.score import Score
+from models.certificate import Certificate
 
 from web.authenticate import authenticate_views
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -89,6 +90,10 @@ def signup():
         score = Score(user_id=user.id)
         score.save()
         user.score = score
+
+        certificate = Certificate(user_id=user.id)
+        certificate.save()
+        user.certificate = certificate
 
         storage.save()
 
