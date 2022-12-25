@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''certificates model'''
 from .base_model import BaseModel, Base
-from sqlalchemy import Boolean, Column, String, ForeignKey, Table
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 
