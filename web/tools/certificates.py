@@ -7,7 +7,7 @@ import requests
 import urllib
 import os
 
-template = "n1MJGd520gN9b7LaPV"
+template = "BAQGWyDLMpKabgmENL"
 
 def send_user_data(data: dict, template: str) -> Any:
     '''
@@ -28,7 +28,7 @@ def send_user_data(data: dict, template: str) -> Any:
 
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer bb_pr_39c8e4026d4a758e6c85c587fda5e0'
+        'Authorization': 'Bearer bb_pr_22da8c33852a148c96d7fd1c311dda'
     }
 
     payload = {
@@ -104,7 +104,7 @@ def send_user_data(data: dict, template: str) -> Any:
 def get_image(image_uid: str) -> str:
 
     headers = {
-        'Authorization': 'Bearer bb_pr_39c8e4026d4a758e6c85c587fda5e0'
+        'Authorization': 'Bearer bb_pr_bb_pr_22da8c33852a148c96d7fd1c311dda'
     }
 
     response = requests.get(

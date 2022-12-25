@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''user.py'''
 from .base_model import BaseModel, Base
-from flask_login import UserMixin
 from sqlalchemy import Boolean, Column, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
 
@@ -26,6 +25,7 @@ class User(BaseModel, Base):
     email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
     authenticated = Column(Boolean, default=False)
+
     assessments = relationship('Assessment', secondary='userAssessment', back_populates='users')
 
     status = relationship('Status', uselist=False, back_populates='user')

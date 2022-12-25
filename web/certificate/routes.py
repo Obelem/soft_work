@@ -7,7 +7,7 @@ from models import storage
 from web.certificate import certificate_views
 
 from web.tools.certificates import get_image, save_image, send_user_data, template
-from web.tools.drop_box import connect_to_dropbox, access_token, upload_file, get_file_link
+from web.tools.aws import upload_file, create_presigned_url
 
 
 @certificate_views.route("/<accessment_id>")
@@ -44,12 +44,6 @@ def load_cert(accessment_id):
     if not save:
         print("upload failed!")
         abort(404)
-
-    username = current_user.username
-    dbx = connect_to_dropbox(access_token)
-    filepath = os.getcwd() + "/uploads/certs_img"
-    upload_file(dbx, f"{filepath}/{username}.png", username)
-    #print(f"\n{get_file_link(f'/{username}.jpg')}")
 
     return render_template('index.html', image_url=image_url)
 
