@@ -12,7 +12,7 @@
     {% set assessment_name = current_assessment.name %}
     <h1>{{ assessment_name | replace('_', ' ') | upper }}</h1>
 
-    <form action="http://127.0.0.1:5000/results" method="post">
+    <form action="http://127.0.0.1:5000/assessment/{current_assessment.name}}" method="post" id="answersForm">
         <ol>
             {% for question_bank in current_assessment.questions %}
                 <li>{{ question_bank.question }}</li>
@@ -31,5 +31,6 @@
         </ol>
     </form>
     <a href="http://127.0.0.1:5000/profile"><button>back to profile</button></a>
+    <input type="hidden" name="assessment_name" value="{{ current_assessment.name }}">
 </body>
 </html>
