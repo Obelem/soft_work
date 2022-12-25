@@ -23,7 +23,7 @@ $('.start-test-btn').click(function(event){
         if (!confirm('Starting a new test would clear previous records. Do you want to continue?'))
             return
 
-        let refreshPromise = new Promise((resolve, reject) => {
+        let refreshScoresPromise = new Promise((resolve, reject) => {
             $.ajax({
                 type: 'PUT',
                 url: 'http://127.0.0.1:5001/api/v1/refresh_user',
@@ -32,7 +32,7 @@ $('.start-test-btn').click(function(event){
                 success: newData => resolve (newData)
             })
         });
-        refreshPromise.then( newData => {
+        refreshScoresPromise.then( newData => {
             window.open(assessmentUrl)
         })
     })

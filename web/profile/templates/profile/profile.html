@@ -47,7 +47,7 @@
                         </li>
                         <li><a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}">View Certificate</a></li>
                         <li>Score:
-                            {% if score | attr(assessment.name) %}
+                            {% if score | attr(assessment.name) or (score | attr(assessment.name)) == 0 %}
                                 {{ score | attr(assessment.name) }}%
                             {% else %}
                                 Unavailable
