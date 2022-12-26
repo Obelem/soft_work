@@ -4,10 +4,17 @@ import json
 import os
 import urllib
 
-from aws import upload_file, create_presigned_url
+from web.tools.aws import upload_file, create_presigned_url
 
 
-def get_url(data):
+def get_url(data: dict) -> str:
+    '''
+    This function is used to generate a certificate from the data
+    supplied. It returns the url of the certificate generated (png)
+
+    :param data: data to generate
+    :return url if successful else None
+    '''
     url = "https://api.canvas.switchboard.ai/"
     headers = {
         "X-API-Key": "7197ce6c-469b-4b44-9377-b97ece965a68",
@@ -56,10 +63,13 @@ def get_url(data):
 
     return response[0].get('url', None)
 
-
 def save_from_url(url, filename):
     '''
-    save image from url to uploads folder
+    saves image from url to upload-folder
+
+    :param url: url of image to save
+    :param filename: name of file to save as (excluding file extention)
+    :return filepath if saved successfully else False
     '''
 
     filepath = os.getcwd() + "/uploads/certs_img"
@@ -79,6 +89,13 @@ def save_from_url(url, filename):
         return False
 
 def save_to_aws(filename: str, folder=None):
+    '''
+    Uploads file to aws s3 folder
+
+    :param filename: filepath of file to upload
+    :folder: name of s3 folder
+    :return True if object is saved else False
+    '''
     if filename:
         bucket_name = "fo-softwork-02"
         if folder:
@@ -93,6 +110,12 @@ def save_to_aws(filename: str, folder=None):
     return False
 
 def get_aws_s3_link(name, folder=None):
+    '''
+    generate url of file with name from a folder in s3 bucket
+
+    :param name: object key name
+    :param folder: object's folder
+    '''
     object_name = name + ".png"
     bucket_name = "fo-softwork-02"
     if folder:

@@ -3,10 +3,11 @@ import os
 from flask import abort, render_template, send_file
 from flask_login import current_user, login_required
 from models import storage
+from models.certificate import Certificate
 
 from web.certificate import certificate_views
 
-from web.tools.certificates import get_image, save_image, send_user_data, template
+from web.tools.certificates1 import get_url, get_aws_s3_link, save_from_url, save_to_aws
 from web.tools.aws import upload_file, create_presigned_url
 
 
@@ -29,22 +30,30 @@ def load_cert(accessment_id):
     if score < 50:
         return {"state": score}
 
+
     data = {
-        'awardee_name': current_user.first_name,
-        'details': f'The Above name is passed {assessment.name} skill test',
-        'signature': 'franklinobasy',
-        'signee': 'Franklin Obasi',
-        'date': date,
+        "awardee_name": f"{current_user.first_name} {current_user.last_name}" ,
+        "assessment": assessment.name.replace("_", " "),
+        "signature": "frankinobasy",
+        "certifier": "Franklin Obasi",
+        "certifier_title": "co-founder, softwork",
+        "date": datetime.now().strftime("%A %m %Y")
     }
 
-    image_uid = send_user_data(data, template)
-    res = get_image(image_uid)
-    image_url = res.get("image_url_png")
-    save = save_image(res, filename=current_user.username)
-    if not save:
-        print("upload failed!")
-        abort(404)
+    url = get_url(data)
+    if url:
+        name = f"{current_user.username}_{assessment.name}"
+        filename = save_from_url(url, name)
+        if save_to_aws(filename, "certificates"):
+            link = get_aws_s3_link(name, "certificates")
+            if not link:
+                abort(404, description="Unable to get s3 link")
+        else:
+            abort(404, "Unable to upload to s3 bucket")
+    else:
+        abort(404, description="Could not generate certiicate url from data")
 
-    return render_template('index.html', image_url=image_url)
+
+    return render_template('index.html', image_url=link)
 
     

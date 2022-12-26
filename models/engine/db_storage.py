@@ -5,13 +5,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.scoping import scoped_session
 from models.base_model import Base
+from models.certificate import Certificate
 from models.user import User
 from models.assessments import Assessment
 from models.question_bank import QuestionBank
 from models.status import Status
 from models.score import Score
 
-classes = [User, Assessment, QuestionBank, Status, Score]
+classes = [User, Assessment, QuestionBank, Status, Score, Certificate]
 
 class DBStorage:
     __engine = None

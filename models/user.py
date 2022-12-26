@@ -25,6 +25,7 @@ class User(BaseModel, Base):
     email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
     authenticated = Column(Boolean, default=False)
+    profile_pic = Column(String(128), default="")
 
     assessments = relationship('Assessment', secondary='userAssessment', back_populates='users')
 

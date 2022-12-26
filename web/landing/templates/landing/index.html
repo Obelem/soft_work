@@ -28,6 +28,7 @@
             {% endif %}
             {% if current_user.is_authenticated %}
             <a href="{{ url_for('authenticate_views.logout') }}" class="sign-up-btn">Log Out</a>
+            <a href="{{ url_for('profile_views.profile_page') }}" class="sign-up-btn">Go to accessments</a>
             {% endif %}
           </div>
 
