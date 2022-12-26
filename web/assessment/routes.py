@@ -44,11 +44,15 @@ def assessment_page(assessment_name):
         if not assessment:
             abort(404)
 
+        correct_answers = {}
+
         for question_bank in assessment.questions:
             answer = request_data.get(question_bank.id)
             if not answer:
+                correct_answers[question_bank.id] = question_bank.answer
                 continue
             score += 1 if answer == question_bank.answer else 0
+            correct_answers[question_bank.id] = question_bank.answer
 
         total = len(assessment.questions)
         percent_score = round((score / total) * 100, 2)
@@ -59,9 +63,11 @@ def assessment_page(assessment_name):
 
         storage.save()
 
-        return jsonify({
+        report_card = {
             'score': score,
             'total': total,
             'failed': total - score,
             'percent_score' : percent_score
-        })
+        }
+
+        return jsonify([report_card, correct_answers])
