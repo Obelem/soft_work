@@ -9,22 +9,22 @@ document.onvisibilitychange = () => {
 }
 
 function createRequest(){
-    let obj = {}
+    let user_choices = {}
     const formData = new URLSearchParams(new FormData(answersForm))
-    formData.forEach((value, key) => obj[key] = value)
+    formData.forEach((value, key) => user_choices[key] = value)
 
-    return obj
+    return user_choices
 }
 
 
 answersForm.onsubmit = e => {
     e.preventDefault()
-    let request_data = createRequest()
+    let user_choices = createRequest()
 
     fetch(endpoint, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(request_data)
+        body: JSON.stringify(user_choices)
     })
     .then(res => {
         return res.json()
@@ -44,12 +44,12 @@ answersForm.onsubmit = e => {
         const radioButtons = document.querySelectorAll('input')
         radioButtons.forEach(radioButton => radioButton.disabled = true)
 
-        delete request_data[assessment_name]
+        delete user_choices[assessment_name]
         $('#reset').hide(), $('#submit').hide()
 
         const keys = Object.keys(correct_answers)
         keys.forEach(key => {
-            if (correct_answers[key] === request_data[key])
+            if (correct_answers[key] === user_choices[key])
                 $(`#${key}`).text('Correct')
             else $(`#${key}`).text(`Incorrect: ${correct_answers[key]}`)
         });
