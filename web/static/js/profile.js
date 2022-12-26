@@ -43,9 +43,7 @@ $('body').mouseover(event => {
     if (target.is($('.certificate_link'))) {
         if (target.data('score') >= 50) return;
 
-        target.click(e => {
-            e.preventDefault();
-        })
+        target.click(e => e.preventDefault())
 
         if (target.data('score') < 50) {
             target.attr('title', 'Certificate unavailable: score is less than 50%');
