@@ -1,9 +1,12 @@
 let assessment_name = $('#hidden').attr('name')
 let endpoint = `http://127.0.0.1:5000/assessment/${assessment_name}`
 let answersForm = document.querySelector('#answersForm')
+let displayed_result = false
 
-
-document.onvisibilitychange = () => $('#answersForm').submit()
+document.onvisibilitychange = () => {
+    if (!displayed_result)
+        $('#answersForm').submit()
+}
 
 function createRequest(){
     let obj = {}
@@ -48,8 +51,9 @@ answersForm.onsubmit = e => {
         keys.forEach(key => {
             if (correct_answers[key] === request_data[key])
                 $(`#${key}`).text('Correct')
-            else $(`#${key}`).text('Incorrect')
+            else $(`#${key}`).text(`Incorrect: ${correct_answers[key]}`)
         });
+        displayed_result = true
     })
 }
 
