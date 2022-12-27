@@ -23,6 +23,7 @@ from web.profile import profile_views
 from web.assessment import assessment_views
 from web.result import result_views
 from web.api.v1.views import app_views
+from web.shareable import shareable_views   
 
 
 app.register_blueprint(authenticate_views)
@@ -32,6 +33,7 @@ app.register_blueprint(assessment_views, url_prefix='/assessment')
 app.register_blueprint(result_views)
 app.register_blueprint(certificate_views, url_prefix='/certificate')
 app.register_blueprint(app_views)
+app.register_blueprint(shareable_views)
 
 
 login_manager.login_view = "authenticate_views.login"

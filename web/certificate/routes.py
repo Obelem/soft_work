@@ -18,18 +18,25 @@ def load_cert(accessment_id):
     date = date.strftime("%A %m %Y")
 
     assessment = storage.get('Assessment', accessment_id)
+    certificate = current_user.certificate
 
     if not assessment:
         abort(404)
 
     completed = getattr(current_user.status, assessment.name)
     if completed != 'done':
+        setattr(certificate, assessment.name, False)
+        certificate.save()
         return {'state': completed}
 
     score = getattr(current_user.score, assessment.name)
     if score < 50:
+        setattr(certificate, assessment.name, False)
+        certificate.save()
         return {"state": score}
 
+    setattr(certificate, assessment.name, True)
+    certificate.save()
 
     data = {
         "awardee_name": f"{current_user.first_name} {current_user.last_name}" ,
