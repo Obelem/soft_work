@@ -12,3 +12,17 @@ def get_status(user_id):
     user = storage.get('User', user_id)
     status = user.status
     return jsonify(status.to_dict())
+
+@app_views.route("/dp_status/<user_id>", methods=["POST"])
+def change_profile_pic(user_id):
+    if request.method == "POST":
+        if request.headers.get('Content-Type') == 'application/json':
+            data = request.json
+
+            if "status" in data  and type(data["status"]) == bool:
+                user = storage.get('User', user_id)
+                user.profile_pic = data["status"]
+                user.save()
+            return jsonify({'success': True})
+    
+    return jsonify({'success': False})

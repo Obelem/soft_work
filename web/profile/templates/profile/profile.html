@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile_pic.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/profile_pic.css') }}"> -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,13 @@
         <main class="main">
             <header class="banner">
                 <h1>welcome {{ first_name }} !!</h1>
-                <img src="{{ profile_pic }}" alt="">
+                <img id="profile_pic" src="{{ profile_pic }}" alt="">
+                <div>        
+                    <input type="file" id="fileUpload">    
+                 </div>    
+                 <div>
+                    <button onclick="uploadFile()">Submit</button>    
+                 </div>   
                 <!-- <div class="row">
                     <div class="small-12 medium-2 large-2 columns">
                       <div class="circle">
@@ -79,9 +85,11 @@
         </footer>
 
         <input id="user_id" type="hidden" name="user_id" value="{{ user_id }}">
+        <input id="username" type="hidden" name="username" value="{{ username }}">
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/profile_pic.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/change_profile_pic.js') }}" defer></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
 </body>
 </html>

@@ -97,7 +97,8 @@ def signup():
 
         storage.save()
 
-        return redirect(url_for("authenticate_views.login"))
+        login_user(user)
+        return redirect(url_for("profile_views.profile_page"))
 
     return render_template("authenticate/signup.html")
 

@@ -12,3 +12,4 @@ def get_status(user_id):
     user = storage.get('User', user_id)
     status = user.status
     return jsonify(status.to_dict())
+

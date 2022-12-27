@@ -34,10 +34,16 @@ def load_cert(accessment_id):
     data = {
         "awardee_name": f"{current_user.first_name} {current_user.last_name}" ,
         "assessment": assessment.name.replace("_", " "),
-        "signature": "frankinobasy",
-        "certifier": "Franklin Obasi",
-        "certifier_title": "co-founder, softwork",
-        "date": datetime.now().strftime("%A %m %Y")
+        "signature1": "frankinobasy",
+        "certifier1": "Franklin Obasi",
+        "certifier_title1": "co-founder, softwork",
+        "signature2": "jesseobelem",
+        "certifier2": "Jesse Obelem",
+        "certifier_title2": "co-founder, softwork",
+        "signature3": "amarachi",
+        "certifier3": "Amarachi",
+        "certifier_title3": "co-founder, softwork",
+        "date": datetime.now().strftime("%d %B, %Y")
     }
 
     url = get_url(data)
