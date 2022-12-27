@@ -17,7 +17,7 @@ $('.start-test-btn').click(function(event){
 
     makeRequest(endpoint).then(data => {
         if (!data[currentAssessment]) {
-            window.open(assessmentUrl)
+            window.open(assessmentUrl, '_self')
             return
         }
         if (!confirm('Starting a new test would clear previous records. Do you want to continue?'))
@@ -33,7 +33,22 @@ $('.start-test-btn').click(function(event){
             })
         });
         refreshScoresPromise.then( newData => {
-            window.open(assessmentUrl)
+            window.open(assessmentUrl, '_self')
         })
     })
+})
+
+$('body').mouseover(event => {
+    let target = $(event.target)
+    if (target.is($('.certificate_link'))) {
+        if (target.data('score') >= 50) return;
+
+        target.click(e => e.preventDefault())
+
+        if (target.data('score') < 50) {
+            target.attr('title', 'Certificate unavailable: score is less than 50%');
+            return;
+        }
+        target.attr('title', 'Score 50% or above to generate certificate');
+    }
 })

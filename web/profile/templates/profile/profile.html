@@ -65,10 +65,10 @@
                                 Incomplete
                             {% endif %}
                         </li>
-                        <li><a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}">View Certificate</a></li>
+                        <li><a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}" class="certificate_link" data-score="{{ score | attr(assessment.name) }}">View Certificate</a></li>
                         <li>Score:
                             {% if score | attr(assessment.name) or (score | attr(assessment.name)) == 0 %}
-                                {{ score | attr(assessment.name) }}%
+                                <span>{{ score | attr(assessment.name) }}</span>%
                             {% else %}
                                 Unavailable
                             {% endif %}

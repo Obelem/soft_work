@@ -12,22 +12,25 @@
     {% set assessment_name = current_assessment.name %}
     <h1>{{ assessment_name | replace('_', ' ') | upper }}</h1>
 
+    <div class="statistics"></div>
+
     <form action="http://127.0.0.1:5000/assessment/{current_assessment.name}}" method="post" id="answersForm">
         <ol>
             {% for question_bank in current_assessment.questions %}
                 <li>{{ question_bank.question }}</li>
 
                 {% for option in question_bank.options %}
-                    <div>
+                    <div class>
                         <input type="radio" name="{{ question_bank.id }}" id="" value="{{ option }}">
                         <label for="question">{{ option }}</label>
                     </div>
                 {% endfor %}
+                <div id="{{ question_bank.id }}"></div>
                 <input type="hidden" name="{{ current_assessment.name }}" value="{{ current_assessment.id }}" id="hidden">
 
             {% endfor %}
             <button type="submit" id="submit">Submit</button>
-            <button type="reset">Refresh</button>
+            <button type="reset" id="reset">Refresh</button>
         </ol>
     </form>
     <a href="http://127.0.0.1:5000/profile"><button>back to profile</button></a>
