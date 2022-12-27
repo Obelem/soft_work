@@ -52,6 +52,7 @@ def load_cert(accessment_id):
         filename = save_from_url(url, name)
         if save_to_aws(filename, "certificates"):
             link = get_aws_s3_link(name, "certificates")
+            os.remove(filename)
             if not link:
                 abort(404, description="Unable to get s3 link")
         else:
