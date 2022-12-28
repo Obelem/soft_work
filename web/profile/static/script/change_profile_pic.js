@@ -32,8 +32,20 @@ const uploadFile = () => {
     if (!files.length) {
         return alert("Please choose a file to upload first.");
     }
-    var file = files[0];
-    var fileName = username + ".png";
+    const file = files[0];
+    let size = file.size / 1024 / 1024;
+    size = Math.round(size);
+
+    if (size > 1) {
+        return alert("picture size should be less than 1mb");
+    }
+        
+    file_types = ["image/png", "image/jpeg", "image/jpg"];
+
+    if (!file_types.includes(file.type))
+        return alert("unsupported file type");
+    
+    var fileName = username + "." + file.name.split(".")[1];
 
     var albumPhotosKey = encodeURIComponent(albumName) + "/";
     var photoKey = albumPhotosKey + fileName;
