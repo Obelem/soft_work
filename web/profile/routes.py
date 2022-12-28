@@ -15,9 +15,9 @@ def profile_page():
         link = get_aws_s3_link("default", "dps")
     else:
         link = get_aws_s3_link(current_user.username, "dps")
-        current_user.profile_pic = link
+        current_user.profile_pic = True
         storage.save()
-    print(link)
+        
     return render_template(
         "profile/profile.html",
         first_name=current_user.first_name,
@@ -30,3 +30,5 @@ def profile_page():
         user_id = current_user.id,
         profile_pic = link
     )
+
+

@@ -36,14 +36,32 @@ def get_url(data: dict) -> str:
             "assessment": {
                 "text": data.get("assessment", "")
             },
-            "signature": {
-                "text": data.get("signature", "")
+            "signature1": {
+                "text": data.get("signature1", "")
             },
-            "certifier": {
-                "text": data.get("certifier", "")
+            "certifier1": {
+                "text": data.get("certifier1", "")
             },
-            "certifier_title": {
-                "text": data.get("certifier_title", "")
+            "certifier_title1": {
+                "text": data.get("certifier_title1", "")
+            },
+            "signature2": {
+                "text": data.get("signature2", "")
+            },
+            "certifier2": {
+                "text": data.get("certifier2", "")
+            },
+            "certifier_title2": {
+                "text": data.get("certifier_title2", "")
+            },
+            "signature3": {
+                "text": data.get("signature3", "")
+            },
+            "certifier3": {
+                "text": data.get("certifier3", "")
+            },
+            "certifier_title3": {
+                "text": data.get("certifier_title3", "")
             },
             "date": {
                 "text": data.get("date", "")

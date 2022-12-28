@@ -18,26 +18,39 @@ def load_cert(accessment_id):
     date = date.strftime("%A %m %Y")
 
     assessment = storage.get('Assessment', accessment_id)
+    certificate = current_user.certificate
 
     if not assessment:
         abort(404)
 
     completed = getattr(current_user.status, assessment.name)
     if completed != 'done':
+        setattr(certificate, assessment.name, False)
+        certificate.save()
         return {'state': completed}
 
     score = getattr(current_user.score, assessment.name)
     if score < 50:
+        setattr(certificate, assessment.name, False)
+        certificate.save()
         return {"state": score}
 
+    setattr(certificate, assessment.name, True)
+    certificate.save()
 
     data = {
         "awardee_name": f"{current_user.first_name} {current_user.last_name}" ,
         "assessment": assessment.name.replace("_", " "),
-        "signature": "frankinobasy",
-        "certifier": "Franklin Obasi",
-        "certifier_title": "co-founder, softwork",
-        "date": datetime.now().strftime("%A %m %Y")
+        "signature1": "frankinobasy",
+        "certifier1": "Franklin Obasi",
+        "certifier_title1": "co-founder, softwork",
+        "signature2": "jesseobelem",
+        "certifier2": "Jesse Obelem",
+        "certifier_title2": "co-founder, softwork",
+        "signature3": "amarachi",
+        "certifier3": "Amarachi",
+        "certifier_title3": "co-founder, softwork",
+        "date": datetime.now().strftime("%d %B, %Y")
     }
 
     url = get_url(data)
@@ -46,6 +59,7 @@ def load_cert(accessment_id):
         filename = save_from_url(url, name)
         if save_to_aws(filename, "certificates"):
             link = get_aws_s3_link(name, "certificates")
+            os.remove(filename)
             if not link:
                 abort(404, description="Unable to get s3 link")
         else:
