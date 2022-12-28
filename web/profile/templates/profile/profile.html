@@ -23,12 +23,12 @@
             <header class="banner">
                 <h1>welcome {{ first_name }} !!</h1>
                 <img id="profile_pic" src="{{ profile_pic }}" alt="">
-                <div>        
-                    <input type="file" id="fileUpload">    
-                 </div>    
+                <div>
+                    <input type="file" id="fileUpload">
+                 </div>
                  <div>
-                    <button onclick="uploadFile()">Submit</button>    
-                 </div>   
+                    <button onclick="uploadFile()">Submit</button>
+                 </div>
                 <!-- <div class="row">
                     <div class="small-12 medium-2 large-2 columns">
                       <div class="circle">
@@ -88,8 +88,8 @@
         <input id="username" type="hidden" name="username" value="{{ username }}">
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/change_profile_pic.js') }}" defer></script>
+    <script src="{{ url_for('profile_views.static', filename='script/profile.js') }}" defer></script>
+    <script src="{{ url_for('profile_views.static', filename='script/change_profile_pic.js') }}" defer></script>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
 </body>
 </html>
