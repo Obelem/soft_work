@@ -37,7 +37,12 @@
             <div class="header-text">
                 <span>With technical skills, colleagues understand you</span>
                 <span>With soft skills,
-                    <span class="underline">everyone</span> understands you</span>
+                    <span class="underline">
+                        <img src="{{ url_for('static', filename='strokes/line2.svg') }}" alt="header-img" alt="" class="stroke">
+                        everyone
+                    </span>
+                    understands you
+                </span>
             </div>
 
             <div class="call-to-action">
@@ -57,10 +62,31 @@
         </header>
 
         <section class="services">
-            <h1>Services</h1>
+            <h1 class="section-header">Services</h1>
 
-            <article class="info">
-            </article>
+            <div class="services-cards-container">
+                <article class="service-card">
+                    <img src="{{ url_for('static', filename='icons/comm_skills.svg') }}" alt="service-icon" class="service-icon">
+                    <h3>Communication Skills</h3>
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis labore corrupti alias, voluptatem quod quae vel cumque consequuntur animi non tempora ipsa neque temporibus quibusdam, debitis et excepturi veniam? Neque?
+                    </span>
+                </article>
+                <article class="service-card">
+                    <img src="{{ url_for('static', filename='icons/critical_thinking.svg') }}" alt="service-icon" class="service-icon">
+                    <h3>Critical Thinking</h3>
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis labore corrupti alias, voluptatem quod quae vel cumque consequuntur animi non tempora ipsa neque temporibus quibusdam, debitis et excepturi veniam? Neque?
+                    </span>
+                </article>
+                <article class="service-card">
+                    <img src="{{ url_for('static', filename='icons/listening_skills.svg') }}" alt="service-icon" class="service-icon">
+                    <h3>Listening Skills</h3>
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis labore corrupti alias, voluptatem quod quae vel cumque consequuntur animi non tempora ipsa neque temporibus quibusdam, debitis et excepturi veniam? Neque?
+                    </span>
+                </article>
+            </div>
         </section>
 
         <section class="team">

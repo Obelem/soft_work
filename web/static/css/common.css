@@ -1,4 +1,23 @@
 /* Global Style */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+
+
+:root {
+    /* font familys */
+    --headerFontFamily: 'Playfair Display', serif;
+    --buttonFontFamily: 'Baumans', cursive;
+
+    /* font weights */
+    --weight600: 600;
+
+    /* colors */
+    --aquaGreen: aqua;
+    --purple: rgba(177, 122, 231, 0.904);
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -23,4 +42,9 @@ body {
 
 input[type=text], input[type=password], input[type=email] {
     border: 1px solid black;
+}
+
+.section-header {
+    font-size: 2.5rem;
+    font-family: 'Hind', sans-serif;
 }

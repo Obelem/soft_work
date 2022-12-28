@@ -1,11 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --freesia: #EFE7BC;
+}
+
 .services {
-  display: grid;
-  place-content: center;
-  place-items: center;
-  grid-template-columns: 70%;
-  text-align: center;
-  position: relative;
-  background: url("../backgrounds/wave-haikei (2).svg") no-repeat;
-  background-size: cover;
-  height: 80vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    position: relative;
+    background: url("../backgrounds/wave-haikei (2).svg") no-repeat;
+    background-size: cover;
+    min-height: 90vh;
+    row-gap: 2rem;
+  /* border: 2px solid black; */
+}
+
+.services-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    width: 90vw;
+    /* border: 2px solid red; */
+}
+
+.services > .section-header {
+    margin-top: 4rem;
+}
+
+.service-card {
+    display: grid;
+    justify-items: center;
+    height: 20rem;
+    row-gap: 1rem;
+    transition: background-color .3s ease-in-out,
+                transform .3s ease-in, padding .2s ease-in-out,
+                border-radius .5s ease-in-out;
+    font-family: 'Hind', sans-serif;
+}
+
+.service-card:hover {
+    background-color: var(--freesia);
+    transform: translateY(-1rem);
+    padding: 1rem;
+    border-radius: 1rem 0 1rem 1rem;
+}
+
+.service-card::before {
+    content: '';
+    border-width: 20px;
+    border-style: solid;
+    border-color: salmon salmon hsl(6, 93%, 65%) hsl(6, 93%, 65%);
+    position: absolute;
+    right: -40px;
+    transition: right .3s ease-out, top .3s ease-out;
+}
+
+.service-card:hover::before {
+    right: 0;
+    top: 0;
+}
+
+
+.service-icon {
+    width: 4rem;
+    height: 4rem;
 }
