@@ -1,21 +1,136 @@
-.team {
-    background: url('../backgrounds/wave-haikei (5).svg') no-repeat;
-    background-size: cover;
-    height: 80vh;
-    display: grid;
-    place-content: center;
-    place-items: center;
-    grid-template-columns: 70%;
-    text-align: center;
-    justify-content: space-evenly;
-}
-.flexteam {
-    display: flex;
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+
+
+:root {
+    --freesia: #EFE7BC;
 }
 
-.team div img {
-    width: 200px;
-    border-radius: 50%;
+
+.team-section {
+    background: url('../backgrounds/wave-haikei (5).svg') no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
     justify-content: space-evenly;
-    
+    gap: 2rem;
+    font-family: 'Hind', sans-serif;
+}
+
+.team>.section-header {
+    margin-top: 8rem;
+}
+
+
+/* web dev simplified */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+
+.img-wrapper {
+    width: clamp(15rem, 20vmax + .5rem, 20rem);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #000;
+    box-shadow: 15px 15px 0 -2.5px #fff, 15px 15px 0 0 #000;
+}
+
+.img-wrapper > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+}
+
+.img-wrapper > .content {
+    position: absolute;
+    inset: 0;
+    font-size: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, .4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content > .social-media-container {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.87);
+    height: 4rem;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    color: white;
+}
+
+.img-wrapper > img,
+.img-wrapper > .content {
+    transition: 200ms ease-in-out;
+}
+
+.img-wrapper:hover {
+    box-shadow: 15px 15px 0 -2.5px gainsboro, 15px 15px 0 0 #000;
+}
+
+.img-wrapper:hover > img.blur {
+    filter: blur(5px);
+}
+
+.img-wrapper:hover > img.gray {
+    filter: grayscale(1);
+}
+
+.img-wrapper:hover > img.zoom {
+    transform: scale(1.1);
+}
+
+.img-wrapper:hover > img.zoom-out {
+    transform: scale(.95);
+}
+
+.img-wrapper > .content.fade {
+    opacity: 0;
+}
+
+.img-wrapper:hover > .content.fade {
+    opacity: 1;
+}
+
+.img-wrapper > .content.slide-left {
+    transform: translateX(-100%);
+}
+
+.img-wrapper:hover > .content.slide-left {
+    transform: translateX(0);
+}
+
+.img-wrapper > .content.slide-right {
+    transform: translateX(100%);
+}
+
+.img-wrapper:hover > .content.slide-right {
+    transform: translateX(0);
+}
+
+.img-wrapper > .content.slide-down {
+    transform: translateY(-100%);
+}
+
+.img-wrapper:hover > .content.slide-down {
+    transform: translateY(0);
+}
+
+.img-wrapper > .content.slide-up {
+    transform: translateY(100%);
+}
+
+.img-wrapper:hover > .content.slide-up {
+    transform: translateY(0);
 }

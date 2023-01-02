@@ -16,29 +16,30 @@
 
 <body>
     <div class="container">
-      <header class="header">
-        <nav class="primary-nav">
-          <div class="logo">BrandLogo</div>
-          <a href="#">Blog</a>
+        <header class="header">
+            <nav class="primary-nav">
+                <div class="logo">BrandLogo</div>
+                <a href="#">Blog</a>
 
-          <div class="authentication">
-            {% if not current_user.is_authenticated %}
-            <a href="{{ url_for('authenticate_views.login') }}" class="sign-in-btn">Sign In</a>
-            <a href="{{ url_for('authenticate_views.signup') }}" class="sign-up-btn">Sign Up</a>
-            {% endif %}
-            {% if current_user.is_authenticated %}
-            <a href="{{ url_for('authenticate_views.logout') }}" class="sign-up-btn">Log Out</a>
-            <a href="{{ url_for('profile_views.profile_page') }}" class="sign-up-btn">Go to assessments</a>
-            {% endif %}
-          </div>
+                <div class="authentication">
+                    {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('authenticate_views.login') }}" class="sign-in-btn">Sign In</a>
+                    <a href="{{ url_for('authenticate_views.signup') }}" class="sign-up-btn">Sign Up</a>
+                    {% endif %}
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('authenticate_views.logout') }}" class="sign-up-btn">Log Out</a>
+                    <a href="{{ url_for('profile_views.profile_page') }}" class="sign-up-btn">Go to assessments</a>
+                    {% endif %}
+                </div>
 
-        </nav>
+            </nav>
 
             <div class="header-text">
                 <span>With technical skills, colleagues understand you</span>
                 <span>With soft skills,
                     <span class="underline">
-                        <img src="{{ url_for('static', filename='strokes/line2.svg') }}" alt="header-img" alt="" class="stroke">
+                        <img src="{{ url_for('static', filename='strokes/line2.svg') }}" alt="header-img" alt=""
+                            class="stroke">
                         everyone
                     </span>
                     understands you
@@ -66,31 +67,67 @@
 
             <div class="services-cards-container">
                 <article class="service-card">
-                    <img src="{{ url_for('static', filename='icons/comm_skills.svg') }}" alt="service-icon" class="service-icon">
+                    <img src="{{ url_for('static', filename='icons/comm_skills.svg') }}" alt="service-icon"
+                        class="service-icon">
                     <h3>Communication Skills</h3>
                     <span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis labore corrupti alias, voluptatem quod quae vel cumque consequuntur animi non tempora ipsa neque temporibus quibusdam, debitis et excepturi veniam? Neque?
+                        Our communication skills program helps participants develop the skills they need to communicate
+                        clearly, confidently, and effectively with others. Through lectures, exercises, and role-plays,
+                        participants learn how to adapt their communication style to different audiences, give and
+                        receive feedback, and resolve conflicts.
                     </span>
                 </article>
                 <article class="service-card">
-                    <img src="{{ url_for('static', filename='icons/critical_thinking.svg') }}" alt="service-icon" class="service-icon">
+                    <img src="{{ url_for('static', filename='icons/critical_thinking.svg') }}" alt="service-icon"
+                        class="service-icon">
                     <h3>Critical Thinking</h3>
                     <span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis labore corrupti alias, voluptatem quod quae vel cumque consequuntur animi non tempora ipsa neque temporibus quibusdam, debitis et excepturi veniam? Neque?
+                        Our critical thinking program helps individuals and organizations analyze and evaluate
+                        information objectively, without letting personal biases or emotions get in the way. Through
+                        lectures, and exercises participants learn how to identify and overcome cognitive biases, ask
+                        probing questions, and make more informed decisions.
                     </span>
                 </article>
                 <article class="service-card">
-                    <img src="{{ url_for('static', filename='icons/listening_skills.svg') }}" alt="service-icon" class="service-icon">
+                    <img src="{{ url_for('static', filename='icons/listening_skills.svg') }}" alt="service-icon"
+                        class="service-icon">
                     <h3>Listening Skills</h3>
                     <span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis labore corrupti alias, voluptatem quod quae vel cumque consequuntur animi non tempora ipsa neque temporibus quibusdam, debitis et excepturi veniam? Neque?
+                        Our listening skills program helps participants listen actively, retain information, and
+                        communicate effectively with others. Through interactive activities and role-plays, participants
+                        learn how to listen with empathy, ask clarifying questions, and give constructive feedback.
                     </span>
                 </article>
             </div>
         </section>
 
-        <section class="team">
-            <h1>Meet Our Team</h1>
+        <section class="team-section">
+            <h1 class="section-header">
+                Meet The Team
+            </h1>
+
+            <div class="grid">
+                <div class="img-wrapper">
+                    <img class="zoom" src="{{ url_for('static', filename='img/Frank.jpg') }}">
+                    <div class="content slide-left">
+                        Hi there, I'm Frank; a Software and Cloud Engineer
+                        <div class="social-media-container">connect</div>
+                    </div>
+                </div>
+                <div class="img-wrapper">
+                    <img class="zoom-out" src="{{ url_for('static', filename='img/Jesse.jpg') }}">
+                    <div class="content slide-right">
+                        Hello world! I'm Jesse; a software engineer who communicates fluently with both men and machines
+                        <div class="social-media-container">connect</div>
+                    </div>
+                </div>
+                <div class="img-wrapper">
+                    <img class="blur" src="{{ url_for('static', filename='img/Amara.jpg') }}">
+                    <div class="content slide-up">Hi guys! I'm Amara.. a Senior Process Engineer and highly 'REACTive' to front end development
+                        <div class="social-media-container">connect</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="testimonials">
