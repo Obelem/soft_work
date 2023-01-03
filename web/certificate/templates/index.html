@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="{{ url_for('static', filename='js/certificate.js') }}" defer></script>
     <title>Certificate</title>
 
     <!-- load CSS -->
@@ -14,34 +12,20 @@
     <!-- Google web font "Open Sans" -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css') }}">
-    <!-- Templatemo style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/certificate.css') }}">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <header class="text-center tm-site-header">
-                    <div class="tm-site-logo"></div>
-                    <h1 class="pl-4 tm-site-title">Certificate</h1>
-                </header>
-            </div>
+    <header></header>
+    <div class="main">
+        <div class="main-title main-item main-text">
+            Certificate
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="tm-video-container">
-                    <img src="{{ image_url }}" alt="" srcset="">
-                </div>
-            </div>
-            <a href="{{ image_url }}"><button>Download</button></a>
+        <img class="cert-img  main-item" src="{{ image_url }}" alt="" srcset="">
+        <div class="download-container  main-item">
+            <a href="{{ image_url }}"><button class="download-button">Download</button></a>
         </div>
-
-
-    <script src="js/jquery.min.js"></script>
-    <!-- <script src="js/jquery-3.2.1.slim.min.js"></script> -->
-    <script src="js/templatemo-script.js"></script>
-
+    </div>
 </body>
 </html>
