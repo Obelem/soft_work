@@ -7,9 +7,10 @@
 
 
 .team-section {
-    background: url('../backgrounds/wave-haikei (5).svg') no-repeat;
+    /* background: url('../backgrounds/wave-haikei (5).svg') no-repeat; */
     background-size: cover;
-    min-height: 100vh;
+    background-color: #89CFF0;
+    height: max-content;
     display: grid;
     place-content: center;
     text-align: center;
@@ -18,8 +19,8 @@
     font-family: 'Hind', sans-serif;
 }
 
-.team>.section-header {
-    margin-top: 8rem;
+.section-header :nth-of-type(2) {
+    color: white;
 }
 
 

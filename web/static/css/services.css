@@ -9,9 +9,9 @@
     place-content: center;
     text-align: center;
     position: relative;
-    background: url("../backgrounds/wave-haikei (2).svg") no-repeat;
+    /* background: url("../backgrounds/wave-haikei (2).svg") no-repeat; */
     background-size: cover;
-    min-height: 90vh;
+    height: max-content;
     row-gap: 2rem;
   /* border: 2px solid black; */
 }

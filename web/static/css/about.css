@@ -1,12 +1,25 @@
 .about-section {
-    background: url('../backgrounds/wave-haikei (7).svg') no-repeat;
     background-size: cover;
     min-height: 90vh;
     display: grid;
-    text-align: center;
+    /* text-align: center; */
+    align-items: center;
+    align-content: center;
+    font-family: 'Hind', sans-serif;
+    /* border: 2px solid black; */
 }
 
 .about-section > article {
-    display: flex;
+    display: grid;
+    grid-template-columns: 40% auto;
+    gap: 2rem;
+    justify-content: center;
     align-items: center;
+    /* border: 2px solid rebeccapurple; */
+}
+
+.about-section img {
+    width: 20rem;
+    height: 25rem;
+    border-radius: 50%;
 }
