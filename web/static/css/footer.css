@@ -1,6 +1,8 @@
 .footer {
-    height: 20vh;
-    background-color:  #e7ecd1a1;
+    background-color: #000000;
+    color: white;
     display: grid;
     place-items: center;
+    font-family: 'Hind', sans-serif;
+    padding: 1rem 0;
 }

@@ -51,7 +51,7 @@
     content: '';
     border-width: 20px;
     border-style: solid;
-    border-color: salmon salmon hsl(6, 93%, 65%) hsl(6, 93%, 65%);
+    border-color: white white hsl(6, 93%, 65%) hsl(6, 93%, 65%);
     position: absolute;
     right: -40px;
     visibility: hidden;
