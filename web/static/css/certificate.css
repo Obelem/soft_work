@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    color: whitesmoke;
+    font-size: 0.9rem;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-text {
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.main-item {
+    margin: 1%;
+}
+
+img.cert-img {
+    max-width: 60%;
+    max-height: 40%;
+}
+
+.download-button {
+    background-color: transparent;
+    padding: 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: whitesmoke;
+}
+
+.download-button:hover {
+    background-color: green;
+    font-weight: bolder;
+    border-style: none;
+}
