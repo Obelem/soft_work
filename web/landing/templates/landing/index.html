@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/testimonials.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+
+    <link rel='shortcut icon' href="{{ url_for('static', filename='img/softworklogo32.png') }}" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -111,27 +113,46 @@
                     <img class="zoom" src="{{ url_for('static', filename='img/Frank.jpg') }}">
                     <div class="content slide-left">
                         Hi there, I'm Frank; a Software and Cloud Engineer
-                        <div class="social-media-container">connect</div>
+                        <div class="social-media-container">
+                            <a href="https://github.com/franklinobasy" class="social-links"><img src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png" class="social-icon"/></a>
+                            <a href="https://twitter.com/franklinobasy" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png" class="social-icon"/></a>
+                            <a href="https://www.linkedin.com/in/franklinobasy" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon"/></a>
+                        </div>
                     </div>
                 </div>
                 <div class="img-wrapper">
-                    <img class="zoom-out" src="{{ url_for('static', filename='img/Jesse.jpg') }}">
+                    <img class="zoom-out blur" src="{{ url_for('static', filename='img/Jesse.jpg') }}">
                     <div class="content slide-right">
                         Hello world! I'm Jesse; a software engineer who communicates fluently with both men and machines
-                        <div class="social-media-container">connect</div>
+                        <div class="social-media-container">
+                            <a href="https://github.com/Obelem" target="_blank" class="social-links"><img src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png" class="social-icon"/></a>
+                            <a href="" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png" class="social-icon"/></a>
+                            <a href="www.linkedin.com/in/jessinspired" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon"/></a>
+                        </div>
                     </div>
                 </div>
                 <div class="img-wrapper">
-                    <img class="blur" src="{{ url_for('static', filename='img/Amara.jpg') }}">
+                    <img class="zoom gray" src="{{ url_for('static', filename='img/Amara.jpg') }}">
                     <div class="content slide-up">Hi guys! I'm Amara.. a Senior Process Engineer and highly 'REACTive' to front end development
-                        <div class="social-media-container">connect</div>
+                        <div class="social-media-container">
+                            <a href="https://github.com/amarapeace" class="social-links"><img src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png" class="social-icon"/></a>
+                            <a href="" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png" class="social-icon"/></a>
+                            <a href="https://www.linkedin.com/in/amara-onwunzo-peace" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon"/></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials">
-            <h1>What Our Clients Are Saying About Us</h1>
+        <section class="about-section">
+            <h1 class="section-header">About</h1>
+
+            <article>
+                <div class="content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quod rem dicta debitis laboriosam consequuntur aut, possimus hic culpa facilis, cupiditate minima iusto expedita molestiae obcaecati. Quos voluptatum quo, quod, saepe vitae, modi impedit quia a fugit veritatis nostrum sit!
+                </div>
+                <img src="{{ url_for('static', filename='img/about-img.jpg') }}" alt="about-img">
+            </article>
         </section>
 
         <footer class="footer">footer</footer>
