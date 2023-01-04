@@ -6,9 +6,7 @@
 }
 
 
-.team-section {
-    /* background: url('../backgrounds/wave-haikei (5).svg') no-repeat; */
-    background-size: cover;
+#team-section {
     background-color: #89CFF0;
     height: max-content;
     display: grid;

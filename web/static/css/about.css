@@ -1,25 +1,32 @@
-.about-section {
+#about-section {
     background-size: cover;
     min-height: 90vh;
     display: grid;
-    /* text-align: center; */
     align-items: center;
     align-content: center;
     font-family: 'Hind', sans-serif;
-    /* border: 2px solid black; */
+    list-style-position: inside;
 }
 
-.about-section > article {
-    display: grid;
-    grid-template-columns: 40% auto;
+#about-section > article {
+    display: flex;
+    flex-wrap: wrap-reverse;
     gap: 2rem;
     justify-content: center;
     align-items: center;
     /* border: 2px solid rebeccapurple; */
 }
 
-.about-section img {
+#about-section > article > .content {
+    width: 40%;
+}
+
+#about-section img {
     width: 20rem;
     height: 25rem;
     border-radius: 50%;
+}
+
+#about-section li {
+    font-weight: bold;
 }

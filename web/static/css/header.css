@@ -33,7 +33,12 @@
 }
 
 .primary-nav {
-    font-family: var(--buttonFontFamily);
+    font-family: 'Hind', sans-serif;
+}
+
+.middle-links {
+    display: flex;
+    column-gap: 2rem;
 }
 
 .authentication {

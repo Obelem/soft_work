@@ -4,7 +4,7 @@
     --freesia: #EFE7BC;
 }
 
-.services {
+#services-section {
     display: grid;
     place-content: center;
     text-align: center;
@@ -24,7 +24,7 @@
     /* border: 2px solid red; */
 }
 
-.services > .section-header {
+#services-section > .section-header {
     margin-top: 4rem;
 }
 
