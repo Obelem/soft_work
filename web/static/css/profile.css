@@ -151,3 +151,15 @@
         background-color: white;
     }
 }
+
+#submit {
+    background-color: aqua;
+    border-radius: 2rem;
+    padding: .5rem 2rem;
+}
+
+#submit:hover {
+    background-color: rgb(7, 68, 68);
+    cursor: pointer;
+    color: white;
+}
