@@ -26,3 +26,18 @@ def change_profile_pic(user_id):
             return jsonify({'success': True})
     
     return jsonify({'success': False})
+
+
+@app_views.route("/dp-name/<user_id>/<filename>", methods=["POST"])
+def change_dp_filename(user_id, filename):
+    if request.method == "POST":
+        user = storage.get("User", user_id)
+        if user:
+            user.profile_pic_name = filename
+            user.save()
+
+            return jsonify({"success": True})
+        
+        return jsonify({"success": False})
+    
+    return jsonify({"error": "method not allowed"})
