@@ -47,6 +47,27 @@ const uploadFile = () => {
     
     var fileName = username + "." + file.name.split(".")[1];
 
+    fetch(
+        `http://localhost:5000/api/v1/dp-name/${user_id}/${fileName}`,
+        {
+            method: 'POST'
+        }
+    )
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+        if (data.success === true) {
+            console.log("change effected");
+        }
+        else if (data.error === true) {
+            console.log("an error occured");
+        }
+        else {
+            console.log("change not effected");
+        }
+    });
+
     var albumPhotosKey = encodeURIComponent(albumName) + "/";
     var photoKey = albumPhotosKey + fileName;
 

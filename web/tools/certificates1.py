@@ -127,14 +127,18 @@ def save_to_aws(filename: str, folder=None):
 
     return False
 
-def get_aws_s3_link(name, folder=None):
+def get_aws_s3_link(name, folder=None, category=None):
     '''
     generate url of file with name from a folder in s3 bucket
 
     :param name: object key name
     :param folder: object's folder
     '''
-    object_name = name + ".png"
+    if category == "profile picture":
+        object_name = name
+    else:
+        object_name = name + ".png"
+        
     bucket_name = "fo-softwork-02"
     if folder:
         object_name = f"{folder}/{object_name}"

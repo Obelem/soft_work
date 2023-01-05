@@ -14,7 +14,8 @@ def profile_page():
     if not current_user.profile_pic:
         link = get_aws_s3_link("default", "dps")
     else:
-        link = get_aws_s3_link(current_user.username, "dps")
+        name = current_user.profile_pic_name
+        link = get_aws_s3_link(name, "dps", category="profile picture")
         current_user.profile_pic = True
         storage.save()
         
@@ -30,5 +31,3 @@ def profile_page():
         user_id = current_user.id,
         profile_pic = link
     )
-
-
