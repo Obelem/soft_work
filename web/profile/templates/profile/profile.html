@@ -55,18 +55,39 @@
                     <ul class="info">
                         <li>
                             <a href="{{ url_for('assessment_views.assessment_page', assessment_name=assessment.name) }}" class="start-test-btn" target="_blank">
-                                Start Assessment
+                                <button class="continue-application">
+                                    <div>
+                                        <div class="pencil"></div>
+                                        <div class="folder">
+                                            <div class="top">
+                                                <svg viewBox="0 0 24 27">
+                                                    <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="paper"></div>
+                                        </div>
+                                    </div>
+                                    Take Assessment
+                                </button>
                             </a>
                         </li>
-                        <li class="status">Status:
+                        <li class="status card-items">
+                            <img src="https://img.icons8.com/color/32/null/spinner-frame-5.png"/>
                             {% if status | attr(assessment.name) %}
                                 Completed
                             {% else %}
                                 Incomplete
                             {% endif %}
                         </li>
-                        <li><a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}" class="certificate_link" data-score="{{ score | attr(assessment.name) }}">View Certificate</a></li>
-                        <li>Score:
+                        <li>
+                            <a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}" class="certificate_link card-items" data-score="{{ score | attr(assessment.name) }}">
+                                <img src="https://img.icons8.com/fluency/32/null/certification.png"/>
+                                Certificate
+                            </a>
+                        </li>
+                        <li class="card-items">
+                            <img src="https://img.icons8.com/officel/32/null/test-failed.png"/>
+                            Score:
                             {% if score | attr(assessment.name) or (score | attr(assessment.name)) == 0 %}
                                 <span>{{ score | attr(assessment.name) }}</span>%
                             {% else %}
