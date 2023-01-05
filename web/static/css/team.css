@@ -3,11 +3,12 @@
 
 :root {
     --freesia: #EFE7BC;
+    --babyBlue: #89CFF0;
 }
 
 
 #team-section {
-    background-color: #89CFF0;
+    background-color: var(--babyBlue);
     height: max-content;
     display: grid;
     place-content: center;

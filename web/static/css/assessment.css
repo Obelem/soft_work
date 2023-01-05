@@ -38,14 +38,98 @@ li:nth-of-type(even) {
     font-weight: 500;
 }
 
+.options {
+    margin-top: .5rem;
+}
+
+.btns-container {
+    display: flex;
+    column-gap: 2rem;
+}
+
 button {
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid royalblue;
     border-radius: .5rem;
     padding: .5rem 1rem;
     cursor: pointer;
 }
 
-.options {
-    margin-top: .5rem;
+#reset {
+    transition: .2s ease-in-out;
+    width: 6rem;
+}
+
+#reset:hover {
+    transition: .2s ease-in-out;
+    letter-spacing: 2px;
+}
+
+#submit {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    color: white;
+    background-color: royalblue;
+    border: none;
+    letter-spacing: 0.05em;
+}
+
+#submit:hover {
+    transition: .2s ease-in-out;
+    background-color: #008351;
+}
+
+#submit svg {
+    margin-right: 3px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#submit span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#submit:hover svg {
+    transform: translateX(5px) rotate(90deg);
+}
+
+#submit:hover span {
+    transform: translateX(7px);
+}
+
+#back-to-profile-btn {
+    margin-top: 2rem;
+}
+
+#back-to-profile-btn {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #333;
+    color: white;
+    display: none;
+}
+
+   #back-to-profile-btn > svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+   }
+
+   #back-to-profile-btn:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+   }
+
+   #back-to-profile-btn:hover {
+    transform: translateY(-2px);
 }

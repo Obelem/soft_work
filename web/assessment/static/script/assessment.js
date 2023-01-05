@@ -48,7 +48,7 @@ answersForm.onsubmit = e => {
         radioButtons.forEach(radioButton => radioButton.disabled = true)
 
         delete user_choices[assessment_name]
-        $('#reset').hide(), $('#submit').hide()
+        $('#reset').hide(), $('#submit').hide(), $('#back-to-profile-btn').show().css('display', 'flex');
 
         const keys = Object.keys(correct_answers)
         keys.forEach(key => {
