@@ -1,7 +1,8 @@
 let assessment_name = $('#hidden').attr('name')
 let endpoint = `http://127.0.0.1:5000/assessment/${assessment_name}`
 let answersForm = document.querySelector('#answersForm')
-let displayed_result = false
+let displayed_result = false;
+
 
 document.onvisibilitychange = () => {
     if (!displayed_result)
@@ -33,6 +34,8 @@ answersForm.onsubmit = e => {
         statistics = report_card[0]
         correct_answers = report_card[1]
 
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
         $('.statistics').append(
             '<h2> Result </h2\
             <p>Total: ' + statistics.total + '</p>\
@@ -49,9 +52,13 @@ answersForm.onsubmit = e => {
 
         const keys = Object.keys(correct_answers)
         keys.forEach(key => {
-            if (correct_answers[key] === user_choices[key])
-                $(`#${key}`).text('Correct')
-            else $(`#${key}`).text(`Incorrect: ${correct_answers[key]}`)
+            if (correct_answers[key] === user_choices[key]) {
+                $(`#${key}`).css('color', 'green');
+                $(`#${key}`).text('Correct');
+                return
+            }
+            $(`#${key}`).css('color', 'red');
+            $(`#${key}`).text(`Incorrect: ${correct_answers[key]}`)
         });
         displayed_result = true
     })

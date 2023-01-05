@@ -5,8 +5,47 @@
 }
 
 * {
-    /* margin: 0;
-    padding: 0; */
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: var(--primaryFont);
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 2rem 3rem;
+}
+
+#answersForm {
+    max-width: 40rem;
+}
+
+li {
+    margin-top: 2rem;
+    padding: .5rem;
+    border-radius: .3rem;
+    box-shadow: 2px 2px 2px gray;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+li:nth-of-type(even) {
+    box-shadow: 2px 2px 2px gainsboro;
+}
+
+.correction {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+button {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.options {
+    margin-top: .5rem;
 }

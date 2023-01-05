@@ -23,19 +23,22 @@
                 <li>{{ question_bank.question }}</li>
 
                 {% for option in question_bank.options %}
-                    <div class>
+                    <div class="options">
                         <input type="radio" name="{{ question_bank.id }}" id="" value="{{ option }}">
                         <label for="question">{{ option }}</label>
                     </div>
                 {% endfor %}
-                <div id="{{ question_bank.id }}"></div>
+                <div id="{{ question_bank.id }}" class="correction"></div>
                 <input type="hidden" name="{{ current_assessment.name }}" value="{{ current_assessment.id }}" id="hidden">
 
             {% endfor %}
+        </ol>
+        <div>
             <button type="submit" id="submit">Submit</button>
             <button type="reset" id="reset">Refresh</button>
-        </ol>
+        </div>
     </form>
+
     <a href="http://127.0.0.1:5000/profile"><button>back to profile</button></a>
     <input type="hidden" name="assessment_name" value="{{ current_assessment.name }}">
 </body>
