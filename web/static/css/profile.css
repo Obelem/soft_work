@@ -75,13 +75,26 @@
     font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem);
 }
 
-.banner > img {
+.banner > div {
+    position: absolute;
     width: 12rem;
     height: 12rem;
-    border-radius: 50%;
     position: absolute;
     top: 30%;
-    left: 5%;
+    left: 4%;
+}
+
+#profile_pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.image-upload-icon {
+    position: absolute;
+    bottom: -12px;
+    right: 1.5rem;
+    cursor: pointer;
 }
 
 .main >  :not(:first-child) {
@@ -103,6 +116,115 @@
     color: slategrey;
 }
 
+/* .user-data .image-upload-btn {
+    font-size: 1rem;
+    border-radius: .5rem;
+    background-color: #2B3044;
+    cursor: pointer;
+    height: 4rem;
+    padding: 0 1rem;
+    color: white;
+} */
+
+.icon-btn {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #cdcdcd;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    transition: width 0.2s ease-in-out;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    width: 120px;
+}
+
+.add-btn::before,
+.add-btn::after {
+    transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 10px;
+    top: calc(50% - 2px);
+    background: seagreen;
+}
+
+.add-btn::after {
+    right: 14px;
+    overflow: hidden;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.add-btn::before {
+    left: 14px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.icon-btn:focus {
+    outline: none;
+}
+
+.btn-txt {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.add-btn:hover::before,
+.add-btn:hover::after {
+    width: 4px;
+    border-radius: 2px;
+}
+
+.add-btn:hover .btn-txt {
+    opacity: 1;
+}
+
+.add-icon::after,
+.add-icon::before {
+    transition: all 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 2px;
+    top: calc(50% - 10px);
+    background: seagreen;
+    overflow: hidden;
+}
+
+.add-icon::before {
+    left: 22px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.add-icon::after {
+    right: 22px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.add-btn:hover .add-icon::before {
+    left: 15px;
+    height: 4px;
+    top: calc(50% - 2px);
+}
+
+.add-btn:hover .add-icon::after {
+    right: 15px;
+    height: 4px;
+    top: calc(50% - 2px);
+}
+
+
+
 .assessment-container {
     border-top: 1px solid lightslategray;
     padding-top: 2rem;
@@ -123,9 +245,9 @@
     /* justify-items: center; */
     /* text-align: center; */
     row-gap: 2rem;
-    -webkit-box-shadow: 1px 0px 4px 1px rgba(211,211,211,1);
-    -moz-box-shadow: 1px 0px 4px 1px rgba(211,211,211,1);
-    box-shadow: 1px 0px 4px 1px rgba(211,211,211,1);
+    -webkit-box-shadow: 1px 0px 4px 1px rgba(211, 211, 211, 1);
+    -moz-box-shadow: 1px 0px 4px 1px rgba(211, 211, 211, 1);
+    box-shadow: 1px 0px 4px 1px rgba(211, 211, 211, 1);
     border-radius: .5rem;
     height: 20rem;
 }
@@ -182,7 +304,7 @@
     background: var(--background-left);
 }
 
-.continue-application  > div .folder {
+.continue-application > div .folder {
     width: 23px;
     height: 27px;
     position: absolute;
@@ -190,7 +312,7 @@
     top: 13px;
 }
 
-.continue-application  > div .folder .top {
+.continue-application > div .folder .top {
     left: 0;
     top: 0;
     z-index: 2;
@@ -199,7 +321,7 @@
     transition: transform 0.4s ease var(--fd, 0.3s);
 }
 
-.continue-application  > div .folder .top svg {
+.continue-application > div .folder .top svg {
     width: 24px;
     height: 27px;
     display: block;
@@ -209,9 +331,9 @@
     transform: perspective(120px) rotateY(var(--fr, 0deg));
 }
 
-.continue-application  > div .folder:before,
-.continue-application  > div .folder:after,
-.continue-application  > div .folder .paper {
+.continue-application > div .folder:before,
+.continue-application > div .folder:after,
+.continue-application > div .folder .paper {
     content: "";
     position: absolute;
     left: var(--l, 0);

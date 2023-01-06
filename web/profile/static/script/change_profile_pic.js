@@ -23,6 +23,9 @@ const s3 = new AWS.S3({
     secretAccessKey: SECRET
 });
 
+let selectImage = document.querySelector('#fileUpload');
+selectImage.onchange = () => uploadFile();
+
 const uploadFile = () => {
     // Read content from the file
     const albumName = "dps";
@@ -39,12 +42,12 @@ const uploadFile = () => {
     if (size > 1) {
         return alert("picture size should be less than 1mb");
     }
-        
+
     file_types = ["image/png", "image/jpeg", "image/jpg"];
 
     if (!file_types.includes(file.type))
         return alert("unsupported file type");
-    
+
     var fileName = username + "." + file.name.split(".")[1];
 
     fetch(
@@ -111,10 +114,10 @@ const uploadFile = () => {
                 console.log("user profile picture failed to modify");
             }
         });
-        
+
         console.log(`profile picture updated`);
     });
 };
 
 
-      
+
