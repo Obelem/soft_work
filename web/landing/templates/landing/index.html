@@ -8,8 +8,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
-
-    <link rel='shortcut icon' href="{{ url_for('static', filename='favicons/apple-touch-icon') }}" />
+    <link
+        rel='shortcut icon'
+        href="{{ url_for('static', filename='favicons/dark-favicon.png') }}"
+        media="(prefers-color-scheme: light)"
+    />
+    <link
+        rel='shortcut icon'
+        href="{{ url_for('static', filename='favicons/light-favicon.png') }}"
+        media="(prefers-color-scheme: dark)"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,7 +28,7 @@
     <div class="container">
         <header class="header">
             <nav class="primary-nav">
-                <a href="">Brandlogo</a>
+                <a href="" class="logo"></a>
                 <ul class="middle-links">
                     <a href="#">Blog</a>
                     <a href="#services-section">Services</a>

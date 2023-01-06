@@ -10,6 +10,17 @@
         {% endblock %}
     </title>
 
+    <link
+        rel='shortcut icon'
+        href="{{ url_for('static', filename='favicons/dark-favicon.png') }}"
+        media="(prefers-color-scheme: light)"
+    />
+    <link
+        rel='shortcut icon'
+        href="{{ url_for('static', filename='favicons/light-favicon.png') }}"
+        media="(prefers-color-scheme: dark)"
+    />
+
     <!-- Font Icon -->
     <link rel="stylesheet" href="{{ url_for('static', filename='fonts/material-icon/css/material-design-iconic-font.min.css') }}">
 
