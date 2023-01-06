@@ -25,15 +25,20 @@
 }
 
 .primary-nav {
+    margin-top: .5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100vw;
-    height: 4rem;
+    height: 5rem;
+    font-family: 'Hind', sans-serif;
 }
 
-.primary-nav {
-    font-family: 'Hind', sans-serif;
+.logo {
+    width: 4.5rem;
+    height: 4rem;
+    background: url('../logos/logo_large.png') no-repeat;
+    background-size: contain;
 }
 
 .middle-links {
