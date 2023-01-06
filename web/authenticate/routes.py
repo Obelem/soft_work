@@ -43,7 +43,7 @@ def login():
 
 @authenticate_views.route("/signup", methods=["GET", "POST"], strict_slashes=False)
 def signup():
-    if current_user:
+    if current_user.is_authenticated:
         return redirect(url_for("profile_views.profile_page"))
 
     if request.method == "POST":
@@ -114,4 +114,3 @@ def logout():
     user.save()
     logout_user()
     return redirect(url_for("landing_views.landing_page"))
-
