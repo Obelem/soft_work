@@ -1,0 +1,26 @@
+[2023-01-06 21:46:17 +0100] [4778] [INFO] Starting gunicorn 20.1.0
+[2023-01-06 21:46:17 +0100] [4778] [INFO] Listening at: http://0.0.0.0:5000 (4778)
+[2023-01-06 21:46:17 +0100] [4778] [INFO] Using worker: sync
+[2023-01-06 21:46:17 +0100] [4779] [INFO] Booting worker with pid: 4779
+[2023-01-06 21:46:17 +0100] [4780] [INFO] Booting worker with pid: 4780
+[2023-01-06 21:46:17 +0100] [4781] [INFO] Booting worker with pid: 4781
+[2023-01-06 21:47:58 +0100] [4778] [INFO] Handling signal: int
+[2023-01-06 21:47:58 +0100] [4779] [INFO] Worker exiting (pid: 4779)
+[2023-01-06 21:47:58 +0100] [4781] [INFO] Worker exiting (pid: 4781)
+[2023-01-06 21:47:58 +0100] [4780] [INFO] Worker exiting (pid: 4780)
+[2023-01-06 21:47:58 +0100] [4778] [WARNING] Worker with pid 4780 was terminated due to signal 2
+[2023-01-06 21:47:58 +0100] [4778] [WARNING] Worker with pid 4781 was terminated due to signal 2
+[2023-01-06 21:47:58 +0100] [4778] [WARNING] Worker with pid 4779 was terminated due to signal 2
+[2023-01-06 21:47:58 +0100] [4778] [INFO] Shutting down: Master
+[2023-01-06 21:48:52 +0100] [4909] [INFO] Starting gunicorn 20.1.0
+[2023-01-06 21:48:52 +0100] [4909] [INFO] Listening at: http://0.0.0.0:5000 (4909)
+[2023-01-06 21:48:52 +0100] [4909] [INFO] Using worker: sync
+[2023-01-06 21:48:52 +0100] [4911] [INFO] Booting worker with pid: 4911
+[2023-01-06 21:48:52 +0100] [4912] [INFO] Booting worker with pid: 4912
+[2023-01-06 21:48:52 +0100] [4913] [INFO] Booting worker with pid: 4913
+[2023-01-06 21:50:38 +0100] [4913] [INFO] Parent changed, shutting down: <Worker 4913>
+[2023-01-06 21:50:38 +0100] [4913] [INFO] Worker exiting (pid: 4913)
+[2023-01-06 21:50:40 +0100] [4911] [INFO] Parent changed, shutting down: <Worker 4911>
+[2023-01-06 21:50:40 +0100] [4911] [INFO] Worker exiting (pid: 4911)
+[2023-01-06 21:50:40 +0100] [4912] [INFO] Parent changed, shutting down: <Worker 4912>
+[2023-01-06 21:50:40 +0100] [4912] [INFO] Worker exiting (pid: 4912)
