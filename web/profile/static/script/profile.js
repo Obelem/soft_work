@@ -52,3 +52,20 @@ $('body').mouseover(event => {
         target.attr('title', 'Score 50% or above to generate certificate');
     }
 })
+
+$('#delete-account-link').click(e => {
+    e.preventDefault();
+
+    if (!confirm('Do you really want to leave?\nThis would wipe all your details from SoftWork'))
+        return;
+
+    fetch('http://127.0.0.1:5000/api/v1/delete_user', {
+        method: 'DELETE'
+    })
+    .then(res => { return res.json() } )
+    .then(userIs => {
+        if (userIs.deleted) {
+            window.location.replace('http://127.0.0.1:5000');
+        }
+    })
+})

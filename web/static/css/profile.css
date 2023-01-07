@@ -23,27 +23,22 @@
     display: none;
 }
 
+.container {
+    display: flex;
+}
+
 
 .side-nav {
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
     width: 15%;
     min-height: 100vh;
     row-gap: 2rem;
     text-align: center;
     border-right: 1px solid lightgray;
-    /* font-family: 'Shippori Antique B1', sans-serif; */
-}
-
-.container {
-    display: flex;
-}
-
-.side-nav {
-    display: grid;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: flex-start;
 }
 
 .side-nav > * {
@@ -60,15 +55,20 @@
 }
 
 .side-nav > a > img {
-    background-color: gainsboro;
+    /* background-color: gainsboro; */
     border-radius: .2rem;
+}
+
+#delete-account-link {
+    position: absolute;
+    justify-self: center;
+    bottom: 1.5rem;
 }
 
 .logo {
     margin-top: 1rem;
     width: 4.5rem;
     height: 4.5rem;
-    /* border: 1px solid black; */
     background: url('../logos/logo_large.png') no-repeat;
     background-size: contain;
 }
@@ -89,8 +89,6 @@
 
 .banner > h1 {
     color: blueviolet;
-    /* font-family: 'Dancing Script', cursive; */
-    /* font-family: 'Shippori Antique B1', sans-serif; */
     font-size: 2.5rem;
     font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem);
 }
@@ -230,7 +228,7 @@
         opacity: 0;
     }
 }
-
+/* end of image loader */
 
 .profile-pic {
     width: 100%;
@@ -263,16 +261,6 @@
     font-style: italic;
     color: slategrey;
 }
-
-/* .user-data .image-upload-btn {
-    font-size: 1rem;
-    border-radius: .5rem;
-    background-color: #2B3044;
-    cursor: pointer;
-    height: 4rem;
-    padding: 0 1rem;
-    color: white;
-} */
 
 .icon-btn {
     width: 50px;
