@@ -28,6 +28,9 @@ selectImage.onchange = () => uploadFile();
 
 const uploadFile = () => {
     // Read content from the file
+    $('.profile-pic').css('display', 'none');
+    $('.loader').css('display', 'block');
+
     const albumName = "dps";
     const username = document.getElementById('username').value;
     const user_id = document.getElementById('user_id').value;
@@ -93,7 +96,7 @@ const uploadFile = () => {
             Expires: 3600
         });
 
-        document.getElementById("profile_pic").src = url;
+        document.querySelector(".profile-pic").src = url;
 
         fetch(`http://localhost:5000/api/v1/dp_status/${user_id}`,
             {
@@ -114,6 +117,8 @@ const uploadFile = () => {
                 console.log("user profile picture failed to modify");
             }
         });
+        $('.profile-pic').css('display', 'block');
+        $('.loader').css('display', 'none');
 
         console.log(`profile picture updated`);
     });
