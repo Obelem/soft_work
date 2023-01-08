@@ -17,7 +17,7 @@ def get_url(data: dict) -> str:
     '''
     url = "https://api.canvas.switchboard.ai/"
     headers = {
-        "X-API-Key": "7197ce6c-469b-4b44-9377-b97ece965a68",
+        "X-API-Key": "aeae59cd-5e25-4224-b09f-7c6d75888f8c",
         "Content-Type": "application/json",
     }
 
