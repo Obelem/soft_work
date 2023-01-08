@@ -23,27 +23,22 @@
     display: none;
 }
 
+.container {
+    display: flex;
+}
+
 
 .side-nav {
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
     width: 15%;
     min-height: 100vh;
     row-gap: 2rem;
     text-align: center;
     border-right: 1px solid lightgray;
-    /* font-family: 'Shippori Antique B1', sans-serif; */
-}
-
-.container {
-    display: flex;
-}
-
-.side-nav {
-    display: grid;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: flex-start;
 }
 
 .side-nav > * {
@@ -60,15 +55,20 @@
 }
 
 .side-nav > a > img {
-    background-color: gainsboro;
+    /* background-color: gainsboro; */
     border-radius: .2rem;
+}
+
+#delete-account-link {
+    position: absolute;
+    justify-self: center;
+    bottom: 1.5rem;
 }
 
 .logo {
     margin-top: 1rem;
     width: 4.5rem;
     height: 4.5rem;
-    /* border: 1px solid black; */
     background: url('../logos/logo_large.png') no-repeat;
     background-size: contain;
 }
@@ -89,8 +89,6 @@
 
 .banner > h1 {
     color: blueviolet;
-    /* font-family: 'Dancing Script', cursive; */
-    /* font-family: 'Shippori Antique B1', sans-serif; */
     font-size: 2.5rem;
     font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem);
 }
@@ -104,7 +102,135 @@
     left: 4%;
 }
 
-#profile_pic {
+/* image loader style */
+.loader {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 6.250em;
+    height: 6.250em;
+    animation: rotate5123 2.4s linear infinite;
+    display: none;
+}
+
+.white {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    animation: flash 2.4s linear infinite;
+    opacity: 0;
+}
+
+.dot {
+    position: absolute;
+    margin: auto;
+    width: 2.4em;
+    height: 2.4em;
+    border-radius: 100%;
+    transition: all 1s ease;
+}
+
+.dot:nth-child(2) {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #FF4444;
+    animation: dotsY 2.4s linear infinite;
+}
+
+.dot:nth-child(3) {
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #FFBB33;
+    animation: dotsX 2.4s linear infinite;
+}
+
+.dot:nth-child(4) {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #99CC00;
+    animation: dotsY 2.4s linear infinite;
+}
+
+.dot:nth-child(5) {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #33B5E5;
+    animation: dotsX 2.4s linear infinite;
+}
+
+@keyframes rotate5123 {
+    0% {
+        transform: rotate(0);
+    }
+
+    10% {
+        width: 6.250em;
+        height: 6.250em;
+    }
+
+    66% {
+        width: 2.4em;
+        height: 2.4em;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width: 6.250em;
+        height: 6.250em;
+    }
+}
+
+@keyframes dotsY {
+    66% {
+        opacity: .1;
+        width: 2.4em;
+    }
+
+    77% {
+        opacity: 1;
+        width: 0;
+    }
+}
+
+@keyframes dotsX {
+    66% {
+        opacity: .1;
+        height: 2.4em;
+    }
+
+    77% {
+        opacity: 1;
+        height: 0;
+    }
+}
+
+@keyframes flash {
+    33% {
+        opacity: 0;
+        border-radius: 0%;
+    }
+
+    55% {
+        opacity: .6;
+        border-radius: 100%;
+    }
+
+    66% {
+        opacity: 0;
+    }
+}
+/* end of image loader */
+
+.profile-pic {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -117,7 +243,7 @@
     cursor: pointer;
 }
 
-.main >  :not(:first-child) {
+.main > :not(:first-child) {
     margin-left: 5%;
 }
 
@@ -135,16 +261,6 @@
     font-style: italic;
     color: slategrey;
 }
-
-/* .user-data .image-upload-btn {
-    font-size: 1rem;
-    border-radius: .5rem;
-    background-color: #2B3044;
-    cursor: pointer;
-    height: 4rem;
-    padding: 0 1rem;
-    color: white;
-} */
 
 .icon-btn {
     width: 50px;
