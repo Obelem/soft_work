@@ -1,10 +1,11 @@
-from flask import abort, jsonify, render_template, request, url_for
+from flask import abort, jsonify, render_template, request, url_for, flash, redirect
 from web.profile import profile_views
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user, login_user
 from models.user import User
 from models import storage
 
 from web.tools.certificates1 import get_aws_s3_link
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
@@ -18,7 +19,7 @@ def profile_page():
         link = get_aws_s3_link(name, "dps", category="profile picture")
         current_user.profile_pic = True
         storage.save()
-        
+
     return render_template(
         "profile/profile.html",
         first_name=current_user.first_name,
@@ -31,3 +32,42 @@ def profile_page():
         user_id = current_user.id,
         profile_pic = link
     )
+
+
+@profile_views.route("/edit", methods=['GET', 'POST'], strict_slashes=False)
+@login_required
+def edit_profile():
+    if request.method == 'GET':
+        return render_template('profile/edit-profile.html')
+
+    if request.method == 'POST':
+        '''edit user info'''
+        data = request.form.to_dict()
+
+        if data.get('password'):
+            if check_password_hash(current_user.password, data['password']):
+                data['password'] = generate_password_hash(data['new_password'])
+                del data['new_password']
+            else:
+                return jsonify('wrong password')
+                flash("Password incorrect")
+                return redirect(url_for('profile_views.edit_profile'))
+
+        if data.get('username') and storage.check_user(data['username']):
+            flash(f"Username is already chosen, try another one!")
+            return redirect(url_for("profile_views.edit_profile"))
+
+        if data['email'] and storage.check_email(data['email']):
+            flash(f"Email already exists, try another one")
+            return redirect(url_for("profile_views.edit_profile"))
+
+        for key, value in data.items():
+            if data[key]:
+                setattr(current_user, key, value)
+
+        current_user.save()
+
+        if data['username'] or data['password']:
+            login_user(current_user)
+
+        return redirect(url_for('profile_views.profile_page'))
