@@ -52,10 +52,6 @@ def edit_profile():
                 flash("Password incorrect")
                 return redirect(url_for('profile_views.edit_profile'))
 
-        if data.get('username') and storage.check_user(data['username']):
-            flash(f"Username is already chosen, try another one!")
-            return redirect(url_for("profile_views.edit_profile"))
-
         if data['email'] and storage.check_email(data['email']):
             flash(f"Email already exists, try another one")
             return redirect(url_for("profile_views.edit_profile"))
@@ -66,7 +62,7 @@ def edit_profile():
 
         current_user.save()
 
-        if data['username'] or data['password']:
+        if data['password']:
             login_user(current_user)
 
         return redirect(url_for('profile_views.profile_page'))
