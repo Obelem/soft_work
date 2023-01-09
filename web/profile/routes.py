@@ -49,7 +49,6 @@ def edit_profile():
                 data['password'] = generate_password_hash(data['new_password'])
                 del data['new_password']
             else:
-                return jsonify('wrong password')
                 flash("Password incorrect")
                 return redirect(url_for('profile_views.edit_profile'))
 
