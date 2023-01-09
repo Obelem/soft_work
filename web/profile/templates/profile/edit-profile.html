@@ -19,116 +19,122 @@
 </head>
 <body>
 
-    <form action="" method="post" id="edit-profile-form" action="{{ url_for('profile_views.edit_profile') }}">
-        <div class="wave-group">
-            <input type="text" class="input" id="first_name" name="first_name">
-            <span class="bar"></span>
-            <label for="first_name" class="label">
-              <span class="label-char" style="--index: 0">f</span>
-              <span class="label-char" style="--index: 1">i</span>
-              <span class="label-char" style="--index: 2">r</span>
-              <span class="label-char" style="--index: 3">s</span>
-              <span class="label-char" style="--index: 4">t</span>
-              <span class="label-char" style="--index: 5">&nbsp;</span>
-              <span class="label-char" style="--index: 6">n</span>
-              <span class="label-char" style="--index: 7">a</span>
-              <span class="label-char" style="--index: 8">m</span>
-              <span class="label-char" style="--index: 9">e</span>
-            </label>
-        </div>
+    <div class="wrapper">
+        <h1>Personal Info</h1>
 
-        <div class="wave-group">
-            <input type="text" class="input" id="last_name" name="last_name">
-            <span class="bar"></span>
-            <label for="last_name" class="label">
-              <span class="label-char" style="--index: 0">l</span>
-              <span class="label-char" style="--index: 1">a</span>
-              <span class="label-char" style="--index: 2">s</span>
-              <span class="label-char" style="--index: 3">t</span>
-              <span class="label-char" style="--index: 4">&nbsp;</span>
-              <span class="label-char" style="--index: 5">n</span>
-              <span class="label-char" style="--index: 6">a</span>
-              <span class="label-char" style="--index: 7">m</span>
-              <span class="label-char" style="--index: 8">e</span>
-            </label>
-        </div>
+        <form action="" method="post" id="edit-profile-form" action="{{ url_for('profile_views.edit_profile') }}">
+            <a class="form-logo" href="http://127.0.0.1:5000/" class="form-logo"></a>
 
-        <div class="wave-group">
-            <input type="text" class="input" id="middle_name" name="middle_name">
-            <span class="bar"></span>
-            <label for="middle_name" class="label">
-              <span class="label-char" style="--index: 0">m</span>
-              <span class="label-char" style="--index: 1">i</span>
-              <span class="label-char" style="--index: 2">d</span>
-              <span class="label-char" style="--index: 3">d</span>
-              <span class="label-char" style="--index: 4">l</span>
-              <span class="label-char" style="--index: 5">e</span>
-              <span class="label-char" style="--index: 6">&nbsp;</span>
-              <span class="label-char" style="--index: 7">n</span>
-              <span class="label-char" style="--index: 8">a</span>
-              <span class="label-char" style="--index: 9">m</span>
-              <span class="label-char" style="--index: 10">e</span>
-            </label>
-        </div>
-
-        <div class="wave-group">
-            <input type="text" class="input" id="email" name="email">
-            <span class="bar"></span>
-            <label for="email" class="label">
-              <span class="label-char" style="--index: 0">e</span>
-              <span class="label-char" style="--index: 1">m</span>
-              <span class="label-char" style="--index: 2">a</span>
-              <span class="label-char" style="--index: 3">i</span>
-              <span class="label-char" style="--index: 4">l</span>
-            </label>
-        </div>
-
-        <div class="wave-group">
-            <input type="password" class="input" id="password" name="password">
-            <span class="bar"></span>
-            <label for="password" class="label">
-              <span class="label-char" style="--index: 0">p</span>
-              <span class="label-char" style="--index: 1">a</span>
-              <span class="label-char" style="--index: 2">s</span>
-              <span class="label-char" style="--index: 3">s</span>
-              <span class="label-char" style="--index: 4">w</span>
-              <span class="label-char" style="--index: 5">o</span>
-              <span class="label-char" style="--index: 6">r</span>
-              <span class="label-char" style="--index: 7">d</span>
-            </label>
-        </div>
-
-        <div class="wave-group">
-            <input type="password" class="input" id="new_password" name="new_password">
-            <span class="bar"></span>
-            <label for="new_password" class="label">
-              <span class="label-char" style="--index: 0">n</span>
-              <span class="label-char" style="--index: 1">e</span>
-              <span class="label-char" style="--index: 2">w</span>
-              <span class="label-char" style="--index: 3">&nbsp;</span>
-              <span class="label-char" style="--index: 4">p</span>
-              <span class="label-char" style="--index: 5">a</span>
-              <span class="label-char" style="--index: 6">s</span>
-              <span class="label-char" style="--index: 7">s</span>
-              <span class="label-char" style="--index: 8">w</span>
-              <span class="label-char" style="--index: 9">o</span>
-              <span class="label-char" style="--index: 10">r</span>
-              <span class="label-char" style="--index: 11">d</span>
-            </label>
-        </div>
-
-        <button>
-            <div class="svg-wrapper-1">
-              <div class="svg-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                </svg>
-              </div>
+            <div class="wave-group">
+                <input type="text" class="input" id="first_name" name="first_name">
+                <span class="bar"></span>
+                <label for="first_name" class="label">
+                  <span class="label-char" style="--index: 0">f</span>
+                  <span class="label-char" style="--index: 1">i</span>
+                  <span class="label-char" style="--index: 2">r</span>
+                  <span class="label-char" style="--index: 3">s</span>
+                  <span class="label-char" style="--index: 4">t</span>
+                  <span class="label-char" style="--index: 5">&nbsp;</span>
+                  <span class="label-char" style="--index: 6">n</span>
+                  <span class="label-char" style="--index: 7">a</span>
+                  <span class="label-char" style="--index: 8">m</span>
+                  <span class="label-char" style="--index: 9">e</span>
+                </label>
             </div>
-            <span>Submit</span>
-        </button>
-    </form>
+
+            <div class="wave-group">
+                <input type="text" class="input" id="last_name" name="last_name">
+                <span class="bar"></span>
+                <label for="last_name" class="label">
+                  <span class="label-char" style="--index: 0">l</span>
+                  <span class="label-char" style="--index: 1">a</span>
+                  <span class="label-char" style="--index: 2">s</span>
+                  <span class="label-char" style="--index: 3">t</span>
+                  <span class="label-char" style="--index: 4">&nbsp;</span>
+                  <span class="label-char" style="--index: 5">n</span>
+                  <span class="label-char" style="--index: 6">a</span>
+                  <span class="label-char" style="--index: 7">m</span>
+                  <span class="label-char" style="--index: 8">e</span>
+                </label>
+            </div>
+
+            <div class="wave-group">
+                <input type="text" class="input" id="middle_name" name="middle_name">
+                <span class="bar"></span>
+                <label for="middle_name" class="label">
+                  <span class="label-char" style="--index: 0">m</span>
+                  <span class="label-char" style="--index: 1">i</span>
+                  <span class="label-char" style="--index: 2">d</span>
+                  <span class="label-char" style="--index: 3">d</span>
+                  <span class="label-char" style="--index: 4">l</span>
+                  <span class="label-char" style="--index: 5">e</span>
+                  <span class="label-char" style="--index: 6">&nbsp;</span>
+                  <span class="label-char" style="--index: 7">n</span>
+                  <span class="label-char" style="--index: 8">a</span>
+                  <span class="label-char" style="--index: 9">m</span>
+                  <span class="label-char" style="--index: 10">e</span>
+                </label>
+            </div>
+
+            <div class="wave-group">
+                <input type="text" class="input" id="email" name="email">
+                <span class="bar"></span>
+                <label for="email" class="label">
+                  <span class="label-char" style="--index: 0">e</span>
+                  <span class="label-char" style="--index: 1">m</span>
+                  <span class="label-char" style="--index: 2">a</span>
+                  <span class="label-char" style="--index: 3">i</span>
+                  <span class="label-char" style="--index: 4">l</span>
+                </label>
+            </div>
+
+            <div class="wave-group">
+                <input type="password" class="input" id="password" name="password">
+                <span class="bar"></span>
+                <label for="password" class="label">
+                  <span class="label-char" style="--index: 0">p</span>
+                  <span class="label-char" style="--index: 1">a</span>
+                  <span class="label-char" style="--index: 2">s</span>
+                  <span class="label-char" style="--index: 3">s</span>
+                  <span class="label-char" style="--index: 4">w</span>
+                  <span class="label-char" style="--index: 5">o</span>
+                  <span class="label-char" style="--index: 6">r</span>
+                  <span class="label-char" style="--index: 7">d</span>
+                </label>
+            </div>
+
+            <div class="wave-group">
+                <input type="password" class="input" id="new_password" name="new_password">
+                <span class="bar"></span>
+                <label for="new_password" class="label">
+                  <span class="label-char" style="--index: 0">n</span>
+                  <span class="label-char" style="--index: 1">e</span>
+                  <span class="label-char" style="--index: 2">w</span>
+                  <span class="label-char" style="--index: 3">&nbsp;</span>
+                  <span class="label-char" style="--index: 4">p</span>
+                  <span class="label-char" style="--index: 5">a</span>
+                  <span class="label-char" style="--index: 6">s</span>
+                  <span class="label-char" style="--index: 7">s</span>
+                  <span class="label-char" style="--index: 8">w</span>
+                  <span class="label-char" style="--index: 9">o</span>
+                  <span class="label-char" style="--index: 10">r</span>
+                  <span class="label-char" style="--index: 11">d</span>
+                </label>
+            </div>
+
+            <button>
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span>Submit</span>
+            </button>
+        </form>
+    </div>
 
 </body>
 </html>

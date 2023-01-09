@@ -1,53 +1,77 @@
-{% extends 'authenticate/base.html' %}
-{% block title %}
-    Login Page
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-<section class="sign-in">
-    <div class="container">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}
-            </div>
-        {% endif %}
-        {% endwith %}
-        <div class="signin-content">
-            <div class="signin-image">
-                <figure><img src="{{ url_for('static', filename='img/signin-image.jpg') }}" alt="sing up image"></figure>
-                <a href="{{ url_for('authenticate_views.signup') }}" class="signup-image-link">Create an account</a>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit-profile.css') }}">
+    <link rel='shortcut icon' href="{{ url_for('static', filename='favicons/dark-favicon.png') }}"
+        media="(prefers-color-scheme: light)" />
+    <link rel='shortcut icon' href="{{ url_for('static', filename='favicons/light-favicon.png') }}"
+        media="(prefers-color-scheme: dark)" />
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Sign In</h1>
+
+        <form action="" method="post" id="signin-form" action="{{ url_for('authenticate_views.login') }}">
+            <a class="form-logo" href="http://127.0.0.1:5000/" class="form-logo"></a>
+
+            <div class="wave-group">
+                <input required type="text" class="input" id="username" name="username">
+                <span class="bar"></span>
+                <label for="username" class="label">
+                    <span class="label-char" style="--index: 0">u</span>
+                    <span class="label-char" style="--index: 1">s</span>
+                    <span class="label-char" style="--index: 2">e</span>
+                    <span class="label-char" style="--index: 3">r</span>
+                    <span class="label-char" style="--index: 4">n</span>
+                    <span class="label-char" style="--index: 4">a</span>
+                    <span class="label-char" style="--index: 4">m</span>
+                    <span class="label-char" style="--index: 4">e</span>
+                </label>
             </div>
 
-            <div class="signin-form">
-                <h2 class="form-title">Sign In</h2>
-                <form method="POST" class="register-form" id="login-form" action="{{ url_for('authenticate_views.login') }}">
-                    <div class="form-group">
-                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="username" id="your_name" placeholder="Your Name"/>
+            <div class="wave-group">
+                <input required type="password" class="input" id="password" name="password">
+                <span class="bar"></span>
+                <label for="password" class="label">
+                    <span class="label-char" style="--index: 0">p</span>
+                    <span class="label-char" style="--index: 1">a</span>
+                    <span class="label-char" style="--index: 2">s</span>
+                    <span class="label-char" style="--index: 3">s</span>
+                    <span class="label-char" style="--index: 4">w</span>
+                    <span class="label-char" style="--index: 5">o</span>
+                    <span class="label-char" style="--index: 6">r</span>
+                    <span class="label-char" style="--index: 7">d</span>
+                </label>
+            </div>
+
+            <button type="submit">
+                <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path fill="currentColor"
+                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                            </path>
+                        </svg>
                     </div>
-                    <div class="form-group">
-                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" name="password" id="your_pass" placeholder="Password"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                        <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                    </div>
-                    <div class="form-group form-button">
-                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
-                    </div>
-                </form>
-                <div class="social-login">
-                    <span class="social-label">Or login with</span>
-                    <ul class="socials">
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                    </ul>
                 </div>
-            </div>
-        </div>
+                <span>Submit</span>
+            </button>
+        </form>
     </div>
-</section>
-{% endblock %}
+
+    <script src="/web/authenticate/static/script/auth.js"></script>
+    <!-- <script src="{{ url_for('authenticate_views.static', filename='script/auth.js') }}" defer></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</body>
+
+</html>

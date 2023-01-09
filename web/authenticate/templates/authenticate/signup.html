@@ -1,66 +1,161 @@
-{% extends 'authenticate/base.html' %}
-{% block title %}
-    Signup Page
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit-profile.css') }}">
+    <link
+        rel='shortcut icon'
+        href="{{ url_for('static', filename='favicons/dark-favicon.png') }}"
+        media="(prefers-color-scheme: light)"
+    />
+    <link
+        rel='shortcut icon'
+        href="{{ url_for('static', filename='favicons/light-favicon.png') }}"
+        media="(prefers-color-scheme: dark)"
+    />
 
-{% block content %}
-<section class="signup">
-    <div class="container">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}
-            </div>
-        {% endif %}
-        {% endwith %}
-        <div class="signup-content">
-            <div class="signup-form">
-                <h2 class="form-title">Sign up</h2>
-                <form method="POST" class="register-form" id="register-form" action="{{ url_for('authenticate_views.signup') }}">
-                    <div class="form-group">
-                        <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="middle_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="middle_name" id="middle_name" placeholder="Enter Middlename"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname"/>
-                    </div>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
 
-                    <div class="form-group">
-                        <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="username" id="user_name" placeholder="Choose a username"/>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email"><i class="zmdi zmdi-email"></i></label>
-                        <input type="email" name="email" id="email" placeholder="Your Email"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" name="password" id="password" placeholder="Password"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="re-password"><i class="zmdi zmdi-lock-outline"></i></label>
-                        <input type="password" name="re_password" id="re_password" placeholder="Repeat your password"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                    </div>
-                    <div class="form-group form-button">
-                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-                    </div>
-                </form>
+<body>
+    <div class="wrapper">
+        <h1>Sign Up</h1>
+
+        <form action="" method="post" id="signup-form" action="{{ url_for('authenticate_views.signup') }}">
+            <a class="form-logo" href="http://127.0.0.1:5000/" class="form-logo"></a>
+
+            <div class="wave-group">
+                <input required type="text" class="input" id="first_name" name="first_name">
+                <span class="bar"></span>
+                <label for="first_name" class="label">
+                <span class="label-char" style="--index: 0">f</span>
+                <span class="label-char" style="--index: 1">i</span>
+                <span class="label-char" style="--index: 2">r</span>
+                <span class="label-char" style="--index: 3">s</span>
+                <span class="label-char" style="--index: 4">t</span>
+                <span class="label-char" style="--index: 5">&nbsp;</span>
+                <span class="label-char" style="--index: 6">n</span>
+                <span class="label-char" style="--index: 7">a</span>
+                <span class="label-char" style="--index: 8">m</span>
+                <span class="label-char" style="--index: 9">e</span>
+                </label>
             </div>
-            <div class="signup-image">
-                <figure><img src="{{ url_for('static', filename='img/signup-image.jpg') }}" alt="sing up image"></figure>
-                <a href="{{ url_for('authenticate_views.login') }}" class="signup-image-link">I am already member</a>
+
+            <div class="wave-group">
+                <input required type="text" class="input" id="last_name" name="last_name">
+                <span class="bar"></span>
+                <label for="last_name" class="label">
+                <span class="label-char" style="--index: 0">l</span>
+                <span class="label-char" style="--index: 1">a</span>
+                <span class="label-char" style="--index: 2">s</span>
+                <span class="label-char" style="--index: 3">t</span>
+                <span class="label-char" style="--index: 4">&nbsp;</span>
+                <span class="label-char" style="--index: 5">n</span>
+                <span class="label-char" style="--index: 6">a</span>
+                <span class="label-char" style="--index: 7">m</span>
+                <span class="label-char" style="--index: 8">e</span>
+                </label>
             </div>
-        </div>
+
+            <div class="wave-group">
+                <input type="text" class="input" id="middle_name" name="middle_name">
+                <span class="bar"></span>
+                <label for="middle_name" class="label">
+                <span class="label-char" style="--index: 0">m</span>
+                <span class="label-char" style="--index: 1">i</span>
+                <span class="label-char" style="--index: 2">d</span>
+                <span class="label-char" style="--index: 3">d</span>
+                <span class="label-char" style="--index: 4">l</span>
+                <span class="label-char" style="--index: 5">e</span>
+                <span class="label-char" style="--index: 6">&nbsp;</span>
+                <span class="label-char" style="--index: 7">n</span>
+                <span class="label-char" style="--index: 8">a</span>
+                <span class="label-char" style="--index: 9">m</span>
+                <span class="label-char" style="--index: 10">e</span>
+                </label>
+            </div>
+
+            <div class="wave-group">
+                <input required type="" class="input" id="email" name="email">
+                <span class="bar"></span>
+                <label for="email" class="label">
+                <span class="label-char" style="--index: 0">e</span>
+                <span class="label-char" style="--index: 1">m</span>
+                <span class="label-char" style="--index: 2">a</span>
+                <span class="label-char" style="--index: 3">i</span>
+                <span class="label-char" style="--index: 4">l</span>
+                </label>
+            </div>
+
+            <div class="wave-group">
+                <input required type="text" class="input" id="username" name="username">
+                <span class="bar"></span>
+                <label for="username" class="label">
+                <span class="label-char" style="--index: 0">u</span>
+                <span class="label-char" style="--index: 1">s</span>
+                <span class="label-char" style="--index: 2">e</span>
+                <span class="label-char" style="--index: 3">r</span>
+                <span class="label-char" style="--index: 4">n</span>
+                <span class="label-char" style="--index: 4">a</span>
+                <span class="label-char" style="--index: 4">m</span>
+                <span class="label-char" style="--index: 4">e</span>
+                </label>
+            </div>
+
+            <div class="wave-group">
+                <input required type="password" class="input" id="password" name="password">
+                <span class="bar"></span>
+                <label for="password" class="label">
+                <span class="label-char" style="--index: 0">p</span>
+                <span class="label-char" style="--index: 1">a</span>
+                <span class="label-char" style="--index: 2">s</span>
+                <span class="label-char" style="--index: 3">s</span>
+                <span class="label-char" style="--index: 4">w</span>
+                <span class="label-char" style="--index: 5">o</span>
+                <span class="label-char" style="--index: 6">r</span>
+                <span class="label-char" style="--index: 7">d</span>
+                </label>
+            </div>
+
+            <div class="wave-group">
+                <input required type="password" class="input" id="re_password" name="re_password" value="">
+                <span class="bar"></span>
+                <label for="re_password" class="label">
+                <span class="label-char" style="--index: 0">r</span>
+                <span class="label-char" style="--index: 1">e</span>
+                <span class="label-char" style="--index: 2">&nbsp;</span>
+                <span class="label-char" style="--index: 3">p</span>
+                <span class="label-char" style="--index: 4">a</span>
+                <span class="label-char" style="--index: 5">s</span>
+                <span class="label-char" style="--index: 6">s</span>
+                <span class="label-char" style="--index: 7">w</span>
+                <span class="label-char" style="--index: 8">o</span>
+                <span class="label-char" style="--index: 9">r</span>
+                <span class="label-char" style="--index: 10">d</span>
+                </label>
+            </div>
+
+            <button type="submit">
+                <div class="svg-wrapper-1">
+                <div class="svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                    </svg>
+                </div>
+                </div>
+                <span>Submit</span>
+            </button>
+
+        </form>
     </div>
-</section>
-{% endblock %}
+
+    <script src="/web/authenticate/static/script/auth.js"></script>
+    <!-- <script src="{{ url_for('authenticate_views.static', filename='script/auth.js') }}" defer></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</body>
+</html>

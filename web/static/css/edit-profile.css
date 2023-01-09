@@ -23,22 +23,41 @@
 
 body {
     overflow-x: hidden;
-    display: flex;
-    min-height: 100vh;
+    background-color: ghostwhite;
+}
+
+.wrapper {
+    /* background-color: #152A5F; */
+    margin-top: 2rem;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 1rem;
 }
 
 form {
+    background-color: white;
+    position: relative;
     display: grid;
     justify-content: center;
-    row-gap: 1.5rem;
-    width: 20rem;
-    min-height: 20rem;
-    margin: auto;
-    padding: 2rem 0;
+    row-gap: 1rem;
+    width: 22rem;
+    /* min-height: rem; */
+    padding: 1rem 0 1rem 0;
     border-radius: .8rem;
     -webkit-box-shadow: 1px 0px 4px 1px rgba(211, 211, 211, 1);
     -moz-box-shadow: 1px 0px 4px 1px rgba(211, 211, 211, 1);
     box-shadow: 1px 0px 4px 1px rgba(211, 211, 211, 1);
+}
+
+.form-logo {
+    cursor: pointer;
+    justify-self: center;
+    width: 4rem;
+    height: 4rem;
+    background: url('../logos/logo_large.png') no-repeat;
+    background-size: contain;
 }
 
 
@@ -133,6 +152,7 @@ button {
     width: max-content;
     justify-self: center;
     cursor: pointer;
+    height: 2.5rem;
   }
 
   button span {
