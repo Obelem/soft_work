@@ -10,8 +10,8 @@ from models import storage
                 strict_slashes=False)
 @login_required
 def delete_user():
+    logout_user()
     storage.delete(current_user)
-
     storage.save()
 
     return jsonify({'deleted': True})
