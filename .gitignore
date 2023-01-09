@@ -1,6 +1,5 @@
 package.json
 err
 __pycache__
-*.png
 Pipfile.lock
 uploads/*
