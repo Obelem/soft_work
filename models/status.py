@@ -10,8 +10,8 @@ class Status(BaseModel, Base):
     __tablename__ = 'status'
 
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-    listening_skills = Column(String(60))
-    communication_skills = Column(String(60))
-    critical_thinking = Column(String(60))
+    listening_skills = Column(Boolean, default=False)
+    communication_skills = Column(Boolean, default=False)
+    critical_thinking = Column(Boolean, default=False)
 
     user = relationship('User', back_populates='status')
