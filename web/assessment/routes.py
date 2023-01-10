@@ -57,7 +57,7 @@ def assessment_page(assessment_name):
         total = len(assessment.questions)
         percent_score = round((score / total) * 100, 2)
 
-        setattr(current_user.status, assessment.name, 'done')
+        setattr(current_user.status, assessment.name, True)
 
         setattr(current_user.score, assessment.name, percent_score)
 

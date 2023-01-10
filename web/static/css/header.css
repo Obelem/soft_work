@@ -3,16 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
 
 :root {
-    /* font familys */
     --headerFontFamily: 'Playfair Display', serif;
     --buttonFontFamily: 'Baumans', cursive;
 
-    /* font weights */
     --weight600: 600;
 
-    /* colors */
     --aquaGreen: aqua;
     --purple: rgba(177, 122, 231, 0.904);
+    --brandBlue: #152A5F;
+    --brandGreen: #337F61;
 }
 
 
