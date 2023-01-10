@@ -1,5 +1,5 @@
 let assessment_name = $('#hidden').attr('name')
-let endpoint = `http://52.202.82.247:5000/assessment/${assessment_name}`
+let endpoint = `http://rabahk.tk/assessment/${assessment_name}`
 let answersForm = document.querySelector('#answersForm')
 let displayed_result = false;
 
