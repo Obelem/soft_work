@@ -54,7 +54,7 @@ const uploadFile = () => {
     var fileName = username + "." + file.name.split(".")[1];
 
     fetch(
-        `http://localhost:5000/api/v1/dp-name/${user_id}/${fileName}`,
+        `http://52.202.82.247:5000/api/v1/dp-name/${user_id}/${fileName}`,
         {
             method: 'POST'
         }
@@ -98,7 +98,7 @@ const uploadFile = () => {
 
         document.querySelector(".profile-pic").src = url;
 
-        fetch(`http://localhost:5000/api/v1/dp_status/${user_id}`,
+        fetch(`http://52.202.82.247:5000/api/v1/dp_status/${user_id}`,
             {
                 method: 'POST',
                 headers: {
