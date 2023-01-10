@@ -3,3 +3,4 @@ err
 __pycache__
 Pipfile.lock
 uploads/*
+softwork.sock
