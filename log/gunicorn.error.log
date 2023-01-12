@@ -979,3 +979,81 @@ sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denie
 [2023-01-10 09:21:34 +0000] [5823] [INFO] Booting worker with pid: 5823
 [2023-01-10 09:21:34 +0000] [5824] [INFO] Booting worker with pid: 5824
 [2023-01-10 09:21:34 +0000] [5825] [INFO] Booting worker with pid: 5825
+[2023-01-12 10:19:25 +0000] [1630] [INFO] Starting gunicorn 20.1.0
+[2023-01-12 10:19:25 +0000] [1630] [INFO] Listening at: unix:softwork.sock (1630)
+[2023-01-12 10:19:25 +0000] [1630] [INFO] Using worker: sync
+[2023-01-12 10:19:25 +0000] [1632] [INFO] Booting worker with pid: 1632
+[2023-01-12 10:19:25 +0000] [1633] [INFO] Booting worker with pid: 1633
+[2023-01-12 10:19:25 +0000] [1634] [INFO] Booting worker with pid: 1634
+[2023-01-12 10:51:16,891] ERROR in app: Exception on /api/v1/status/b23a1e0c-7192-4b3f-94cf-45c5efc4d7d5 [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/soft_work/web/api/v1/views/status.py", line 13, in get_status
+    status = user.status
+AttributeError: 'NoneType' object has no attribute 'status'
+[2023-01-12 10:51:17,338] ERROR in app: Exception on /api/v1/status/b23a1e0c-7192-4b3f-94cf-45c5efc4d7d5 [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/soft_work/web/api/v1/views/status.py", line 13, in get_status
+    status = user.status
+AttributeError: 'NoneType' object has no attribute 'status'
+[2023-01-12 10:53:55,946] ERROR in app: Exception on /assessment/creative_thinking [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/ubuntu/soft_work/web/assessment/routes.py", line 15, in assessment_page
+    if getattr(current_user.status, assessment_name):
+AttributeError: 'Status' object has no attribute 'creative_thinking'
+[2023-01-12 10:54:58,980] ERROR in app: Exception on /assessment/creative_thinking [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/ubuntu/soft_work/web/assessment/routes.py", line 15, in assessment_page
+    if getattr(current_user.status, assessment_name):
+AttributeError: 'Status' object has no attribute 'creative_thinking'
+[2023-01-12 11:03:45 +0000] [1630] [INFO] Handling signal: term
+[2023-01-12 11:03:45 +0000] [1632] [INFO] Worker exiting (pid: 1632)
+[2023-01-12 11:03:45 +0000] [1633] [INFO] Worker exiting (pid: 1633)
+[2023-01-12 11:03:45 +0000] [1634] [INFO] Worker exiting (pid: 1634)
+[2023-01-12 11:03:45 +0000] [1630] [WARNING] Worker with pid 1633 was terminated due to signal 15
+[2023-01-12 11:03:45 +0000] [1630] [WARNING] Worker with pid 1632 was terminated due to signal 15
+[2023-01-12 11:03:45 +0000] [1630] [WARNING] Worker with pid 1634 was terminated due to signal 15
+[2023-01-12 11:03:45 +0000] [1630] [INFO] Shutting down: Master
