@@ -1,27 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+@keyframes background-pan {
+    from {
+        background-position: 0% center;
+    }
 
-:root {
-    /* font familys */
-    --headerFontFamily: 'Playfair Display', serif;
-    --buttonFontFamily: 'Baumans', cursive;
+    to {
+        background-position: -200% center;
+    }
+}
 
-    /* font weights */
-    --weight600: 600;
+@keyframes scale {
 
-    /* colors */
-    --aquaGreen: aqua;
-    --purple: rgba(177, 122, 231, 0.904);
+    from,
+    to {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
 }
 
 
 /* header style */
 .header {
+    /* position: relative; */
     display: grid;
     justify-items: center;
     row-gap: 4rem;
-    background-color: #faebd7;
+    background-color: var(--lightSalmon);
+    overflow-x: hidden;
 }
 
 .primary-nav {
@@ -31,7 +48,7 @@
     align-items: center;
     width: 100vw;
     height: 5rem;
-    font-family: 'Hind', sans-serif;
+    font-family: var(--primaryFont);
 }
 
 .logo {
@@ -48,29 +65,106 @@
 
 .authentication {
     display: flex;
-    column-gap: 2rem;
+    align-items: center;
+    column-gap: 1rem;
     position: relative;
+
+    color: black;
 }
 
 .authentication>* {
-    font-family: var(--buttonFontFamily);
+    font-family: var(--primaryFont);
     font-weight: var(--weight600);
-    font-size: 1rem;
-    padding: .5rem 1rem;
+    font-size: .8rem;
     border-radius: 8rem;
     cursor: pointer;
+    /* border: 1px solid black; */
 }
 
-.forms {
-    padding: 0;
-    cursor: default;
+.sign-in-btn {
+    display: flex;
+    align-items: center;
 }
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+    /* border: 1px solid saddlebrown; */
+}
+
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background-image: linear-gradient(to right bottom, #337f61, #006e6d, #005a75, #004372, #152a5f);
+    width: 45px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.cta span {
+    position: relative;
+    /* font-family: "Ubuntu", sans-serif; */
+    font-size: inherit;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    /* color: #234567; */
+}
+
+.cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #152A5F;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+    width: 100%;
+    background: #152A5F;
+    background-image: linear-gradient(to right bottom, #337f61, #006e6d, #005a75, #004372, #152a5f);
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active {
+    transform: scale(0.95);
+}
+
+
 
 .sign-up-btn {
-    background-color: var(--purple);
+    display: grid;
+    place-items: center;
+    width: 6rem;
+    height: 40px;
+    border: 2px solid;
+    border-image: linear-gradient(to right bottom, #337f61, #006e6d, #005a75, #004372, #152a5f) 1;
+    transition: .2s ease-in-out;
+    border-radius: 0;
 }
 
-.sign-up-btn:hover~.forms>.sign-up,
+.sign-up-btn:hover {
+    /* background-image: linear-gradient(to right bottom, #337f61, #006e6d, #005a75, #004372, #152a5f); */
+    color: var(--brandBlue);
+    transition: .2s ease-in-out;
+}
+
+/* .sign-up-btn:hover~.forms>.sign-up,
 .sign-up:hover {
     z-index: 1;
     display: grid;
@@ -80,21 +174,31 @@
 .sign-in:hover {
     z-index: 1;
     display: grid;
-}
+} */
 
 
 .header-text {
+    position: relative;
     display: grid;
     justify-content: center;
     justify-items: center;
     row-gap: 1.5rem;
     text-transform: capitalize;
     font-family: var(--headerFontFamily);
-    font-size: clamp(1.5rem, 4vw + .8rem, 3rem);
+    font-size: clamp(1.5rem, 5vw + .8rem, 3rem);
     word-spacing: .5rem;
     font-weight: 500;
     width: 50vw;
     margin: 0 auto;
+}
+
+.header-text>svg {
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    width: 5rem;
+    width: 5rem;
+    opacity: .6;
 }
 
 .header-text>span {
@@ -105,7 +209,7 @@
     width: 10rem;
 }
 
-.header > .image-gallery {
+.header>.image-gallery {
     display: flex;
     column-gap: 1rem;
     justify-content: space-evenly;
@@ -113,9 +217,46 @@
     overflow-x: hidden;
 }
 
-.underline {
+.shiny {
+    display: inline-block;
     position: relative;
-    /* border: 1px solid black; */
+}
+
+.shiny>.star {
+    --size: clamp(20px, 1.5vw, 30px);
+
+    animation: scale 700ms ease forwards;
+
+    /* height: 20rem; */
+
+    display: block;
+    height: var(--size);
+    left: var(--star-left);
+    position: absolute;
+
+    top: var(--star-top);
+    width: var(--size);
+}
+
+.shiny>.star>svg {
+    animation: rotate 1000ms linear infinite;
+    display: block;
+    opacity: .7;
+}
+
+.shiny>.shiny-text {
+    position: relative;
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(to right,
+            var(--brandBlue),
+            var(--brandGreen),
+            salmon,
+            var(--brandBlue));
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
 }
 
 .stroke {
@@ -165,7 +306,7 @@
 }
 
 .cssbuttons-io-button {
-    background: #A370F0;
+    background-image: linear-gradient(to right bottom, #337f61, #006e6d, #005a75, #004372, #152a5f);
     color: white;
     font-family: inherit;
     padding: 0.35em;
@@ -177,7 +318,7 @@
     letter-spacing: 0.05em;
     display: flex;
     align-items: center;
-    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    box-shadow: inset 0 0 1.6em -0.6em #152A5F;
     overflow: hidden;
     position: relative;
     height: 2.8em;
@@ -186,7 +327,8 @@
 }
 
 .cssbuttons-io-button .icon {
-    background: white;
+    background: transparent;
+
     margin-left: 1em;
     position: absolute;
     display: flex;
@@ -195,19 +337,21 @@
     height: 2.2em;
     width: 2.2em;
     border-radius: 0.7em;
-    box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+    box-shadow: 0.08em 0.08em 0.1em 0.1em lightslategrey;
     right: 0.3em;
     transition: all 0.3s;
 }
 
 .cssbuttons-io-button:hover .icon {
     width: calc(100% - 0.6em);
+    background-color: var(--brandBlue);
+    opacity: .8;
 }
 
 .cssbuttons-io-button .icon svg {
     width: 1.1em;
     transition: transform 0.3s;
-    color: #7b52b9;
+    color: white;
 }
 
 .cssbuttons-io-button:hover .icon svg {
@@ -220,5 +364,23 @@
 
 
 .call-to-action :first-child {
-    font-family: 'Shippori Antique B1', sans-serif;
+    font-family: var(--secondaryFont);
+}
+
+
+/* responsive designs */
+@media screen and (max-width: 850px) {
+    .header-text {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .primary-nav {
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+    .middle-links {
+        display: none;
+    }
 }

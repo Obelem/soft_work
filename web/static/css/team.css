@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
 
-:root {
-    --freesia: #EFE7BC;
-    --babyBlue: #89CFF0;
-}
-
-
 #team-section {
     background-color: var(--babyBlue);
     height: max-content;
@@ -25,11 +19,13 @@
 
 /* web dev simplified */
 .grid {
+    justify-self: center;
+    border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: space-evenly;
-    width: 100vw;
+    width: 100%;
 }
 
 .img-wrapper {
