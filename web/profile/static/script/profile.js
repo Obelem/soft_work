@@ -53,7 +53,7 @@ $('body').mouseover(event => {
     }
 })
 
-$('#delete-account-link').click(e => {
+$('.delete-account-link').click(e => {
     e.preventDefault();
 
     if (!confirm('Do you really want to leave?\nThis would wipe all your details from SoftWork'))
