@@ -85,7 +85,7 @@
     color: black;
 }
 
-.authentication>* {
+.authentication-btns {
     font-family: var(--primaryFont);
     font-weight: var(--weight600);
     font-size: .8rem;
@@ -94,10 +94,11 @@
     /* border: 1px solid black; */
 }
 
-.sign-in-btn {
+.btn-one {
     display: flex;
     align-items: center;
 }
+
 .cta {
     position: relative;
     margin: auto;
@@ -159,8 +160,71 @@
 }
 
 
+.btn-two {
+    border: none;
+    display: block;
+    position: relative;
+    /* padding: 0.7em 2.4em; */
+    height: 40px;
+    width: 6rem;
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    background: linear-gradient(to right bottom,
+            #337f61, #006e6d, #005a75, #004372, #152a5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    z-index: 1;
+    font-family: inherit;
+    font-weight: 500;
+}
 
-.sign-up-btn {
+.btn-two>span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+    border: 4px solid;
+    border-image: linear-gradient(to right bottom, #337f61,
+            #006e6d, #005a75, #004372, #152a5f) 1;
+}
+
+.btn-two>span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8%;
+    height: 500%;
+    background: var(--lightgray);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-60deg);
+    transition: all 0.3s;
+}
+
+.btn-two:hover span::before {
+    transition: all 0.3s;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    width: 100%;
+    background: linear-gradient(to right bottom, #337f61,
+            #006e6d, #005a75, #004372, #152a5f);
+}
+
+.btn-two:hover {
+    color: white;
+}
+
+.btn-two:active span::before {
+    background: #337F61;
+}
+
+
+
+/* .btn-two {
     display: grid;
     place-items: center;
     width: 6rem;
@@ -171,24 +235,11 @@
     border-radius: 0;
 }
 
-.sign-up-btn:hover {
-    /* background-image: linear-gradient(to right bottom, #337f61, #006e6d, #005a75, #004372, #152a5f); */
+.btn-two:hover {
+    background-image: linear-gradient(to right bottom, #337f61, #006e6d, #005a75, #004372, #152a5f);
     color: var(--brandBlue);
     transition: .2s ease-in-out;
-}
-
-/* .sign-up-btn:hover~.forms>.sign-up,
-.sign-up:hover {
-    z-index: 1;
-    display: grid;
-}
-
-.sign-in-btn:hover~.forms>.sign-in,
-.sign-in:hover {
-    z-index: 1;
-    display: grid;
 } */
-
 
 .header-text {
     position: relative;
@@ -393,6 +444,7 @@
         justify-content: space-between;
         padding: 0 1rem;
     }
+
     .middle-links {
         display: none;
     }

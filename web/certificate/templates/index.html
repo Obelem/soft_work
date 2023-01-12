@@ -7,6 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Certificate</title>
 
+    <link
+        rel='shortcut icon'
+        href="{{ url_for('static', filename='favicons/dark-favicon.png') }}"
+        media="(prefers-color-scheme: light)"
+    />
+    <link
+        rel='shortcut icon'
+        href="{{ url_for('static', filename='favicons/light-favicon.png') }}"
+        media="(prefers-color-scheme: dark)"
+    />
+
     <!-- load CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
     <!-- Google web font "Open Sans" -->

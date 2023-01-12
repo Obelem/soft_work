@@ -103,7 +103,7 @@
                             {% endif %}
                         </li>
                         <li>
-                            <a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}" class="certificate_link card-items" data-score="{{ score | attr(assessment.name) }}">
+                            <a href="{{ url_for('certificate_views.load_cert', accessment_id=assessment.id) }}" target="_blank" class="certificate_link card-items" data-score="{{ score | attr(assessment.name) }}">
                                 <img src="https://img.icons8.com/fluency/32/null/certification.png"/>
                                 Certificate
                             </a>
