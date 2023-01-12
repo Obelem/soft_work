@@ -165,7 +165,7 @@ def upload_to_storage():
         assessment_objects[assessment] = Assessment(name=assessment)
         # save the assessment object
         assessment_objects[assessment].save()
-    print(storage.all(Assessment))
+        print(assessment_objects[assessment].to_dict())
 
     #  Add questions
     for assessment in assessments:
