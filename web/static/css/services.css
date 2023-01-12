@@ -37,11 +37,13 @@
                 transform .3s ease-in, padding .2s ease-in-out,
                 border-radius .5s ease-in-out;
     font-family: 'Hind', sans-serif;
+    padding: 0 .2rem;
     /* border: 1px solid rebeccapurple; */
 }
 
 .service-card:hover {
-    background-color: var(--freesia);
+    background-color: var(--babyBlue);
+    /* background-color: ; */
     transform: translateY(-1rem);
     /* padding: 1rem; */
     border-radius: 1rem 0 1rem 1rem;
@@ -51,7 +53,7 @@
     content: '';
     border-width: 20px;
     border-style: solid;
-    border-color: white white hsl(6, 93%, 65%) hsl(6, 93%, 65%);
+    border-color: white white var(--brandBlue) var(--brandBlue);
     position: absolute;
     right: -40px;
     visibility: hidden;

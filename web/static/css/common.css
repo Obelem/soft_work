@@ -2,19 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
 
 :root {
-    /* font familys */
     --headerFontFamily: 'Playfair Display', serif;
     --buttonFontFamily: 'Baumans', cursive;
+    --primaryFont: 'Hind', sans-serif;
+    --secondaryFont: 'Shippori Antique B1', sans-serif;
 
-    /* font weights */
     --weight600: 600;
 
-    /* colors */
     --aquaGreen: aqua;
     --purple: #b17ae7e7;
+    --brandBlue: #152A5F;
+    --brandGreen: #337f61;
+    --babyBlue: #89CFF0;
+    --lightSalmon: #faebd7;
+
+    --sectionHeaderFontSize: clamp(3rem, 10vw + .8rem, 4.5rem);
 }
 
 
@@ -50,8 +56,8 @@ section {
 }
 
 .section-header {
-    font-size: 4.5rem;
-    font-family: 'Hind', sans-serif;
+    font-size: var(--sectionHeaderFontSize);
+    font-family: var(--primaryFont);
     text-transform: capitalize;
     text-align: center;
 }

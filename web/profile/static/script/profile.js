@@ -1,5 +1,5 @@
 let user_id = $('#user_id').val()
-let endpoint = 'http://rabahk.tk/api/v1/status/' + user_id
+let endpoint = 'http://127.0.0.1:5000/api/v1/status/' + user_id
 
 function makeRequest(endpoint) {
     return new Promise((resolve, reject) => {
@@ -13,7 +13,7 @@ function makeRequest(endpoint) {
 $('.start-test-btn').click(function(event){
     event.preventDefault()
     currentAssessment = $(this).attr('href').split('/').pop()
-    assessmentUrl = `http://rabahk.tk/assessment/${currentAssessment}`
+    assessmentUrl = `http://127.0.0.1:5000/assessment/${currentAssessment}`
 
     makeRequest(endpoint).then(data => {
         if (!data[currentAssessment]) {
@@ -26,7 +26,7 @@ $('.start-test-btn').click(function(event){
         let refreshScoresPromise = new Promise((resolve, reject) => {
             $.ajax({
                 type: 'PUT',
-                url: 'http://rabahk.tk/api/v1/refresh_user',
+                url: 'http://127.0.0.1:5000/api/v1/refresh_user',
                 contentType: 'application/json',
                 data: `{"user_id": "${user_id}", "assessment_name": "${currentAssessment}"}`,
                 success: newData => resolve (newData)
@@ -59,13 +59,13 @@ $('#delete-account-link').click(e => {
     if (!confirm('Do you really want to leave?\nThis would wipe all your details from SoftWork'))
         return;
 
-    fetch('http://rabahk.tk/api/v1/delete_user', {
+    fetch('http://127.0.0.1:5000/api/v1/delete_user', {
         method: 'DELETE'
     })
     .then(res => { return res.json() } )
     .then(userIs => {
         if (userIs.deleted) {
-            window.location.replace('http://rabahk.tk');
+            window.location.replace('http://127.0.0.1:5000');
         }
     })
 })

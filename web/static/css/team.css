@@ -1,21 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
-
-
-:root {
-    --freesia: #EFE7BC;
-    --babyBlue: #89CFF0;
-}
-
-
 #team-section {
     background-color: var(--babyBlue);
     height: max-content;
     display: grid;
-    place-content: center;
     text-align: center;
-    justify-content: space-evenly;
     gap: 2rem;
-    font-family: 'Hind', sans-serif;
+    font-family: var(--primaryFont);
 }
 
 .section-header :nth-of-type(2) {
@@ -23,13 +12,14 @@
 }
 
 
-/* web dev simplified */
 .grid {
+    justify-self: center;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: space-evenly;
-    width: 100vw;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .img-wrapper {
