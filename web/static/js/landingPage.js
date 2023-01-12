@@ -19,3 +19,12 @@ for (const star of document.getElementsByClassName('star')) {
         setInterval(() => animate(star), 1000)
     }, index++ * (interval / 3));
 }
+
+$('.menu').click(() => {
+    $('.nav-card').toggleClass('move-left');
+    $('body').toggleClass('remove-y-overflow')
+})
+
+$('.nav-links').click(() => {
+    $('.menu').click();
+})

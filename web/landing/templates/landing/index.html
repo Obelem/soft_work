@@ -8,16 +8,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
-    <link
-        rel='shortcut icon'
-        href="{{ url_for('static', filename='favicons/dark-favicon.png') }}"
-        media="(prefers-color-scheme: light)"
-    />
-    <link
-        rel='shortcut icon'
-        href="{{ url_for('static', filename='favicons/light-favicon.png') }}"
-        media="(prefers-color-scheme: dark)"
-    />
+    <link rel='shortcut icon' href="{{ url_for('static', filename='favicons/dark-favicon.png') }}"
+        media="(prefers-color-scheme: light)" />
+    <link rel='shortcut icon' href="{{ url_for('static', filename='favicons/light-favicon.png') }}"
+        media="(prefers-color-scheme: dark)" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +20,29 @@
 
 <body>
     <div class="container">
+        <div class="nav-card">
+            {% if not current_user.is_authenticated %}
+            <a class="nav-links" href="{{ url_for('authenticate_views.login') }}" class="btn-one authentication-btns">
+                Sign in
+            </a>
+            <a class="nav-links" href="{{ url_for('authenticate_views.signup') }}" class="authentication-btns">
+                Sign up
+            </a>
+            {% endif %}
+            {% if current_user.is_authenticated %}
+            <a class="nav-links" href="{{ url_for('authenticate_views.logout') }}" class="btn-one  authentication-btns">
+                Log out
+            </a>
+            <a class="nav-links" href="{{ url_for('profile_views.profile_page') }}" class=" authentication-btns">
+                Profile
+            </a>
+            {% endif %}
+            <a class="nav-links" href="#services-section">Services</a>
+            <a class="nav-links" href="#team-section">Team</a>
+            <a class="nav-links" href="#about-section">About</a>
+        </div>
+
+
         <header class="header">
             <nav class="primary-nav">
                 <a href="" class="logo"></a>
@@ -42,8 +59,8 @@
                         <button class="cta">
                             <span>Sign In</span>
                             <svg viewBox="0 0 13 10" height="10px" width="15px">
-                              <path d="M1,5 L11,5"></path>
-                              <polyline points="8 1 12 5 8 9"></polyline>
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
                             </svg>
                         </button>
                     </a>
@@ -58,18 +75,30 @@
                         <button class="cta">
                             <span>Log Out</span>
                             <svg viewBox="0 0 13 10" height="10px" width="15px">
-                              <path d="M1,5 L11,5"></path>
-                              <polyline points="8 1 12 5 8 9"></polyline>
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
                             </svg>
                         </button>
                     </a>
                     <a href="{{ url_for('profile_views.profile_page') }}" class=" authentication-btns">
-                        <button class="btn-two">Assessments
+                        <button class="btn-two">Profile
                             <span></span>
                         </button>
                     </a>
                     {% endif %}
                 </div>
+
+                <button class="menu"
+                    onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+                    aria-label="Main Menu">
+                    <svg width="100" height="100" viewBox="0 0 100 100">
+                        <path class="line line1"
+                            d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                        <path class="line line2" d="M 20,50 H 80" />
+                        <path class="line line3"
+                            d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                    </svg>
+                </button>
 
             </nav>
 
@@ -79,13 +108,28 @@
                 <span>With <span class="shiny"><span class="shiny-text">soft skills</span></span>,
                     <span class="shiny">
                         <span class="star">
-                            <svg style="color: rgb(21, 42, 95);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16"> <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z" fill="#152a5f"></path> </svg>
+                            <svg style="color: rgb(21, 42, 95);" xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"
+                                    fill="#152a5f"></path>
+                            </svg>
                         </span>
                         <span class="star">
-                            <svg style="color: rgb(51, 127, 97);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16"> <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z" fill="#337f61"></path> </svg>
+                            <svg style="color: rgb(51, 127, 97);" xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"
+                                    fill="#337f61"></path>
+                            </svg>
                         </span>
                         <span class="star">
-                            <svg style="color: rgb(21, 42, 95);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16"> <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z" fill="#152a5f"></path> </svg>
+                            <svg style="color: rgb(21, 42, 95);" xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"
+                                    fill="#152a5f"></path>
+                            </svg>
                         </span>
 
                         <span class="shiny-text">everyone</span>
@@ -99,7 +143,12 @@
                 <a href="{{ url_for('authenticate_views.signup') }}">
                     <button class="cssbuttons-io-button"> Get Started
                         <div class="icon">
-                          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                    fill="currentColor"></path>
+                            </svg>
                         </div>
                     </button>
                 </a>
@@ -116,7 +165,11 @@
             </div>
         </header>
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#faebd7" fill-opacity="1" d="M0,288L40,272C80,256,160,224,240,197.3C320,171,400,149,480,165.3C560,181,640,235,720,256C800,277,880,267,960,245.3C1040,224,1120,192,1200,176C1280,160,1360,160,1400,160L1440,160L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#faebd7" fill-opacity="1"
+                d="M0,288L40,272C80,256,160,224,240,197.3C320,171,400,149,480,165.3C560,181,640,235,720,256C800,277,880,267,960,245.3C1040,224,1120,192,1200,176C1280,160,1360,160,1400,160L1440,160L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z">
+            </path>
+        </svg>
 
         <section id="services-section">
             <h1 class="section-header">Services</h1>
@@ -157,7 +210,11 @@
             </div>
         </section>
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#89CFF0" fill-opacity="1" d="M0,256L40,229.3C80,203,160,149,240,138.7C320,128,400,160,480,170.7C560,181,640,171,720,181.3C800,192,880,224,960,202.7C1040,181,1120,107,1200,64C1280,21,1360,11,1400,5.3L1440,0L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#89CFF0" fill-opacity="1"
+                d="M0,256L40,229.3C80,203,160,149,240,138.7C320,128,400,160,480,170.7C560,181,640,171,720,181.3C800,192,880,224,960,202.7C1040,181,1120,107,1200,64C1280,21,1360,11,1400,5.3L1440,0L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+            </path>
+        </svg>
 
         <section id="team-section">
             <h1 class="section-header">
@@ -170,9 +227,14 @@
                     <div class="content slide-left">
                         Hi there, I'm Frank; a Software and Cloud Engineer
                         <div class="social-media-container">
-                            <a href="https://github.com/franklinobasy" class="social-links"><img src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png" class="social-icon"/></a>
-                            <a href="https://twitter.com/franklinobasy" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png" class="social-icon"/></a>
-                            <a href="https://www.linkedin.com/in/franklinobasy" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon"/></a>
+                            <a href="https://github.com/franklinobasy" class="social-links"><img
+                                    src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png"
+                                    class="social-icon" /></a>
+                            <a href="https://twitter.com/franklinobasy" class="social-links"><img
+                                    src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png"
+                                    class="social-icon" /></a>
+                            <a href="https://www.linkedin.com/in/franklinobasy" class="social-links"><img
+                                    src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon" /></a>
                         </div>
                     </div>
                 </div>
@@ -181,26 +243,41 @@
                     <div class="content slide-right">
                         Hello world! I'm Jesse; a software engineer who communicates fluently with both men and machines
                         <div class="social-media-container">
-                            <a href="https://github.com/Obelem" target="_blank" class="social-links"><img src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png" class="social-icon"/></a>
-                            <a href="" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png" class="social-icon"/></a>
-                            <a href="www.linkedin.com/in/jessinspired" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon"/></a>
+                            <a href="https://github.com/Obelem" target="_blank" class="social-links"><img
+                                    src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png"
+                                    class="social-icon" /></a>
+                            <a href="" class="social-links"><img
+                                    src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png"
+                                    class="social-icon" /></a>
+                            <a href="www.linkedin.com/in/jessinspired" class="social-links"><img
+                                    src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon" /></a>
                         </div>
                     </div>
                 </div>
                 <div class="img-wrapper">
                     <img class="zoom gray" src="{{ url_for('static', filename='img/Amara.jpg') }}">
-                    <div class="content slide-up">Hi guys! I'm Amara.. a Senior Process Engineer and highly 'REACTive' to front end development
+                    <div class="content slide-up">Hi guys! I'm Amara.. a Senior Process Engineer and highly 'REACTive'
+                        to front end development
                         <div class="social-media-container">
-                            <a href="https://github.com/amarapeace" class="social-links"><img src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png" class="social-icon"/></a>
-                            <a href="" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png" class="social-icon"/></a>
-                            <a href="https://www.linkedin.com/in/amara-onwunzo-peace" class="social-links"><img src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon"/></a>
+                            <a href="https://github.com/amarapeace" class="social-links"><img
+                                    src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png"
+                                    class="social-icon" /></a>
+                            <a href="" class="social-links"><img
+                                    src="https://img.icons8.com/ios/50/FFFFFF/twitter--v1.png"
+                                    class="social-icon" /></a>
+                            <a href="https://www.linkedin.com/in/amara-onwunzo-peace" class="social-links"><img
+                                    src="https://img.icons8.com/ios/50/FFFFFF/linkedin.png" class="social-icon" /></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#89CFF0" fill-opacity="1" d="M0,192L40,181.3C80,171,160,149,240,133.3C320,117,400,107,480,133.3C560,160,640,224,720,261.3C800,299,880,309,960,277.3C1040,245,1120,171,1200,138.7C1280,107,1360,117,1400,122.7L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#89CFF0" fill-opacity="1"
+                d="M0,192L40,181.3C80,171,160,149,240,133.3C320,117,400,107,480,133.3C560,160,640,224,720,261.3C800,299,880,309,960,277.3C1040,245,1120,171,1200,138.7C1280,107,1360,117,1400,122.7L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z">
+            </path>
+        </svg>
 
         <section id="about-section">
             <h1 class="section-header">Care For A Little story</h1>
@@ -212,13 +289,17 @@
                         So in the beginning, there were two basic problems:
                     </div>
                     <ol>
-                        <li><span class="index">1.</span> Professionals who had a hard time processing their thoughts for problem solving (especially through digital means)</li>
-                        <li><span class="index">2.</span> Professionals who had developed a complex thought process that only machines could now understand them (funny right? but true)</li>
+                        <li><span class="index">1.</span> Professionals who had a hard time processing their thoughts
+                            for problem solving (especially through digital means)</li>
+                        <li><span class="index">2.</span> Professionals who had developed a complex thought process that
+                            only machines could now understand them (funny right? but true)</li>
                     </ol>
                     <div>
                         And that's where <span>"Soft Work"</span> comes in. "Soft" indicative of soft skills because
-                        we exist to help professionals develop clear cut mental pathways to write definitive codes to machines
-                        and also to create a balance that helps technical fellows articulate these complex ideas to their teams
+                        we exist to help professionals develop clear cut mental pathways to write definitive codes to
+                        machines
+                        and also to create a balance that helps technical fellows articulate these complex ideas to
+                        their teams
                         for seamless collaboration.
                     </div>
                 </div>
@@ -229,7 +310,8 @@
         <footer class="footer">
             <div>Want to contribute to our work?</div>
             <div>Feel free to submit a pull request</div>
-            <a href="https://github.com/Obelem/soft_work" class="social-links"><img src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png"/></a>
+            <a href="https://github.com/Obelem/soft_work" class="social-links"><img
+                    src="https://img.icons8.com/sf-black-filled/64/FFFFFF/github.png" /></a>
         </footer>
     </div>
 

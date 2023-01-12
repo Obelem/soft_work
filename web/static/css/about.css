@@ -10,7 +10,6 @@
 }
 
 #about-section > article {
-    /* outline: 1px solid salmon; */
     display: grid;
     grid-template-columns: clamp(20rem, 45vmax + .8rem, 33rem) clamp(15rem, 30vmax + .8rem, 30rem);
     gap: 2.5rem;

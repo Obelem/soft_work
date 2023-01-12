@@ -38,8 +38,14 @@
     scroll-behavior: smooth;
 }
 
+/* dynamic classes */
+
+
+
+
 body {
     overflow-x: hidden;
+    position: relative;
 }
 
 .container {
@@ -47,7 +53,9 @@ body {
     display: grid;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text],
+input[type=password],
+input[type=email] {
     border: 1px solid black;
 }
 
@@ -60,4 +68,48 @@ section {
     font-family: var(--primaryFont);
     text-transform: capitalize;
     text-align: center;
+}
+
+.nav-card {
+    position: fixed;
+    display: grid;
+    padding-top: 8rem;
+    padding-left: 2rem;
+    row-gap: 1.5rem;
+    font-family: var(--primaryFont);
+    align-content: flex-start;
+    right: 0;
+    transform: translateX(30rem);
+    min-height: 100vh;
+    width: clamp(20rem, 20vmax + .9rem, 30rem);
+    background-color: black;
+    opacity: 0;
+    transition: .4s ease-in-out;
+    display: none;
+    z-index: 5;
+    color: white;
+}
+
+.nav-card :first-child {
+    width: max-content;
+    padding: .2rem 1rem;
+    background-image: linear-gradient(to right bottom, #337f61, #006e6d, #005a75, #004372, #152a5f);
+}
+
+.nav-card :nth-child(2) {
+    width: max-content;
+    padding: .2rem 1rem;
+    border: 2px solid;
+    border-image: linear-gradient(to right bottom, #337f61,
+            #006e6d, #005a75, #004372, #152a5f) 1;
+}
+
+.move-left {
+    transform: translateX(0);
+    opacity: 1;
+    transition: .4s ease-in-out;
+}
+
+.remove-y-overflow {
+    overflow-y: hidden;
 }
