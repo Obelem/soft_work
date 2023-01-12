@@ -40,7 +40,7 @@
                 <img src="https://img.icons8.com/material-outlined/24/1A1A1A/pencil--v1.png"/>
                 <span>Edit profile</span>
             </a>
-            <a href="" id="delete-account-link">
+            <a href="" id="delete-account-link" class="delete-account-link">
                 <img src="https://img.icons8.com/windows/32/FA5252/delete-trash.png"/>
                 <span>Delete Account</span>
             </a>
@@ -67,7 +67,11 @@
 
             <section class="user-data">
                 <div>{{ first_name}} {% if middle_name %} {{ middle_name }} {% endif %} {{ last_name }}</div>
-                <div>@{{ username }}</div>
+                <div>@{{ username }}
+                    <a href="{{ url_for('profile_views.edit_profile') }}" class="mobile-edit">
+                        <img src="https://img.icons8.com/material-outlined/24/1A1A1A/pencil--v1.png"/>
+                    </a>
+                </div>
             </section>
 
             <section class="assessment-container">
@@ -124,8 +128,18 @@
         </main>
 
         <footer class="footer">
-            <a href="index.html">Home</a>
-            <a href="blog.html">Blog</a>
+            <a href="{{ url_for('landing_views.landing_page') }}">
+                <img src="https://img.icons8.com/material-sharp/24/null/home-page.png"/>
+                Home
+            </a>
+            <a href="{{ url_for('authenticate_views.logout') }}">
+                <img src="https://img.icons8.com/sf-regular/24/null/logout-rounded.png"/>
+                Log out
+            </a>
+            <a href="" class="delete-account-link">
+                <img src="https://img.icons8.com/windows/32/FA5252/delete-trash.png"/>
+                Delete Account
+            </a>
         </footer>
 
         <input id="user_id" type="hidden" name="user_id" value="{{ user_id }}">
