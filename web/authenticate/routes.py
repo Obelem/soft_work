@@ -64,22 +64,22 @@ def signup():
         for val in required_fields:
             if not data[val]:
                 flash(f"{val} field is empty")
-                redirect(url_for("authenticate_views.signup"))
+                return redirect(url_for("authenticate_views.signup"))
 
 
         if data['password'] != data['re_password']:
             flash(f"Password mismatch")
-            redirect(url_for("authenticate_views.signup"))
+            return redirect(url_for("authenticate_views.signup"))
 
         data['password'] = generate_password_hash(data['password'])
-
+        
         if storage.check_user(data['username']):
             flash(f"Username is already chosen, try another one!")
-            redirect(url_for("authenticate_views.signup"))
+            return redirect(url_for("authenticate_views.signup"))
 
         if storage.check_email(data['email']):
             flash(f"Email already exists, try another one")
-            redirect(url_for("authenticate_views.signup"))
+            return redirect(url_for("authenticate_views.signup"))
 
         del data["re_password"]
         user = User(**data)
