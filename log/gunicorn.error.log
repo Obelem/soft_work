@@ -1,26 +1,981 @@
-[2023-01-06 21:46:17 +0100] [4778] [INFO] Starting gunicorn 20.1.0
-[2023-01-06 21:46:17 +0100] [4778] [INFO] Listening at: http://0.0.0.0:5000 (4778)
-[2023-01-06 21:46:17 +0100] [4778] [INFO] Using worker: sync
-[2023-01-06 21:46:17 +0100] [4779] [INFO] Booting worker with pid: 4779
-[2023-01-06 21:46:17 +0100] [4780] [INFO] Booting worker with pid: 4780
-[2023-01-06 21:46:17 +0100] [4781] [INFO] Booting worker with pid: 4781
-[2023-01-06 21:47:58 +0100] [4778] [INFO] Handling signal: int
-[2023-01-06 21:47:58 +0100] [4779] [INFO] Worker exiting (pid: 4779)
-[2023-01-06 21:47:58 +0100] [4781] [INFO] Worker exiting (pid: 4781)
-[2023-01-06 21:47:58 +0100] [4780] [INFO] Worker exiting (pid: 4780)
-[2023-01-06 21:47:58 +0100] [4778] [WARNING] Worker with pid 4780 was terminated due to signal 2
-[2023-01-06 21:47:58 +0100] [4778] [WARNING] Worker with pid 4781 was terminated due to signal 2
-[2023-01-06 21:47:58 +0100] [4778] [WARNING] Worker with pid 4779 was terminated due to signal 2
-[2023-01-06 21:47:58 +0100] [4778] [INFO] Shutting down: Master
-[2023-01-06 21:48:52 +0100] [4909] [INFO] Starting gunicorn 20.1.0
-[2023-01-06 21:48:52 +0100] [4909] [INFO] Listening at: http://0.0.0.0:5000 (4909)
-[2023-01-06 21:48:52 +0100] [4909] [INFO] Using worker: sync
-[2023-01-06 21:48:52 +0100] [4911] [INFO] Booting worker with pid: 4911
-[2023-01-06 21:48:52 +0100] [4912] [INFO] Booting worker with pid: 4912
-[2023-01-06 21:48:52 +0100] [4913] [INFO] Booting worker with pid: 4913
-[2023-01-06 21:50:38 +0100] [4913] [INFO] Parent changed, shutting down: <Worker 4913>
-[2023-01-06 21:50:38 +0100] [4913] [INFO] Worker exiting (pid: 4913)
-[2023-01-06 21:50:40 +0100] [4911] [INFO] Parent changed, shutting down: <Worker 4911>
-[2023-01-06 21:50:40 +0100] [4911] [INFO] Worker exiting (pid: 4911)
-[2023-01-06 21:50:40 +0100] [4912] [INFO] Parent changed, shutting down: <Worker 4912>
-[2023-01-06 21:50:40 +0100] [4912] [INFO] Worker exiting (pid: 4912)
+
+[2023-01-10 01:31:41 +0000] [1655] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 01:31:41 +0000] [1655] [INFO] Listening at: http://0.0.0.0:5000 (1655)
+[2023-01-10 01:31:41 +0000] [1655] [INFO] Using worker: sync
+[2023-01-10 01:31:41 +0000] [1657] [INFO] Booting worker with pid: 1657
+[2023-01-10 01:31:41 +0000] [1658] [INFO] Booting worker with pid: 1658
+[2023-01-10 01:31:41 +0000] [1659] [INFO] Booting worker with pid: 1659
+[2023-01-10 01:31:42 +0000] [1657] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/soft_work/app.py", line 1, in <module>
+    from web import app
+  File "/home/ubuntu/soft_work/web/__init__.py", line 3, in <module>
+    from models import storage
+  File "/home/ubuntu/soft_work/models/__init__.py", line 14, in <module>
+    storage.reload()
+  File "/home/ubuntu/soft_work/models/engine/db_storage.py", line 78, in reload
+    Base.metadata.create_all(self.__engine)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4930, in create_all
+    bind._run_ddl_visitor(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3227, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3143, in begin
+    conn = self.connect(close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-01-10 01:31:42 +0000] [1657] [INFO] Worker exiting (pid: 1657)
+[2023-01-10 01:31:42 +0000] [1658] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/soft_work/app.py", line 1, in <module>
+    from web import app
+  File "/home/ubuntu/soft_work/web/__init__.py", line 3, in <module>
+    from models import storage
+  File "/home/ubuntu/soft_work/models/__init__.py", line 14, in <module>
+    storage.reload()
+  File "/home/ubuntu/soft_work/models/engine/db_storage.py", line 78, in reload
+    Base.metadata.create_all(self.__engine)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4930, in create_all
+    bind._run_ddl_visitor(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3227, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3143, in begin
+    conn = self.connect(close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-01-10 01:31:42 +0000] [1658] [INFO] Worker exiting (pid: 1658)
+[2023-01-10 01:31:42 +0000] [1655] [WARNING] Worker with pid 1658 was terminated due to signal 15
+[2023-01-10 01:31:42 +0000] [1659] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/soft_work/app.py", line 1, in <module>
+    from web import app
+  File "/home/ubuntu/soft_work/web/__init__.py", line 3, in <module>
+    from models import storage
+  File "/home/ubuntu/soft_work/models/__init__.py", line 14, in <module>
+    storage.reload()
+  File "/home/ubuntu/soft_work/models/engine/db_storage.py", line 78, in reload
+    Base.metadata.create_all(self.__engine)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4930, in create_all
+    bind._run_ddl_visitor(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3227, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3143, in begin
+    conn = self.connect(close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-01-10 01:31:42 +0000] [1659] [INFO] Worker exiting (pid: 1659)
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 209, in run
+    self.sleep()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 357, in sleep
+    ready = select.select([self.PIPE[0]], [], [], 1.0)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-01-10 01:32:52 +0000] [1667] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 01:32:52 +0000] [1667] [INFO] Listening at: http://0.0.0.0:5000 (1667)
+[2023-01-10 01:32:52 +0000] [1667] [INFO] Using worker: sync
+[2023-01-10 01:32:52 +0000] [1669] [INFO] Booting worker with pid: 1669
+[2023-01-10 01:32:52 +0000] [1670] [INFO] Booting worker with pid: 1670
+[2023-01-10 01:32:52 +0000] [1671] [INFO] Booting worker with pid: 1671
+[2023-01-10 01:32:53 +0000] [1669] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/soft_work/app.py", line 1, in <module>
+    from web import app
+  File "/home/ubuntu/soft_work/web/__init__.py", line 3, in <module>
+    from models import storage
+  File "/home/ubuntu/soft_work/models/__init__.py", line 14, in <module>
+    storage.reload()
+  File "/home/ubuntu/soft_work/models/engine/db_storage.py", line 78, in reload
+    Base.metadata.create_all(self.__engine)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4930, in create_all
+    bind._run_ddl_visitor(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3227, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3143, in begin
+    conn = self.connect(close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-01-10 01:32:53 +0000] [1669] [INFO] Worker exiting (pid: 1669)
+[2023-01-10 01:32:53 +0000] [1670] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/soft_work/app.py", line 1, in <module>
+    from web import app
+  File "/home/ubuntu/soft_work/web/__init__.py", line 3, in <module>
+    from models import storage
+  File "/home/ubuntu/soft_work/models/__init__.py", line 14, in <module>
+    storage.reload()
+  File "/home/ubuntu/soft_work/models/engine/db_storage.py", line 78, in reload
+    Base.metadata.create_all(self.__engine)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4930, in create_all
+    bind._run_ddl_visitor(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3227, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3143, in begin
+    conn = self.connect(close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-01-10 01:32:53 +0000] [1670] [INFO] Worker exiting (pid: 1670)
+[2023-01-10 01:32:53 +0000] [1671] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ubuntu/soft_work/app.py", line 1, in <module>
+    from web import app
+  File "/home/ubuntu/soft_work/web/__init__.py", line 3, in <module>
+    from models import storage
+  File "/home/ubuntu/soft_work/models/__init__.py", line 14, in <module>
+    storage.reload()
+  File "/home/ubuntu/soft_work/models/engine/db_storage.py", line 78, in reload
+    Base.metadata.create_all(self.__engine)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4930, in create_all
+    bind._run_ddl_visitor(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3227, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3143, in begin
+    conn = self.connect(close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec = pool._do_get()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 386, in __init__
+    self.__connect()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 685, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denied for user 'soft_dev'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-01-10 01:32:53 +0000] [1671] [INFO] Worker exiting (pid: 1671)
+[2023-01-10 01:32:53 +0000] [1667] [WARNING] Worker with pid 1669 was terminated due to signal 15
+[2023-01-10 01:32:53 +0000] [1667] [WARNING] Worker with pid 1671 was terminated due to signal 15
+[2023-01-10 01:32:53 +0000] [1667] [INFO] Shutting down: Master
+[2023-01-10 01:32:53 +0000] [1667] [INFO] Reason: Worker failed to boot.
+[2023-01-10 01:37:09 +0000] [1710] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 01:37:09 +0000] [1710] [INFO] Listening at: http://0.0.0.0:5000 (1710)
+[2023-01-10 01:37:09 +0000] [1710] [INFO] Using worker: sync
+[2023-01-10 01:37:09 +0000] [1712] [INFO] Booting worker with pid: 1712
+[2023-01-10 01:37:09 +0000] [1713] [INFO] Booting worker with pid: 1713
+[2023-01-10 01:37:09 +0000] [1714] [INFO] Booting worker with pid: 1714
+[2023-01-10 01:37:49 +0000] [1710] [INFO] Handling signal: int
+[2023-01-10 01:37:49 +0000] [1710] [INFO] Shutting down: Master
+[2023-01-10 01:49:18 +0000] [1744] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 01:49:18 +0000] [1744] [INFO] Listening at: http://0.0.0.0:5000 (1744)
+[2023-01-10 01:49:18 +0000] [1744] [INFO] Using worker: sync
+[2023-01-10 01:49:18 +0000] [1746] [INFO] Booting worker with pid: 1746
+[2023-01-10 01:49:18 +0000] [1747] [INFO] Booting worker with pid: 1747
+[2023-01-10 01:49:18 +0000] [1748] [INFO] Booting worker with pid: 1748
+[2023-01-10 02:33:06 +0000] [1744] [INFO] Handling signal: term
+[2023-01-10 02:33:06 +0000] [1747] [INFO] Worker exiting (pid: 1747)
+[2023-01-10 02:33:06 +0000] [1748] [INFO] Worker exiting (pid: 1748)
+[2023-01-10 02:33:06 +0000] [1746] [INFO] Worker exiting (pid: 1746)
+[2023-01-10 02:33:06 +0000] [1744] [WARNING] Worker with pid 1747 was terminated due to signal 15
+[2023-01-10 02:33:06 +0000] [1744] [WARNING] Worker with pid 1748 was terminated due to signal 15
+[2023-01-10 02:33:06 +0000] [1744] [WARNING] Worker with pid 1746 was terminated due to signal 15
+[2023-01-10 02:33:07 +0000] [1744] [INFO] Shutting down: Master
+[2023-01-10 02:40:08 +0000] [2744] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 02:40:08 +0000] [2744] [INFO] Listening at: http://0.0.0.0:5000 (2744)
+[2023-01-10 02:40:08 +0000] [2744] [INFO] Using worker: sync
+[2023-01-10 02:40:09 +0000] [2746] [INFO] Booting worker with pid: 2746
+[2023-01-10 02:40:09 +0000] [2747] [INFO] Booting worker with pid: 2747
+[2023-01-10 02:40:09 +0000] [2748] [INFO] Booting worker with pid: 2748
+[2023-01-10 08:09:40 +0000] [2744] [INFO] Handling signal: term
+[2023-01-10 08:09:40 +0000] [2746] [INFO] Worker exiting (pid: 2746)
+[2023-01-10 08:09:40 +0000] [2747] [INFO] Worker exiting (pid: 2747)
+[2023-01-10 08:09:40 +0000] [2748] [INFO] Worker exiting (pid: 2748)
+[2023-01-10 08:09:40 +0000] [2744] [WARNING] Worker with pid 2747 was terminated due to signal 15
+[2023-01-10 08:09:40 +0000] [2744] [WARNING] Worker with pid 2746 was terminated due to signal 15
+[2023-01-10 08:09:40 +0000] [2744] [WARNING] Worker with pid 2748 was terminated due to signal 15
+[2023-01-10 08:09:41 +0000] [2744] [INFO] Shutting down: Master
+[2023-01-10 08:15:11 +0000] [5009] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 08:15:11 +0000] [5009] [INFO] Listening at: unix:/run/softwork.sock (5009)
+[2023-01-10 08:15:11 +0000] [5009] [INFO] Using worker: sync
+[2023-01-10 08:15:11 +0000] [5011] [INFO] Booting worker with pid: 5011
+[2023-01-10 08:15:11 +0000] [5012] [INFO] Booting worker with pid: 5012
+[2023-01-10 08:15:11 +0000] [5013] [INFO] Booting worker with pid: 5013
+[2023-01-10 08:17:01 +0000] [5009] [INFO] Handling signal: term
+[2023-01-10 08:17:01 +0000] [5011] [INFO] Worker exiting (pid: 5011)
+[2023-01-10 08:17:01 +0000] [5012] [INFO] Worker exiting (pid: 5012)
+[2023-01-10 08:17:01 +0000] [5013] [INFO] Worker exiting (pid: 5013)
+[2023-01-10 08:17:01 +0000] [5009] [WARNING] Worker with pid 5012 was terminated due to signal 15
+[2023-01-10 08:17:01 +0000] [5009] [WARNING] Worker with pid 5013 was terminated due to signal 15
+[2023-01-10 08:17:01 +0000] [5009] [WARNING] Worker with pid 5011 was terminated due to signal 15
+[2023-01-10 08:17:01 +0000] [5009] [INFO] Shutting down: Master
+[2023-01-10 08:17:01 +0000] [5055] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 08:17:01 +0000] [5055] [INFO] Listening at: unix:/run/softwork.sock (5055)
+[2023-01-10 08:17:01 +0000] [5055] [INFO] Using worker: sync
+[2023-01-10 08:17:01 +0000] [5060] [INFO] Booting worker with pid: 5060
+[2023-01-10 08:17:01 +0000] [5061] [INFO] Booting worker with pid: 5061
+[2023-01-10 08:17:01 +0000] [5062] [INFO] Booting worker with pid: 5062
+[2023-01-10 08:18:43 +0000] [5055] [INFO] Handling signal: term
+[2023-01-10 08:18:43 +0000] [5060] [INFO] Worker exiting (pid: 5060)
+[2023-01-10 08:18:43 +0000] [5061] [INFO] Worker exiting (pid: 5061)
+[2023-01-10 08:18:43 +0000] [5062] [INFO] Worker exiting (pid: 5062)
+[2023-01-10 08:18:43 +0000] [5055] [WARNING] Worker with pid 5060 was terminated due to signal 15
+[2023-01-10 08:18:43 +0000] [5055] [WARNING] Worker with pid 5062 was terminated due to signal 15
+[2023-01-10 08:18:43 +0000] [5055] [WARNING] Worker with pid 5061 was terminated due to signal 15
+[2023-01-10 08:18:43 +0000] [5055] [INFO] Shutting down: Master
+[2023-01-10 08:22:44 +0000] [5132] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 08:22:44 +0000] [5132] [INFO] Listening at: unix:/home/ubuntu/soft_work/softwork.sock (5132)
+[2023-01-10 08:22:44 +0000] [5132] [INFO] Using worker: sync
+[2023-01-10 08:22:44 +0000] [5134] [INFO] Booting worker with pid: 5134
+[2023-01-10 08:22:44 +0000] [5135] [INFO] Booting worker with pid: 5135
+[2023-01-10 08:22:44 +0000] [5136] [INFO] Booting worker with pid: 5136
+[2023-01-10 08:36:36 +0000] [5132] [INFO] Handling signal: term
+[2023-01-10 08:36:36 +0000] [5134] [INFO] Worker exiting (pid: 5134)
+[2023-01-10 08:36:36 +0000] [5135] [INFO] Worker exiting (pid: 5135)
+[2023-01-10 08:36:36 +0000] [5136] [INFO] Worker exiting (pid: 5136)
+[2023-01-10 08:36:36 +0000] [5132] [WARNING] Worker with pid 5135 was terminated due to signal 15
+[2023-01-10 08:36:36 +0000] [5132] [WARNING] Worker with pid 5134 was terminated due to signal 15
+[2023-01-10 08:36:36 +0000] [5132] [WARNING] Worker with pid 5136 was terminated due to signal 15
+[2023-01-10 08:36:37 +0000] [5132] [INFO] Shutting down: Master
+[2023-01-10 08:40:59 +0000] [5449] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 08:40:59 +0000] [5449] [INFO] Listening at: unix:/run/softwork.sock (5449)
+[2023-01-10 08:40:59 +0000] [5449] [INFO] Using worker: sync
+[2023-01-10 08:40:59 +0000] [5451] [INFO] Booting worker with pid: 5451
+[2023-01-10 08:40:59 +0000] [5452] [INFO] Booting worker with pid: 5452
+[2023-01-10 08:40:59 +0000] [5453] [INFO] Booting worker with pid: 5453
+[2023-01-10 08:59:18 +0000] [5451] [INFO] Worker exiting (pid: 5451)
+[2023-01-10 08:59:18 +0000] [5452] [INFO] Worker exiting (pid: 5452)
+[2023-01-10 08:59:18 +0000] [5453] [INFO] Worker exiting (pid: 5453)
+[2023-01-10 08:59:18 +0000] [5449] [INFO] Handling signal: term
+[2023-01-10 08:59:18 +0000] [5449] [WARNING] Worker with pid 5452 was terminated due to signal 15
+[2023-01-10 08:59:18 +0000] [5449] [WARNING] Worker with pid 5453 was terminated due to signal 15
+[2023-01-10 08:59:18 +0000] [5449] [WARNING] Worker with pid 5451 was terminated due to signal 15
+[2023-01-10 08:59:18 +0000] [5449] [INFO] Shutting down: Master
+[2023-01-10 08:59:18 +0000] [5650] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 08:59:18 +0000] [5650] [INFO] Listening at: unix:/run/softwork.sock (5650)
+[2023-01-10 08:59:18 +0000] [5650] [INFO] Using worker: sync
+[2023-01-10 08:59:18 +0000] [5652] [INFO] Booting worker with pid: 5652
+[2023-01-10 08:59:18 +0000] [5653] [INFO] Booting worker with pid: 5653
+[2023-01-10 08:59:18 +0000] [5654] [INFO] Booting worker with pid: 5654
+[2023-01-10 09:00:39 +0000] [5650] [INFO] Handling signal: term
+[2023-01-10 09:00:39 +0000] [5652] [INFO] Worker exiting (pid: 5652)
+[2023-01-10 09:00:39 +0000] [5653] [INFO] Worker exiting (pid: 5653)
+[2023-01-10 09:00:39 +0000] [5654] [INFO] Worker exiting (pid: 5654)
+[2023-01-10 09:00:39 +0000] [5650] [WARNING] Worker with pid 5652 was terminated due to signal 15
+[2023-01-10 09:00:39 +0000] [5650] [WARNING] Worker with pid 5653 was terminated due to signal 15
+[2023-01-10 09:00:39 +0000] [5650] [WARNING] Worker with pid 5654 was terminated due to signal 15
+[2023-01-10 09:00:39 +0000] [5650] [INFO] Shutting down: Master
+[2023-01-10 09:00:39 +0000] [5666] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 09:00:39 +0000] [5666] [INFO] Listening at: unix:/run/softwork.sock (5666)
+[2023-01-10 09:00:39 +0000] [5666] [INFO] Using worker: sync
+[2023-01-10 09:00:39 +0000] [5668] [INFO] Booting worker with pid: 5668
+[2023-01-10 09:00:39 +0000] [5669] [INFO] Booting worker with pid: 5669
+[2023-01-10 09:00:40 +0000] [5670] [INFO] Booting worker with pid: 5670
+[2023-01-10 09:01:09 +0000] [5666] [INFO] Handling signal: term
+[2023-01-10 09:01:09 +0000] [5668] [INFO] Worker exiting (pid: 5668)
+[2023-01-10 09:01:09 +0000] [5669] [INFO] Worker exiting (pid: 5669)
+[2023-01-10 09:01:09 +0000] [5670] [INFO] Worker exiting (pid: 5670)
+[2023-01-10 09:01:09 +0000] [5666] [WARNING] Worker with pid 5668 was terminated due to signal 15
+[2023-01-10 09:01:09 +0000] [5666] [WARNING] Worker with pid 5669 was terminated due to signal 15
+[2023-01-10 09:01:09 +0000] [5666] [WARNING] Worker with pid 5670 was terminated due to signal 15
+[2023-01-10 09:01:09 +0000] [5666] [INFO] Shutting down: Master
+[2023-01-10 09:16:42 +0000] [5752] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 09:16:42 +0000] [5752] [INFO] Listening at: unix:softwork.sock (5752)
+[2023-01-10 09:16:42 +0000] [5752] [INFO] Using worker: sync
+[2023-01-10 09:16:42 +0000] [5754] [INFO] Booting worker with pid: 5754
+[2023-01-10 09:16:42 +0000] [5755] [INFO] Booting worker with pid: 5755
+[2023-01-10 09:16:43 +0000] [5757] [INFO] Booting worker with pid: 5757
+[2023-01-10 09:18:38 +0000] [5754] [INFO] Worker exiting (pid: 5754)
+[2023-01-10 09:18:38 +0000] [5755] [INFO] Worker exiting (pid: 5755)
+[2023-01-10 09:18:38 +0000] [5757] [INFO] Worker exiting (pid: 5757)
+[2023-01-10 09:18:38 +0000] [5752] [INFO] Handling signal: term
+[2023-01-10 09:18:38 +0000] [5752] [WARNING] Worker with pid 5755 was terminated due to signal 15
+[2023-01-10 09:18:38 +0000] [5752] [WARNING] Worker with pid 5754 was terminated due to signal 15
+[2023-01-10 09:18:38 +0000] [5752] [WARNING] Worker with pid 5757 was terminated due to signal 15
+[2023-01-10 09:18:38 +0000] [5752] [INFO] Shutting down: Master
+[2023-01-10 09:19:20 +0000] [5807] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 09:19:20 +0000] [5807] [INFO] Listening at: http://0.0.0.0:5000 (5807)
+[2023-01-10 09:19:20 +0000] [5807] [INFO] Using worker: sync
+[2023-01-10 09:19:20 +0000] [5809] [INFO] Booting worker with pid: 5809
+[2023-01-10 09:19:20 +0000] [5810] [INFO] Booting worker with pid: 5810
+[2023-01-10 09:19:20 +0000] [5811] [INFO] Booting worker with pid: 5811
+[2023-01-10 09:19:50 +0000] [5807] [INFO] Handling signal: int
+[2023-01-10 09:19:50 +0000] [5809] [INFO] Worker exiting (pid: 5809)
+[2023-01-10 09:19:50 +0000] [5810] [INFO] Worker exiting (pid: 5810)
+[2023-01-10 09:19:50 +0000] [5807] [INFO] Shutting down: Master
+[2023-01-10 09:21:34 +0000] [5821] [INFO] Starting gunicorn 20.1.0
+[2023-01-10 09:21:34 +0000] [5821] [INFO] Listening at: unix:softwork.sock (5821)
+[2023-01-10 09:21:34 +0000] [5821] [INFO] Using worker: sync
+[2023-01-10 09:21:34 +0000] [5823] [INFO] Booting worker with pid: 5823
+[2023-01-10 09:21:34 +0000] [5824] [INFO] Booting worker with pid: 5824
+[2023-01-10 09:21:34 +0000] [5825] [INFO] Booting worker with pid: 5825

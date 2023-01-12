@@ -1,5 +1,5 @@
 # gunicorn.conf.py
-bind = "0.0.0.0:5000"
+bind = "unix:softwork.sock"
 workers = 3
 # Access log - records incoming HTTP requests
 accesslog = "./log/gunicorn.access.log"

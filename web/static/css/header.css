@@ -1,3 +1,16 @@
+:root {
+    --headerFontFamily: 'Playfair Display', serif;
+    --buttonFontFamily: 'Baumans', cursive;
+
+    --weight600: 600;
+
+    --aquaGreen: aqua;
+    --purple: rgba(177, 122, 231, 0.904);
+    --brandBlue: #152A5F;
+    --brandGreen: #337F61;
+}
+
+
 @keyframes background-pan {
     from {
         background-position: 0% center;
