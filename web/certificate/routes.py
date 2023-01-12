@@ -24,7 +24,7 @@ def load_cert(accessment_id):
         abort(404)
 
     completed = getattr(current_user.status, assessment.name)
-    if completed != 'done':
+    if not completed:
         setattr(certificate, assessment.name, False)
         certificate.save()
         return {'state': completed}

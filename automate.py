@@ -4,6 +4,7 @@ import json
 
 from models.assessments import Assessment
 from models.question_bank import QuestionBank
+from models import storage
 
 def get_files(dir: str, ext: str) -> list:
     '''
@@ -125,7 +126,7 @@ def get_cleaned_data(dir, ext) -> dict:
     for name in filenames:
 
         # get raw questions and answers from file
-        split_qa_from_file = split_questions_answers(name)
+        split_qa_from_file = split_questions_answers(f"{dir}/{name}")
 
         raw_questions = split_qa_from_file[0]
         raw_answers = split_qa_from_file[1]
@@ -151,44 +152,41 @@ def get_cleaned_data(dir, ext) -> dict:
 
 def upload_to_storage():
     try:
-        try:
-            with open("data.json", "w") as f:
-                data = json.load(f)
-            os.remove("data.json")
-        except FileNotFoundError as e:
-            raise e
+        with open("data.json", "r") as f:
+            data = json.load(f)
+        os.remove("data.json")
+    except FileNotFoundError as e:
+        raise e
 
-        assessments = list(data.keys())
+    assessments = list(data.keys())
+    # create assessment objects
+    assessment_objects = {}
+    for assessment in assessments:
+        assessment_objects[assessment] = Assessment(name=assessment)
+        # save the assessment object
+        assessment_objects[assessment].save()
+    print(storage.all(Assessment))
 
-        # create assessment objects
-        assessment_objects = {}
-        for assessment in assessments:
-            assessment_objects[assessment] = Assessment(name=assessment)
-            # save the assessment object
-            assessment_objects[assessment].save
-
-        #  Add questions
-        for assessment in assessments:
-            for item in data[assessment]:
-                question = QuestionBank(
-                    assessment_id=assessment_objects[assessment].id,
-                    assessment_name=assessment_objects[assessment].name,
-                    question=item["question"],
-                    options=item["options"],
-                    answer=item["answer"],
-                )
-                # save question
-                question.save()
-        
-        return True
-    except Exception as e:
-        return False
+    #  Add questions
+    for assessment in assessments:
+        for item in data[assessment]:
+            question = QuestionBank(
+                assessment_id=assessment_objects[assessment].id,
+                assessment_name=assessment_objects[assessment].name,
+                question=item["question"],
+                options=item["options"],
+                answer=item["answer"],
+            )
+            # save question
+            question.save()
     
-
-
+    return True
+    
+    
 if __name__ == "__main__":
-    get_cleaned_data(".", "txt")
+    get_cleaned_data("questions/", "txt")
     if upload_to_storage():
         print("Upload successful")
     else:
-        print("Upload Failed")
+        print("Upload failed")
+
