@@ -15,8 +15,8 @@ var IdentityPoolId = 'us-east-1:879f7519-8eee-4923-a1ce-9a34ede8ad79';
 //         params: {Bucket: bucketName}
 // });
 
-const ID = 'AKIAQV5DXYVEDTUGUPB5';
-const SECRET = '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';
+const ID = '';
+const SECRET = '';
 
 const s3 = new AWS.S3({
     accessKeyId: ID,
